@@ -4,624 +4,313 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prestige Realty Group — Luxury Real Estate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --gold: #C9A84C;
-    --gold-light: #E8C96A;
-    --gold-dim: #8B6914;
-    --obsidian: #0A0A0B;
-    --obsidian-2: #111113;
-    --obsidian-3: #18181C;
-    --obsidian-4: #222228;
-    --white: #F5F3EE;
-    --gray: #9A9A9A;
-    --gray-dim: #555560;
-  }
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8C96A;
+  --gold-dim: #8B6914;
+  --obsidian: #09090B;
+  --obsidian-2: #0F0F12;
+  --obsidian-3: #16161A;
+  --obsidian-4: #1E1E24;
+  --white: #F7F4EE;
+  --gray: #8A8A96;
+  --gray-dim: #44444E;
+  --max: 1280px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--obsidian); color: var(--white); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--obsidian-2); }
+::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ── CONTAINER ── */
+.container { max-width: var(--max); margin: 0 auto; padding: 0 60px; }
 
-  html { scroll-behavior: smooth; }
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 22px 0;
+  transition: all 0.4s;
+}
+nav.scrolled {
+  background: rgba(9,9,11,0.96);
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(201,168,76,0.18);
+  backdrop-filter: blur(20px);
+}
+.nav-inner {
+  max-width: var(--max); margin: 0 auto; padding: 0 60px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; color: var(--gold); text-decoration: none; letter-spacing: 3px; text-transform: uppercase; }
+.nav-logo span { color: var(--white); }
+.nav-links { display: flex; gap: 40px; list-style: none; }
+.nav-links a { color: var(--gray); text-decoration: none; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; transition: color 0.3s; }
+.nav-links a:hover { color: var(--gold); }
+.nav-cta { border: 1px solid var(--gold); color: var(--gold); padding: 10px 28px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: all 0.3s; font-weight: 500; }
+.nav-cta:hover { background: var(--gold); color: var(--obsidian); }
 
-  body {
-    background: var(--obsidian);
-    color: var(--white);
-    font-family: 'Georgia', serif;
-    overflow-x: hidden;
-  }
+/* ── HERO ── */
+#hero { position: relative; width: 100%; height: 100vh; min-height: 700px; display: flex; align-items: center; overflow: hidden; }
+#hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(110deg, rgba(9,9,11,0.82) 0%, rgba(9,9,11,0.4) 55%, rgba(9,9,11,0.65) 100%); }
+.hero-content { position: relative; z-index: 2; max-width: var(--max); margin: 0 auto; padding: 0 60px; width: 100%; }
+.hero-eyebrow { font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 22px; display: flex; align-items: center; gap: 16px; font-weight: 500; }
+.hero-eyebrow::before { content:''; display:block; width:40px; height:1px; background:var(--gold); }
+.hero-h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 6vw, 90px); font-weight: 300; line-height: 1.05; margin-bottom: 26px; letter-spacing: -1px; max-width: 680px; }
+.hero-h1 em { color: var(--gold); font-style: italic; }
+.hero-sub { font-size: 16px; color: var(--gray); line-height: 1.8; margin-bottom: 52px; max-width: 480px; font-weight: 300; }
+.hero-btns { display: flex; gap: 18px; flex-wrap: wrap; }
+.btn-gold { background: var(--gold); color: var(--obsidian); padding: 16px 44px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; }
+.btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+.btn-ghost { background: transparent; color: var(--white); padding: 16px 44px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; border: 1px solid rgba(255,255,255,0.25); cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; }
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+.hero-stats { position: absolute; bottom: 52px; left: 0; right: 0; z-index: 2; }
+.hero-stats-inner { max-width: var(--max); margin: 0 auto; padding: 0 60px; display: flex; gap: 56px; }
+.stat { border-left: 2px solid var(--gold); padding-left: 20px; }
+.stat-n { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--gold); font-weight: 400; line-height: 1; }
+.stat-l { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-top: 6px; font-weight: 400; }
 
-  /* ── SCROLLBAR ── */
-  ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: var(--obsidian-2); }
-  ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
+/* ── MARQUEE ── */
+.marquee { background: var(--gold); padding: 13px 0; overflow: hidden; white-space: nowrap; }
+.marquee-track { display: inline-block; animation: scroll 24s linear infinite; }
+.marquee-track span { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--obsidian); padding: 0 36px; font-weight: 600; }
+.marquee-track span::after { content:'◆'; margin-left:36px; font-size:8px; }
+@keyframes scroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 20px 60px;
-    background: linear-gradient(180deg, rgba(10,10,11,0.95) 0%, transparent 100%);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(201,168,76,0.1);
-    transition: all 0.3s;
-  }
-  nav.scrolled {
-    background: rgba(10,10,11,0.98);
-    padding: 14px 60px;
-    border-bottom-color: rgba(201,168,76,0.25);
-  }
-  .nav-logo {
-    font-size: 22px; letter-spacing: 4px; text-transform: uppercase;
-    color: var(--gold); font-weight: 400;
-    text-decoration: none;
-  }
-  .nav-logo span { color: var(--white); }
-  .nav-links { display: flex; gap: 36px; list-style: none; }
-  .nav-links a {
-    color: var(--gray); text-decoration: none; font-size: 13px;
-    letter-spacing: 2px; text-transform: uppercase; font-family: 'Helvetica Neue', sans-serif;
-    transition: color 0.3s;
-  }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-cta {
-    background: transparent; border: 1px solid var(--gold);
-    color: var(--gold); padding: 10px 24px; font-size: 12px;
-    letter-spacing: 2px; text-transform: uppercase; cursor: pointer;
-    transition: all 0.3s; font-family: 'Helvetica Neue', sans-serif;
-    text-decoration: none;
-  }
-  .nav-cta:hover { background: var(--gold); color: var(--obsidian); }
+/* ── SECTION COMMON ── */
+section { padding: 120px 0; }
+.eyebrow { font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 16px; font-weight: 500; }
+.eyebrow::before { content:''; display:block; width:36px; height:1px; background:var(--gold); }
+.eyebrow-center { justify-content: center; }
+.eyebrow-center::before { display:none; }
+.section-h { font-family: 'Cormorant Garamond', serif; font-size: clamp(34px, 3.5vw, 56px); font-weight: 300; line-height: 1.1; margin-bottom: 18px; }
+.section-p { font-size: 16px; color: var(--gray); line-height: 1.8; max-width: 540px; font-weight: 300; }
+.text-center { text-align: center; }
+.mx-auto { margin-left: auto; margin-right: auto; }
 
-  /* ── HERO ── */
-  #hero {
-    position: relative; width: 100%; height: 100vh;
-    display: flex; align-items: center; overflow: hidden;
-  }
-  #hero-canvas {
-    position: absolute; inset: 0; width: 100%; height: 100%;
-  }
-  .hero-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(10,10,11,0.75) 0%, rgba(10,10,11,0.3) 50%, rgba(10,10,11,0.6) 100%);
-  }
-  .hero-content {
-    position: relative; z-index: 2; padding: 0 60px; max-width: 700px;
-  }
-  .hero-eyebrow {
-    font-family: 'Helvetica Neue', sans-serif; font-size: 11px;
-    letter-spacing: 5px; text-transform: uppercase; color: var(--gold);
-    margin-bottom: 20px; display: flex; align-items: center; gap: 16px;
-  }
-  .hero-eyebrow::before {
-    content: ''; display: block; width: 40px; height: 1px; background: var(--gold);
-  }
-  h1 {
-    font-size: clamp(42px, 5vw, 72px); font-weight: 400; line-height: 1.1;
-    margin-bottom: 24px; letter-spacing: -1px;
-  }
-  h1 em { color: var(--gold); font-style: normal; }
-  .hero-sub {
-    font-family: 'Helvetica Neue', sans-serif; font-size: 16px;
-    color: var(--gray); line-height: 1.7; margin-bottom: 48px; max-width: 500px;
-  }
-  .hero-actions { display: flex; gap: 20px; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--gold); color: var(--obsidian);
-    padding: 16px 40px; font-size: 13px; letter-spacing: 2px;
-    text-transform: uppercase; font-family: 'Helvetica Neue', sans-serif;
-    border: none; cursor: pointer; transition: all 0.3s;
-    text-decoration: none; display: inline-block;
-  }
-  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
-  .btn-outline {
-    background: transparent; color: var(--white);
-    padding: 16px 40px; font-size: 13px; letter-spacing: 2px;
-    text-transform: uppercase; font-family: 'Helvetica Neue', sans-serif;
-    border: 1px solid rgba(255,255,255,0.3); cursor: pointer; transition: all 0.3s;
-    text-decoration: none; display: inline-block;
-  }
-  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+/* ── SERVICES ── */
+#services { background: var(--obsidian-2); }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(201,168,76,0.08); margin-top: 64px; }
+.svc-card { background: var(--obsidian-2); padding: 52px 44px; border: 1px solid transparent; transition: all 0.4s; position: relative; overflow: hidden; }
+.svc-card::after { content:''; position:absolute; bottom:0; left:0; width:0; height:2px; background:var(--gold); transition:width 0.4s; }
+.svc-card:hover { background: var(--obsidian-3); border-color: rgba(201,168,76,0.12); }
+.svc-card:hover::after { width:100%; }
+.svc-num { font-family: 'Cormorant Garamond', serif; font-size: 48px; color: rgba(201,168,76,0.15); line-height: 1; margin-bottom: 24px; font-weight: 300; }
+.svc-icon { font-size: 28px; margin-bottom: 20px; }
+.svc-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; margin-bottom: 14px; }
+.svc-text { font-size: 14px; color: var(--gray); line-height: 1.8; font-weight: 300; }
 
-  .hero-stats {
-    position: absolute; bottom: 60px; left: 60px; right: 60px; z-index: 2;
-    display: flex; gap: 60px;
-  }
-  .stat { border-left: 2px solid var(--gold); padding-left: 20px; }
-  .stat-num {
-    font-size: 32px; color: var(--gold); font-weight: 400; letter-spacing: -1px;
-  }
-  .stat-label {
-    font-family: 'Helvetica Neue', sans-serif; font-size: 11px;
-    letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-top: 4px;
-  }
+/* ── LISTINGS ── */
+#listings { background: var(--obsidian); }
+.listings-top { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 56px; gap: 24px; flex-wrap: wrap; }
+.filters { display: flex; gap: 4px; }
+.ftab { background: transparent; border: 1px solid var(--gray-dim); color: var(--gray); padding: 10px 24px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.3s; font-weight: 500; font-family: 'Inter', sans-serif; }
+.ftab.on, .ftab:hover { background: var(--gold); border-color: var(--gold); color: var(--obsidian); }
+.listings-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.lcard { background: var(--obsidian-3); border: 1px solid rgba(201,168,76,0.08); overflow: hidden; transition: all 0.4s; cursor: pointer; }
+.lcard:hover { transform: translateY(-8px); border-color: rgba(201,168,76,0.35); box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
+.lcard-img { width: 100%; height: 260px; position: relative; overflow: hidden; }
+.lcard-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; filter: brightness(0.88); }
+.lcard:hover .lcard-img img { transform: scale(1.06); filter: brightness(1); }
+.lcard-badge { position: absolute; top: 16px; left: 16px; padding: 5px 14px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
+.badge-sale { background: var(--gold); color: var(--obsidian); }
+.badge-rent { background: #2A5A8A; color: #fff; }
+.badge-sold { background: rgba(80,80,80,0.9); color: #ccc; }
+.lcard-body { padding: 28px; }
+.lcard-price { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--gold); font-weight: 400; margin-bottom: 6px; }
+.lcard-addr { font-size: 14px; font-weight: 500; margin-bottom: 3px; }
+.lcard-city { font-size: 13px; color: var(--gray); margin-bottom: 20px; font-weight: 300; }
+.lcard-specs { display: flex; gap: 22px; padding-top: 18px; border-top: 1px solid rgba(201,168,76,0.1); }
+.spec { font-size: 12px; color: var(--gray); display: flex; align-items: center; gap: 5px; }
+.spec strong { color: var(--white); font-size: 14px; font-weight: 500; }
+.lcard-foot { display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; border-top: 1px solid rgba(255,255,255,0.04); }
+.agent-mini { display: flex; align-items: center; gap: 10px; }
+.av { width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, var(--gold-dim), var(--gold)); display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--obsidian); font-weight: 700; flex-shrink: 0; }
+.av-name { font-size: 12px; color: var(--gray); font-weight: 400; }
+.view-link { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+.view-link:hover { color: var(--gold-light); }
 
-  /* ── SECTIONS SHARED ── */
-  section { padding: 120px 60px; }
-  .section-eyebrow {
-    font-family: 'Helvetica Neue', sans-serif; font-size: 11px;
-    letter-spacing: 5px; text-transform: uppercase; color: var(--gold);
-    margin-bottom: 16px; display: flex; align-items: center; gap: 16px;
-  }
-  .section-eyebrow::before {
-    content: ''; display: block; width: 40px; height: 1px; background: var(--gold);
-  }
-  .section-title {
-    font-size: clamp(32px, 3.5vw, 52px); font-weight: 400; margin-bottom: 20px;
-    line-height: 1.15; letter-spacing: -0.5px;
-  }
-  .section-sub {
-    font-family: 'Helvetica Neue', sans-serif; font-size: 16px;
-    color: var(--gray); line-height: 1.7; max-width: 560px; margin-bottom: 60px;
-  }
+/* ── VALUATION ── */
+#valuation { background: var(--obsidian-2); position: relative; overflow: hidden; }
+#valuation::before { content:''; position:absolute; top:-300px; right:-300px; width:700px; height:700px; border-radius:50%; background:radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%); pointer-events:none; }
+.val-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+.val-features { margin-top: 44px; display: flex; flex-direction: column; gap: 28px; }
+.val-feat { display: flex; gap: 20px; align-items: flex-start; }
+.val-feat-line { width: 2px; height: 52px; background: var(--gold); flex-shrink: 0; margin-top: 3px; }
+.val-feat-title { font-size: 15px; font-weight: 500; margin-bottom: 5px; }
+.val-feat-text { font-size: 13px; color: var(--gray); line-height: 1.7; font-weight: 300; }
+.form-card { background: var(--obsidian-3); border: 1px solid rgba(201,168,76,0.15); padding: 52px; }
+.form-card-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; margin-bottom: 6px; }
+.form-card-sub { font-size: 11px; letter-spacing: 2px; color: var(--gold); margin-bottom: 36px; font-weight: 500; }
+.fg { margin-bottom: 22px; }
+.fg label { display: block; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 9px; font-weight: 500; }
+.fg input, .fg select, .fg textarea { width: 100%; background: var(--obsidian-4); border: 1px solid rgba(201,168,76,0.18); color: var(--white); padding: 13px 16px; font-family: 'Inter', sans-serif; font-size: 14px; outline: none; transition: border-color 0.3s; appearance: none; font-weight: 300; }
+.fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--gold); }
+.fg textarea { resize: vertical; min-height: 110px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.fg select option { background: var(--obsidian-3); }
+.btn-full { width: 100%; margin-top: 8px; }
 
-  /* ── MARQUEE ── */
-  .marquee-band {
-    background: var(--gold); padding: 14px 0; overflow: hidden;
-    white-space: nowrap;
-  }
-  .marquee-inner {
-    display: inline-block; animation: marquee 22s linear infinite;
-  }
-  .marquee-inner span {
-    font-family: 'Helvetica Neue', sans-serif; font-size: 12px;
-    letter-spacing: 3px; text-transform: uppercase; color: var(--obsidian);
-    padding: 0 40px;
-  }
-  .marquee-inner span::after { content: '◆'; margin-left: 40px; }
-  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+/* ── PROCESS ── */
+#process { background: var(--obsidian); }
+.process-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin-top: 72px; position: relative; }
+.process-grid::before { content:''; position:absolute; top:44px; left:10%; right:10%; height:1px; background:linear-gradient(90deg, transparent, var(--gold-dim) 20%, var(--gold-dim) 80%, transparent); z-index:0; }
+.pstep { text-align: center; padding: 0 20px; position: relative; z-index: 1; }
+.pnum { width: 88px; height: 88px; border: 1px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 28px; background: var(--obsidian); box-shadow: 0 0 40px rgba(201,168,76,0.12); }
+.pnum span { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: var(--gold); font-style: italic; font-weight: 300; }
+.pstep h3 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; margin-bottom: 12px; }
+.pstep p { font-size: 13px; color: var(--gray); line-height: 1.75; font-weight: 300; }
 
-  /* ── SERVICES ── */
-  #services { background: var(--obsidian-2); }
-  .services-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px;
-  }
-  .service-card {
-    background: var(--obsidian-3); padding: 50px 40px;
-    border: 1px solid rgba(201,168,76,0.08);
-    transition: all 0.4s; position: relative; overflow: hidden;
-  }
-  .service-card::before {
-    content: ''; position: absolute; bottom: 0; left: 0;
-    width: 0; height: 2px; background: var(--gold); transition: width 0.4s;
-  }
-  .service-card:hover { background: var(--obsidian-4); transform: translateY(-4px); }
-  .service-card:hover::before { width: 100%; }
-  .service-icon {
-    width: 56px; height: 56px; border: 1px solid var(--gold-dim);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 28px; font-size: 22px;
-  }
-  .service-card h3 {
-    font-size: 20px; font-weight: 400; margin-bottom: 14px;
-    letter-spacing: 0.5px;
-  }
-  .service-card p {
-    font-family: 'Helvetica Neue', sans-serif; font-size: 14px;
-    color: var(--gray); line-height: 1.8;
-  }
+/* ── TESTIMONIALS ── */
+#testimonials { background: var(--obsidian-2); }
+.tgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 64px; }
+.tcard { background: var(--obsidian-3); border: 1px solid rgba(201,168,76,0.08); padding: 46px 40px; transition: all 0.3s; position: relative; }
+.tcard:hover { border-color: rgba(201,168,76,0.25); transform: translateY(-4px); }
+.tcard-quote { font-family: 'Cormorant Garamond', serif; font-size: 72px; color: var(--gold); opacity: 0.18; line-height: 0.6; margin-bottom: 24px; }
+.stars { color: var(--gold); font-size: 13px; letter-spacing: 3px; margin-bottom: 18px; }
+.tcard-text { font-family: 'Cormorant Garamond', serif; font-size: 17px; line-height: 1.8; color: var(--white); font-style: italic; margin-bottom: 32px; font-weight: 300; }
+.tcard-author { display: flex; align-items: center; gap: 14px; }
+.tav { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(135deg, var(--gold-dim), var(--gold)); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: var(--obsidian); flex-shrink: 0; }
+.tav-name { font-size: 14px; font-weight: 500; margin-bottom: 3px; }
+.tav-detail { font-size: 12px; color: var(--gold); letter-spacing: 1px; font-weight: 400; }
 
-  /* ── LISTINGS ── */
-  #listings { background: var(--obsidian); }
-  .listings-header {
-    display: flex; align-items: flex-end; justify-content: space-between;
-    margin-bottom: 60px; flex-wrap: wrap; gap: 20px;
-  }
-  .filter-tabs {
-    display: flex; gap: 4px;
-  }
-  .filter-tab {
-    background: transparent; border: 1px solid var(--gray-dim);
-    color: var(--gray); padding: 10px 22px; font-size: 12px;
-    letter-spacing: 2px; text-transform: uppercase; cursor: pointer;
-    transition: all 0.3s; font-family: 'Helvetica Neue', sans-serif;
-  }
-  .filter-tab.active, .filter-tab:hover {
-    background: var(--gold); border-color: var(--gold); color: var(--obsidian);
-  }
-  .listings-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 28px;
-  }
-  .listing-card {
-    background: var(--obsidian-3); border: 1px solid rgba(201,168,76,0.1);
-    overflow: hidden; transition: all 0.4s; cursor: pointer;
-  }
-  .listing-card:hover { transform: translateY(-6px); border-color: rgba(201,168,76,0.4); }
-  .listing-img {
-    width: 100%; height: 260px; position: relative; overflow: hidden;
-    background: var(--obsidian-4);
-  }
-  .listing-img canvas { width: 100%; height: 100%; }
-  .listing-badge {
-    position: absolute; top: 16px; left: 16px;
-    background: var(--gold); color: var(--obsidian);
-    padding: 5px 14px; font-size: 10px; letter-spacing: 2px;
-    text-transform: uppercase; font-family: 'Helvetica Neue', sans-serif;
-  }
-  .listing-badge.sold { background: var(--gray-dim); color: var(--white); }
-  .listing-body { padding: 28px 28px 24px; }
-  .listing-price {
-    font-size: 26px; color: var(--gold); margin-bottom: 6px; letter-spacing: -0.5px;
-  }
-  .listing-address {
-    font-family: 'Helvetica Neue', sans-serif; font-size: 14px;
-    color: var(--white); margin-bottom: 4px;
-  }
-  .listing-location {
-    font-family: 'Helvetica Neue', sans-serif; font-size: 12px;
-    color: var(--gray); margin-bottom: 20px;
-  }
-  .listing-specs {
-    display: flex; gap: 24px; padding-top: 20px;
-    border-top: 1px solid rgba(201,168,76,0.1);
-  }
-  .spec {
-    font-family: 'Helvetica Neue', sans-serif; font-size: 12px;
-    color: var(--gray); display: flex; align-items: center; gap: 6px;
-  }
-  .spec strong { color: var(--white); font-size: 14px; }
-  .listing-footer {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 16px 28px; border-top: 1px solid rgba(201,168,76,0.08);
-  }
-  .agent-mini { display: flex; align-items: center; gap: 10px; }
-  .agent-avatar {
-    width: 32px; height: 32px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--gold-dim), var(--gold));
-    display: flex; align-items: center; justify-content: center;
-    font-size: 12px; color: var(--obsidian); font-weight: bold;
-    font-family: 'Helvetica Neue', sans-serif;
-  }
-  .agent-mini-name {
-    font-family: 'Helvetica Neue', sans-serif; font-size: 12px; color: var(--gray);
-  }
-  .listing-link {
-    font-family: 'Helvetica Neue', sans-serif; font-size: 11px;
-    letter-spacing: 2px; text-transform: uppercase; color: var(--gold);
-    text-decoration: none; transition: color 0.3s;
-  }
-  .listing-link:hover { color: var(--gold-light); }
+/* ── AGENTS ── */
+#agents { background: var(--obsidian); }
+.agent-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 64px; }
+.acard { background: var(--obsidian-3); border: 1px solid rgba(201,168,76,0.08); overflow: hidden; transition: all 0.4s; }
+.acard:hover { border-color: rgba(201,168,76,0.28); transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+.acard-img { width: 100%; height: 300px; position: relative; overflow: hidden; }
+.acard-img img { width: 100%; height: 100%; object-fit: cover; object-position: top; filter: brightness(0.85) grayscale(20%); transition: all 0.5s; }
+.acard:hover .acard-img img { filter: brightness(0.95) grayscale(0%); transform: scale(1.04); }
+.acard-body { padding: 26px 24px; text-align: center; }
+.acard-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; margin-bottom: 4px; }
+.acard-title { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; font-weight: 500; }
+.acard-stats { display: flex; justify-content: center; gap: 24px; padding: 16px 0; border-top: 1px solid rgba(201,168,76,0.1); border-bottom: 1px solid rgba(201,168,76,0.1); margin-bottom: 20px; }
+.ast { text-align: center; }
+.ast-n { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--gold); font-weight: 400; }
+.ast-l { font-size: 10px; color: var(--gray); letter-spacing: 1px; text-transform: uppercase; font-weight: 400; }
+.acard-btn { width: 100%; background: transparent; border: 1px solid var(--gold-dim); color: var(--gold); padding: 10px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.3s; font-family: 'Inter', sans-serif; font-weight: 500; }
+.acard-btn:hover { background: var(--gold); color: var(--obsidian); }
 
-  /* ── VALUATION ── */
-  #valuation {
-    background: var(--obsidian-2);
-    position: relative; overflow: hidden;
-  }
-  #valuation::before {
-    content: ''; position: absolute; top: -200px; right: -200px;
-    width: 600px; height: 600px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .valuation-inner {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center;
-  }
-  .valuation-form {
-    background: var(--obsidian-3); border: 1px solid rgba(201,168,76,0.15);
-    padding: 50px;
-  }
-  .form-group { margin-bottom: 24px; }
-  .form-group label {
-    display: block; font-family: 'Helvetica Neue', sans-serif; font-size: 11px;
-    letter-spacing: 2px; text-transform: uppercase; color: var(--gold);
-    margin-bottom: 10px;
-  }
-  .form-group input, .form-group select, .form-group textarea {
-    width: 100%; background: var(--obsidian-4);
-    border: 1px solid rgba(201,168,76,0.2); color: var(--white);
-    padding: 14px 16px; font-family: 'Helvetica Neue', sans-serif;
-    font-size: 14px; outline: none; transition: border-color 0.3s;
-    appearance: none;
-  }
-  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-    border-color: var(--gold);
-  }
-  .form-group textarea { resize: vertical; min-height: 120px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .form-group select option { background: var(--obsidian-3); }
+/* ── CONTACT ── */
+#contact { background: var(--obsidian-2); position: relative; overflow: hidden; }
+#contact::after { content:''; position:absolute; bottom:-300px; left:-200px; width:700px; height:700px; border-radius:50%; background:radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%); pointer-events:none; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 100px; align-items: start; }
+.contact-info { padding-top: 10px; }
+.cdet { margin-bottom: 36px; }
+.cdet-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; font-weight: 500; }
+.cdet-val { font-size: 16px; color: var(--white); line-height: 1.65; font-weight: 300; }
+.cdet-val a { color: var(--white); text-decoration: none; transition: color 0.3s; }
+.cdet-val a:hover { color: var(--gold); }
+.social { display: flex; gap: 12px; margin-top: 44px; }
+.soc { width: 44px; height: 44px; border: 1px solid var(--gray-dim); display: flex; align-items: center; justify-content: center; color: var(--gray); text-decoration: none; font-size: 15px; transition: all 0.3s; font-weight: 500; }
+.soc:hover { border-color: var(--gold); color: var(--gold); }
 
-  /* ── PROCESS ── */
-  #process { background: var(--obsidian); }
-  .process-steps {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 0; position: relative;
-  }
-  .process-steps::before {
-    content: ''; position: absolute; top: 36px; left: 10%; right: 10%; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold-dim), var(--gold-dim), transparent);
-    z-index: 0;
-  }
-  .process-step {
-    text-align: center; padding: 0 24px 0; position: relative; z-index: 1;
-  }
-  .step-num {
-    width: 72px; height: 72px; border: 1px solid var(--gold);
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 28px; font-size: 20px; color: var(--gold);
-    background: var(--obsidian); font-style: italic;
-    box-shadow: 0 0 30px rgba(201,168,76,0.15);
-  }
-  .process-step h3 {
-    font-size: 17px; font-weight: 400; margin-bottom: 12px; letter-spacing: 0.3px;
-  }
-  .process-step p {
-    font-family: 'Helvetica Neue', sans-serif; font-size: 13px;
-    color: var(--gray); line-height: 1.7;
-  }
+/* ── FOOTER ── */
+footer { background: var(--obsidian); border-top: 1px solid rgba(201,168,76,0.1); padding: 72px 0 40px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; display: block; margin-bottom: 14px; font-weight: 400; }
+.footer-logo span { color: var(--white); }
+.footer-tag { font-size: 14px; color: var(--gray); line-height: 1.75; max-width: 280px; margin-bottom: 24px; font-weight: 300; }
+.footer-lic { font-size: 12px; color: var(--gray-dim); line-height: 1.6; font-weight: 300; }
+.fh { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; font-weight: 500; }
+.flinks { list-style: none; }
+.flinks li { margin-bottom: 12px; }
+.flinks a { font-size: 14px; color: var(--gray); text-decoration: none; transition: color 0.3s; font-weight: 300; }
+.flinks a:hover { color: var(--white); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.04); flex-wrap: wrap; gap: 16px; }
+.fcopy { font-size: 12px; color: var(--gray-dim); font-weight: 300; }
+.flegal { display: flex; gap: 24px; }
+.flegal a { font-size: 12px; color: var(--gray-dim); text-decoration: none; transition: color 0.3s; font-weight: 300; }
+.flegal a:hover { color: var(--gold); }
 
-  /* ── TESTIMONIALS ── */
-  #testimonials { background: var(--obsidian-2); }
-  .testimonials-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px;
-  }
-  .testimonial-card {
-    background: var(--obsidian-3); border: 1px solid rgba(201,168,76,0.1);
-    padding: 44px 40px; position: relative; transition: all 0.3s;
-  }
-  .testimonial-card:hover { border-color: rgba(201,168,76,0.3); }
-  .quote-mark {
-    font-size: 80px; color: var(--gold); opacity: 0.15; line-height: 0.5;
-    font-family: Georgia, serif; margin-bottom: 28px; display: block;
-  }
-  .testimonial-text {
-    font-size: 16px; line-height: 1.8; color: var(--white);
-    margin-bottom: 32px; font-style: italic;
-  }
-  .stars { color: var(--gold); font-size: 14px; margin-bottom: 20px; letter-spacing: 4px; }
-  .testimonial-author { display: flex; align-items: center; gap: 14px; }
-  .author-avatar {
-    width: 48px; height: 48px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--gold-dim), var(--gold));
-    display: flex; align-items: center; justify-content: center;
-    font-size: 16px; color: var(--obsidian); font-weight: bold;
-    font-family: 'Helvetica Neue', sans-serif; flex-shrink: 0;
-  }
-  .author-name {
-    font-size: 15px; margin-bottom: 2px;
-  }
-  .author-detail {
-    font-family: 'Helvetica Neue', sans-serif; font-size: 12px;
-    color: var(--gold); letter-spacing: 1px;
-  }
+/* ── MODAL ── */
+.moverlay { position: fixed; inset: 0; background: rgba(0,0,0,0.88); z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; backdrop-filter: blur(6px); }
+.moverlay.on { opacity: 1; pointer-events: all; }
+.modal { background: var(--obsidian-3); border: 1px solid rgba(201,168,76,0.22); padding: 52px; max-width: 500px; width: 90%; position: relative; transform: translateY(20px); transition: transform 0.3s; }
+.moverlay.on .modal { transform: translateY(0); }
+.modal-x { position: absolute; top: 18px; right: 22px; background: none; border: none; color: var(--gray); font-size: 26px; cursor: pointer; line-height: 1; transition: color 0.3s; }
+.modal-x:hover { color: var(--white); }
+.modal-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; margin-bottom: 6px; }
+.modal-sub { font-size: 11px; letter-spacing: 2px; color: var(--gold); margin-bottom: 34px; font-weight: 500; }
 
-  /* ── AGENTS ── */
-  #agents { background: var(--obsidian); }
-  .agents-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 28px;
-  }
-  .agent-card {
-    background: var(--obsidian-3); border: 1px solid rgba(201,168,76,0.08);
-    overflow: hidden; transition: all 0.3s; text-align: center;
-  }
-  .agent-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-4px); }
-  .agent-photo {
-    width: 100%; height: 280px;
-    background: linear-gradient(180deg, var(--obsidian-4) 0%, var(--obsidian-3) 100%);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 80px; color: var(--gold); opacity: 0.4; position: relative;
-  }
-  .agent-photo-inner {
-    width: 100px; height: 100px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--gold-dim), var(--gold));
-    display: flex; align-items: center; justify-content: center;
-    font-size: 36px; color: var(--obsidian); font-weight: bold;
-    font-family: 'Helvetica Neue', sans-serif;
-    border: 3px solid rgba(201,168,76,0.3);
-  }
-  .agent-info { padding: 28px 24px; }
-  .agent-name { font-size: 20px; font-weight: 400; margin-bottom: 4px; }
-  .agent-title {
-    font-family: 'Helvetica Neue', sans-serif; font-size: 11px;
-    letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
-  }
-  .agent-stats {
-    display: flex; justify-content: center; gap: 24px;
-    padding: 16px 0; border-top: 1px solid rgba(201,168,76,0.1);
-    border-bottom: 1px solid rgba(201,168,76,0.1); margin-bottom: 20px;
-  }
-  .agent-stat { text-align: center; }
-  .agent-stat-num { font-size: 20px; color: var(--gold); }
-  .agent-stat-label {
-    font-family: 'Helvetica Neue', sans-serif; font-size: 10px;
-    color: var(--gray); letter-spacing: 1px; text-transform: uppercase;
-  }
-  .agent-contact-btn {
-    background: transparent; border: 1px solid var(--gold-dim);
-    color: var(--gold); padding: 10px 24px; font-size: 11px;
-    letter-spacing: 2px; text-transform: uppercase; cursor: pointer;
-    transition: all 0.3s; font-family: 'Helvetica Neue', sans-serif;
-    width: 100%;
-  }
-  .agent-contact-btn:hover { background: var(--gold); color: var(--obsidian); }
+/* ── ANIMATE ── */
+.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.fade-up.in { opacity: 1; transform: translateY(0); }
 
-  /* ── CONTACT ── */
-  #contact {
-    background: var(--obsidian-2); position: relative; overflow: hidden;
-  }
-  #contact::after {
-    content: ''; position: absolute; bottom: -300px; left: -200px;
-    width: 700px; height: 700px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .contact-inner {
-    display: grid; grid-template-columns: 1fr 1.4fr; gap: 100px; align-items: start;
-  }
-  .contact-info { padding-top: 10px; }
-  .contact-detail { margin-bottom: 36px; }
-  .contact-detail-label {
-    font-family: 'Helvetica Neue', sans-serif; font-size: 10px;
-    letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px;
-  }
-  .contact-detail-value {
-    font-size: 17px; color: var(--white); line-height: 1.6;
-  }
-  .contact-detail-value a { color: var(--white); text-decoration: none; }
-  .contact-detail-value a:hover { color: var(--gold); }
-  .social-links { display: flex; gap: 14px; margin-top: 40px; }
-  .social-link {
-    width: 44px; height: 44px; border: 1px solid var(--gray-dim);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--gray); text-decoration: none; font-size: 16px;
-    transition: all 0.3s;
-  }
-  .social-link:hover { border-color: var(--gold); color: var(--gold); }
-  .contact-form-card {
-    background: var(--obsidian-3); border: 1px solid rgba(201,168,76,0.15);
-    padding: 50px;
-  }
-  .contact-form-title { font-size: 24px; font-weight: 400; margin-bottom: 36px; }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--obsidian); border-top: 1px solid rgba(201,168,76,0.12);
-    padding: 60px 60px 40px;
-  }
-  .footer-inner {
-    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px;
-  }
-  .footer-logo {
-    font-size: 20px; letter-spacing: 4px; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 16px; display: block;
-  }
-  .footer-logo span { color: var(--white); }
-  .footer-tagline {
-    font-family: 'Helvetica Neue', sans-serif; font-size: 14px;
-    color: var(--gray); line-height: 1.7; max-width: 280px; margin-bottom: 28px;
-  }
-  .footer-heading {
-    font-family: 'Helvetica Neue', sans-serif; font-size: 10px;
-    letter-spacing: 3px; text-transform: uppercase; color: var(--gold);
-    margin-bottom: 20px;
-  }
-  .footer-links { list-style: none; }
-  .footer-links li { margin-bottom: 12px; }
-  .footer-links a {
-    font-family: 'Helvetica Neue', sans-serif; font-size: 14px;
-    color: var(--gray); text-decoration: none; transition: color 0.3s;
-  }
-  .footer-links a:hover { color: var(--white); }
-  .footer-bottom {
-    display: flex; justify-content: space-between; align-items: center;
-    padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.05);
-    flex-wrap: wrap; gap: 16px;
-  }
-  .footer-copy {
-    font-family: 'Helvetica Neue', sans-serif; font-size: 12px; color: var(--gray-dim);
-  }
-  .footer-legal {
-    display: flex; gap: 28px;
-  }
-  .footer-legal a {
-    font-family: 'Helvetica Neue', sans-serif; font-size: 12px;
-    color: var(--gray-dim); text-decoration: none; transition: color 0.3s;
-  }
-  .footer-legal a:hover { color: var(--gold); }
-
-  /* ── MODAL ── */
-  .modal-overlay {
-    position: fixed; inset: 0; background: rgba(0,0,0,0.85);
-    z-index: 2000; display: flex; align-items: center; justify-content: center;
-    opacity: 0; pointer-events: none; transition: opacity 0.3s;
-    backdrop-filter: blur(4px);
-  }
-  .modal-overlay.active { opacity: 1; pointer-events: all; }
-  .modal {
-    background: var(--obsidian-3); border: 1px solid rgba(201,168,76,0.25);
-    padding: 50px; max-width: 500px; width: 90%;
-    transform: translateY(20px); transition: transform 0.3s;
-  }
-  .modal-overlay.active .modal { transform: translateY(0); }
-  .modal-title { font-size: 24px; margin-bottom: 8px; }
-  .modal-sub {
-    font-family: 'Helvetica Neue', sans-serif; font-size: 14px;
-    color: var(--gold); margin-bottom: 32px;
-  }
-  .modal-close {
-    position: absolute; top: 20px; right: 24px;
-    background: none; border: none; color: var(--gray);
-    font-size: 28px; cursor: pointer; transition: color 0.3s;
-  }
-  .modal-close:hover { color: var(--white); }
-  .modal { position: relative; }
-
-  /* ── ANIMATIONS ── */
-  .fade-up {
-    opacity: 0; transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-  .fade-up.visible { opacity: 1; transform: translateY(0); }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    nav { padding: 16px 24px; }
-    nav.scrolled { padding: 12px 24px; }
-    .nav-links { display: none; }
-    section { padding: 80px 24px; }
-    .hero-content { padding: 0 24px; }
-    .hero-stats { left: 24px; right: 24px; gap: 28px; bottom: 40px; }
-    .valuation-inner, .contact-inner { grid-template-columns: 1fr; gap: 40px; }
-    .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
-    .process-steps::before { display: none; }
-    footer { padding: 40px 24px 28px; }
-  }
-  @media (max-width: 600px) {
-    .listings-grid { grid-template-columns: 1fr; }
-    .hero-stats { flex-wrap: wrap; gap: 20px; }
-    .footer-inner { grid-template-columns: 1fr; }
-    .valuation-form, .contact-form-card { padding: 28px 20px; }
-  }
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .listings-grid, .tgrid { grid-template-columns: repeat(2, 1fr); }
+  .agent-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .val-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .process-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  .process-grid::before { display: none; }
+}
+@media (max-width: 768px) {
+  .container { padding: 0 24px; }
+  .nav-inner { padding: 0 24px; }
+  .nav-links { display: none; }
+  section { padding: 80px 0; }
+  .hero-content { padding: 0 24px; }
+  .hero-stats-inner { padding: 0 24px; gap: 28px; flex-wrap: wrap; }
+  .listings-grid, .tgrid, .agent-grid, .services-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  footer { padding: 48px 0 28px; }
+  .form-row { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav id="navbar">
-  <a href="#hero" class="nav-logo">Prestige <span>Realty</span></a>
-  <ul class="nav-links">
-    <li><a href="#listings">Listings</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#agents">Agents</a></li>
-    <li><a href="#testimonials">Reviews</a></li>
-  </ul>
-  <a href="#contact" class="nav-cta">Contact Us</a>
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">Prestige <span>Realty</span></a>
+    <ul class="nav-links">
+      <li><a href="#listings">Listings</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#agents">Agents</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Contact Us</a>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
   <canvas id="hero-canvas"></canvas>
   <div class="hero-overlay"></div>
-  <div class="hero-content fade-up">
-    <div class="hero-eyebrow">Luxury Real Estate</div>
-    <h1>Find Your <em>Dream</em><br>Home Today</h1>
-    <p class="hero-sub">We connect discerning buyers and sellers with exceptional properties — delivering white-glove service from first showing to final closing.</p>
-    <div class="hero-actions">
-      <a href="#listings" class="btn-primary">Browse Listings</a>
-      <a href="#valuation" class="btn-outline">Get Home Value</a>
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-up">Luxury Real Estate</div>
+    <h1 class="hero-h1 fade-up" style="transition-delay:0.1s">Find Your <em>Dream</em><br>Home Today</h1>
+    <p class="hero-sub fade-up" style="transition-delay:0.2s">We connect discerning buyers and sellers with exceptional properties — delivering white-glove service from first showing to final closing.</p>
+    <div class="hero-btns fade-up" style="transition-delay:0.3s">
+      <a href="#listings" class="btn-gold">Browse Listings</a>
+      <a href="#valuation" class="btn-ghost">Get Home Value</a>
     </div>
   </div>
   <div class="hero-stats">
-    <div class="stat fade-up" style="transition-delay:0.2s">
-      <div class="stat-num">$2.4B+</div>
-      <div class="stat-label">Properties Sold</div>
-    </div>
-    <div class="stat fade-up" style="transition-delay:0.3s">
-      <div class="stat-num">3,800+</div>
-      <div class="stat-label">Happy Clients</div>
-    </div>
-    <div class="stat fade-up" style="transition-delay:0.4s">
-      <div class="stat-num">18 Yrs</div>
-      <div class="stat-label">Market Experience</div>
-    </div>
-    <div class="stat fade-up" style="transition-delay:0.5s">
-      <div class="stat-num">97%</div>
-      <div class="stat-label">Client Satisfaction</div>
+    <div class="hero-stats-inner">
+      <div class="stat fade-up" style="transition-delay:0.35s"><div class="stat-n">$2.4B+</div><div class="stat-l">Properties Sold</div></div>
+      <div class="stat fade-up" style="transition-delay:0.45s"><div class="stat-n">3,800+</div><div class="stat-l">Happy Clients</div></div>
+      <div class="stat fade-up" style="transition-delay:0.55s"><div class="stat-n">18 Yrs</div><div class="stat-l">Experience</div></div>
+      <div class="stat fade-up" style="transition-delay:0.65s"><div class="stat-n">97%</div><div class="stat-l">Satisfaction</div></div>
     </div>
   </div>
 </section>
 
 <!-- MARQUEE -->
-<div class="marquee-band">
-  <div class="marquee-inner">
+<div class="marquee">
+  <div class="marquee-track">
     <span>Luxury Homes</span><span>Expert Agents</span><span>Premium Listings</span><span>Trusted Results</span><span>White-Glove Service</span><span>Top Negotiators</span><span>Market Leaders</span><span>Verified Sales</span>
     <span>Luxury Homes</span><span>Expert Agents</span><span>Premium Listings</span><span>Trusted Results</span><span>White-Glove Service</span><span>Top Negotiators</span><span>Market Leaders</span><span>Verified Sales</span>
   </div>
@@ -629,496 +318,223 @@
 
 <!-- SERVICES -->
 <section id="services">
-  <div class="section-eyebrow">What We Offer</div>
-  <h2 class="section-title">Full-Service Real<br>Estate Excellence</h2>
-  <p class="section-sub">From first consultation to keys in hand, we handle every detail so you can focus on what matters most.</p>
-  <div class="services-grid">
-    <div class="service-card fade-up">
-      <div class="service-icon">🏡</div>
-      <h3>Home Buying</h3>
-      <p>We guide buyers through every step — market analysis, property tours, offer strategy, inspections, and closing. Your dream home is our mission.</p>
-    </div>
-    <div class="service-card fade-up" style="transition-delay:0.1s">
-      <div class="service-icon">💰</div>
-      <h3>Home Selling</h3>
-      <p>Strategic pricing, professional photography, targeted marketing, and expert negotiation to maximize your sale price and minimize time on market.</p>
-    </div>
-    <div class="service-card fade-up" style="transition-delay:0.2s">
-      <div class="service-icon">📊</div>
-      <h3>Home Valuation</h3>
-      <p>Accurate, data-driven property valuations using local comparables, market trends, and 18+ years of regional expertise. Know what your home is worth today.</p>
-    </div>
-    <div class="service-card fade-up" style="transition-delay:0.3s">
-      <div class="service-icon">🏢</div>
-      <h3>Investment Properties</h3>
-      <p>From multi-family units to commercial real estate, we help investors identify high-yield opportunities and build long-term portfolio value.</p>
-    </div>
-    <div class="service-card fade-up" style="transition-delay:0.4s">
-      <div class="service-icon">🔑</div>
-      <h3>Relocation Services</h3>
-      <p>Moving to a new city? We make relocation seamless with local market insights, neighborhood guides, and a dedicated agent from day one.</p>
-    </div>
-    <div class="service-card fade-up" style="transition-delay:0.5s">
-      <div class="service-icon">📋</div>
-      <h3>Property Management</h3>
-      <p>Let us handle tenant screening, rent collection, maintenance coordination, and lease renewals for your rental portfolio — hands-free ownership.</p>
+  <div class="container">
+    <div class="eyebrow fade-up">What We Offer</div>
+    <h2 class="section-h fade-up">Full-Service Real<br>Estate Excellence</h2>
+    <p class="section-p fade-up">From first consultation to keys in hand, we handle every detail so you can focus on what matters most.</p>
+    <div class="services-grid">
+      <div class="svc-card fade-up"><div class="svc-num">01</div><div class="svc-icon">🏡</div><div class="svc-title">Home Buying</div><p class="svc-text">We guide buyers through every step — market analysis, property tours, offer strategy, inspections, and closing. Your dream home is our mission.</p></div>
+      <div class="svc-card fade-up" style="transition-delay:0.1s"><div class="svc-num">02</div><div class="svc-icon">💰</div><div class="svc-title">Home Selling</div><p class="svc-text">Strategic pricing, professional photography, targeted marketing, and expert negotiation to maximize your sale price and minimize time on market.</p></div>
+      <div class="svc-card fade-up" style="transition-delay:0.2s"><div class="svc-num">03</div><div class="svc-icon">📊</div><div class="svc-title">Home Valuation</div><p class="svc-text">Accurate, data-driven property valuations using local comparables, market trends, and 18+ years of regional expertise. Know what your home is worth today.</p></div>
+      <div class="svc-card fade-up" style="transition-delay:0.3s"><div class="svc-num">04</div><div class="svc-icon">🏢</div><div class="svc-title">Investment Properties</div><p class="svc-text">From multi-family units to commercial real estate, we help investors identify high-yield opportunities and build long-term portfolio value.</p></div>
+      <div class="svc-card fade-up" style="transition-delay:0.4s"><div class="svc-num">05</div><div class="svc-icon">🔑</div><div class="svc-title">Relocation Services</div><p class="svc-text">Moving to a new city? We make relocation seamless with local market insights, neighborhood guides, and a dedicated agent from day one.</p></div>
+      <div class="svc-card fade-up" style="transition-delay:0.5s"><div class="svc-num">06</div><div class="svc-icon">📋</div><div class="svc-title">Property Management</div><p class="svc-text">Let us handle tenant screening, rent collection, maintenance coordination, and lease renewals — hands-free ownership done right.</p></div>
     </div>
   </div>
 </section>
 
 <!-- LISTINGS -->
 <section id="listings">
-  <div class="listings-header">
-    <div>
-      <div class="section-eyebrow">Available Now</div>
-      <h2 class="section-title">Featured Properties</h2>
+  <div class="container">
+    <div class="listings-top">
+      <div>
+        <div class="eyebrow fade-up">Available Now</div>
+        <h2 class="section-h fade-up">Featured Properties</h2>
+      </div>
+      <div class="filters fade-up">
+        <button class="ftab on" onclick="filter('all',this)">All</button>
+        <button class="ftab" onclick="filter('buy',this)">For Sale</button>
+        <button class="ftab" onclick="filter('rent',this)">For Rent</button>
+        <button class="ftab" onclick="filter('sold',this)">Sold</button>
+      </div>
     </div>
-    <div class="filter-tabs">
-      <button class="filter-tab active" onclick="filterListings('all', this)">All</button>
-      <button class="filter-tab" onclick="filterListings('buy', this)">For Sale</button>
-      <button class="filter-tab" onclick="filterListings('rent', this)">For Rent</button>
-      <button class="filter-tab" onclick="filterListings('sold', this)">Sold</button>
-    </div>
+    <div class="listings-grid" id="lgrid"></div>
   </div>
-  <div class="listings-grid" id="listings-grid"></div>
 </section>
 
 <!-- VALUATION -->
 <section id="valuation">
-  <div class="valuation-inner">
-    <div>
-      <div class="section-eyebrow">Know Your Worth</div>
-      <h2 class="section-title">Get Your Free<br>Home Valuation</h2>
-      <p class="section-sub">Our expert agents use live market data and hyper-local knowledge to give you an accurate estimate — completely free, no obligation.</p>
-      <div style="margin-top: 40px;">
-        <div style="display:flex;align-items:flex-start;gap:16px;margin-bottom:24px;" class="fade-up">
-          <div style="width:2px;height:48px;background:var(--gold);flex-shrink:0;margin-top:4px;"></div>
-          <div>
-            <div style="font-size:15px;margin-bottom:4px;">Comparable Sales Analysis</div>
-            <div style="font-family:'Helvetica Neue',sans-serif;font-size:13px;color:var(--gray);">We pull recent sales data within your neighborhood for accurate benchmarking.</div>
-          </div>
-        </div>
-        <div style="display:flex;align-items:flex-start;gap:16px;margin-bottom:24px;" class="fade-up">
-          <div style="width:2px;height:48px;background:var(--gold);flex-shrink:0;margin-top:4px;"></div>
-          <div>
-            <div style="font-size:15px;margin-bottom:4px;">Live Market Conditions</div>
-            <div style="font-family:'Helvetica Neue',sans-serif;font-size:13px;color:var(--gray);">Current supply, demand, and seasonal factors are factored into your valuation.</div>
-          </div>
-        </div>
-        <div style="display:flex;align-items:flex-start;gap:16px;" class="fade-up">
-          <div style="width:2px;height:48px;background:var(--gold);flex-shrink:0;margin-top:4px;"></div>
-          <div>
-            <div style="font-size:15px;margin-bottom:4px;">No Obligation, Ever</div>
-            <div style="font-family:'Helvetica Neue',sans-serif;font-size:13px;color:var(--gray);">Your valuation is a gift — no pressure, no sales pitch, no strings attached.</div>
-          </div>
+  <div class="container">
+    <div class="val-grid">
+      <div>
+        <div class="eyebrow fade-up">Know Your Worth</div>
+        <h2 class="section-h fade-up">Get Your Free<br>Home Valuation</h2>
+        <p class="section-p fade-up">Our expert agents use live market data and hyper-local knowledge to give you an accurate estimate — completely free, no obligation.</p>
+        <div class="val-features">
+          <div class="val-feat fade-up"><div class="val-feat-line"></div><div><div class="val-feat-title">Comparable Sales Analysis</div><div class="val-feat-text">We pull recent sales data within your neighborhood for accurate benchmarking.</div></div></div>
+          <div class="val-feat fade-up" style="transition-delay:0.1s"><div class="val-feat-line"></div><div><div class="val-feat-title">Live Market Conditions</div><div class="val-feat-text">Current supply, demand, and seasonal factors are factored into your valuation.</div></div></div>
+          <div class="val-feat fade-up" style="transition-delay:0.2s"><div class="val-feat-line"></div><div><div class="val-feat-title">No Obligation, Ever</div><div class="val-feat-text">Your valuation is a gift — no pressure, no sales pitch, no strings attached.</div></div></div>
         </div>
       </div>
-    </div>
-    <div class="valuation-form fade-up">
-      <h3 style="font-size:22px;font-weight:400;margin-bottom:8px;">Request Your Valuation</h3>
-      <p style="font-family:'Helvetica Neue',sans-serif;font-size:13px;color:var(--gold);letter-spacing:1px;margin-bottom:32px;">FREE · CONFIDENTIAL · NO OBLIGATION</p>
-      <form onsubmit="submitForm(event, 'valuation')">
-        <div class="form-group">
-          <label>Property Address</label>
-          <input type="text" placeholder="123 Main Street, City, State">
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Bedrooms</label>
-            <select>
-              <option>1 Bed</option><option>2 Beds</option><option>3 Beds</option>
-              <option selected>4 Beds</option><option>5+ Beds</option>
-            </select>
+      <div class="form-card fade-up">
+        <div class="form-card-title">Request Your Valuation</div>
+        <div class="form-card-sub">Free · Confidential · No Obligation</div>
+        <form onsubmit="submitForm(event,'val')">
+          <div class="fg"><label>Property Address</label><input type="text" placeholder="123 Main Street, City, State"></div>
+          <div class="form-row">
+            <div class="fg"><label>Bedrooms</label><select><option>1 Bed</option><option>2 Beds</option><option>3 Beds</option><option selected>4 Beds</option><option>5+ Beds</option></select></div>
+            <div class="fg"><label>Bathrooms</label><select><option>1 Bath</option><option>2 Baths</option><option selected>3 Baths</option><option>4+ Baths</option></select></div>
           </div>
-          <div class="form-group">
-            <label>Bathrooms</label>
-            <select>
-              <option>1 Bath</option><option>2 Baths</option>
-              <option selected>3 Baths</option><option>4+ Baths</option>
-            </select>
+          <div class="form-row">
+            <div class="fg"><label>Square Footage</label><input type="text" placeholder="e.g. 2,400 sq ft"></div>
+            <div class="fg"><label>Year Built</label><input type="text" placeholder="e.g. 2005"></div>
           </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Square Footage</label>
-            <input type="text" placeholder="e.g. 2,400 sq ft">
+          <div class="fg"><label>Your Name</label><input type="text" placeholder="First and Last Name"></div>
+          <div class="form-row">
+            <div class="fg"><label>Email</label><input type="email" placeholder="you@email.com"></div>
+            <div class="fg"><label>Phone</label><input type="tel" placeholder="(555) 000-0000"></div>
           </div>
-          <div class="form-group">
-            <label>Year Built</label>
-            <input type="text" placeholder="e.g. 2005">
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Your Full Name</label>
-          <input type="text" placeholder="First and Last Name">
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" placeholder="you@email.com">
-          </div>
-          <div class="form-group">
-            <label>Phone Number</label>
-            <input type="tel" placeholder="(555) 000-0000">
-          </div>
-        </div>
-        <button type="submit" class="btn-primary" style="width:100%;margin-top:8px;">Get My Free Valuation</button>
-      </form>
+          <button type="submit" class="btn-gold btn-full">Get My Free Valuation</button>
+        </form>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- PROCESS -->
 <section id="process">
-  <div style="text-align:center;margin-bottom:80px;">
-    <div class="section-eyebrow" style="justify-content:center;">How It Works</div>
-    <h2 class="section-title">Our Proven Process</h2>
-    <p class="section-sub" style="margin:0 auto;">A clear, streamlined path from your first conversation to the closing table.</p>
-  </div>
-  <div class="process-steps">
-    <div class="process-step fade-up">
-      <div class="step-num">01</div>
-      <h3>Consultation</h3>
-      <p>We start with a deep-dive conversation to understand your goals, timeline, budget, and must-haves.</p>
+  <div class="container">
+    <div class="text-center" style="margin-bottom:72px;">
+      <div class="eyebrow eyebrow-center fade-up" style="justify-content:center">How It Works</div>
+      <h2 class="section-h fade-up">Our Proven Process</h2>
+      <p class="section-p mx-auto text-center fade-up" style="margin-top:14px;">A clear, streamlined path from your first conversation to the closing table.</p>
     </div>
-    <div class="process-step fade-up" style="transition-delay:0.15s">
-      <div class="step-num">02</div>
-      <h3>Market Analysis</h3>
-      <p>Our agents deliver a detailed market report with pricing strategy, comparable properties, and local insights.</p>
-    </div>
-    <div class="process-step fade-up" style="transition-delay:0.3s">
-      <div class="step-num">03</div>
-      <h3>Search & Tour</h3>
-      <p>We curate a shortlist of properties and guide you through private tours — no wasted time, just perfect matches.</p>
-    </div>
-    <div class="process-step fade-up" style="transition-delay:0.45s">
-      <div class="step-num">04</div>
-      <h3>Offer & Negotiate</h3>
-      <p>We craft compelling offers and negotiate aggressively on your behalf to secure the best possible terms.</p>
-    </div>
-    <div class="process-step fade-up" style="transition-delay:0.6s">
-      <div class="step-num">05</div>
-      <h3>Close & Celebrate</h3>
-      <p>We manage all paperwork, inspections, and closing coordination so you walk away stress-free with keys in hand.</p>
+    <div class="process-grid">
+      <div class="pstep fade-up"><div class="pnum"><span>01</span></div><h3>Consultation</h3><p>Deep-dive conversation to understand your goals, timeline, budget, and must-haves.</p></div>
+      <div class="pstep fade-up" style="transition-delay:0.12s"><div class="pnum"><span>02</span></div><h3>Market Analysis</h3><p>Detailed market report with pricing strategy, comparable properties, and local insights.</p></div>
+      <div class="pstep fade-up" style="transition-delay:0.24s"><div class="pnum"><span>03</span></div><h3>Search & Tour</h3><p>Curated shortlist of properties and guided private tours — no wasted time, only perfect matches.</p></div>
+      <div class="pstep fade-up" style="transition-delay:0.36s"><div class="pnum"><span>04</span></div><h3>Offer & Negotiate</h3><p>We craft compelling offers and negotiate aggressively on your behalf for the best possible terms.</p></div>
+      <div class="pstep fade-up" style="transition-delay:0.48s"><div class="pnum"><span>05</span></div><h3>Close & Celebrate</h3><p>We manage all paperwork, inspections, and closing coordination so you walk away stress-free.</p></div>
     </div>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
 <section id="testimonials">
-  <div style="text-align:center;margin-bottom:60px;">
-    <div class="section-eyebrow" style="justify-content:center;">Client Stories</div>
-    <h2 class="section-title">What Our Clients Say</h2>
-  </div>
-  <div class="testimonials-grid">
-    <div class="testimonial-card fade-up">
-      <span class="quote-mark">"</span>
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-text">They sold our home in 9 days — at 6% over asking price. I've worked with other agents before but never experienced this level of dedication, market knowledge, and professionalism. Truly exceptional.</p>
-      <div class="testimonial-author">
-        <div class="author-avatar">MR</div>
-        <div>
-          <div class="author-name">Michael & Rachel T.</div>
-          <div class="author-detail">Sold in Beverly Hills, CA</div>
-        </div>
-      </div>
+  <div class="container">
+    <div class="text-center" style="margin-bottom:56px;">
+      <div class="eyebrow eyebrow-center fade-up">Client Stories</div>
+      <h2 class="section-h fade-up">What Our Clients Say</h2>
     </div>
-    <div class="testimonial-card fade-up" style="transition-delay:0.15s">
-      <span class="quote-mark">"</span>
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-text">As a first-time buyer, I was terrified. My agent walked me through every step, negotiated $40,000 off the asking price, and made the whole process feel effortless. I couldn't recommend them more highly.</p>
-      <div class="testimonial-author">
-        <div class="author-avatar">SP</div>
-        <div>
-          <div class="author-name">Sophia P.</div>
-          <div class="author-detail">Purchased in Austin, TX</div>
-        </div>
-      </div>
-    </div>
-    <div class="testimonial-card fade-up" style="transition-delay:0.3s">
-      <span class="quote-mark">"</span>
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-text">We relocated from New York to Miami and needed an agent who understood luxury. They found us the perfect waterfront property within two weeks. The concierge-level service is unmatched in this market.</p>
-      <div class="testimonial-author">
-        <div class="author-avatar">JK</div>
-        <div>
-          <div class="author-name">James & Karen W.</div>
-          <div class="author-detail">Relocated to Miami, FL</div>
-        </div>
-      </div>
-    </div>
-    <div class="testimonial-card fade-up" style="transition-delay:0.45s">
-      <span class="quote-mark">"</span>
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-text">I've bought and sold six properties over the years. This team is hands-down the best I've ever worked with. Their negotiating skills alone saved me over $85,000 on my last investment property.</p>
-      <div class="testimonial-author">
-        <div class="author-avatar">DL</div>
-        <div>
-          <div class="author-name">David L.</div>
-          <div class="author-detail">Real Estate Investor, Denver, CO</div>
-        </div>
-      </div>
-    </div>
-    <div class="testimonial-card fade-up" style="transition-delay:0.6s">
-      <span class="quote-mark">"</span>
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-text">The home valuation tool was spot on — and when we decided to list, our agent's marketing strategy was brilliant. Professional photos, drone footage, and a social campaign that brought in 14 offers.</p>
-      <div class="testimonial-author">
-        <div class="author-avatar">AH</div>
-        <div>
-          <div class="author-name">Amanda H.</div>
-          <div class="author-detail">Sold in Scottsdale, AZ</div>
-        </div>
-      </div>
-    </div>
-    <div class="testimonial-card fade-up" style="transition-delay:0.75s">
-      <span class="quote-mark">"</span>
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-text">From valuation to closing in 21 days. I was skeptical it was possible in this market. They proved me wrong. Responsive, knowledgeable, and genuinely invested in getting us the best outcome.</p>
-      <div class="testimonial-author">
-        <div class="author-avatar">TC</div>
-        <div>
-          <div class="author-name">Thomas C.</div>
-          <div class="author-detail">Sold in Nashville, TN</div>
-        </div>
-      </div>
+    <div class="tgrid">
+      <div class="tcard fade-up"><div class="tcard-quote">"</div><div class="stars">★★★★★</div><p class="tcard-text">They sold our home in 9 days — at 6% over asking price. I've worked with other agents before but never experienced this level of dedication and professionalism. Truly exceptional.</p><div class="tcard-author"><div class="tav">MR</div><div><div class="tav-name">Michael & Rachel T.</div><div class="tav-detail">Sold in Beverly Hills, CA</div></div></div></div>
+      <div class="tcard fade-up" style="transition-delay:0.12s"><div class="tcard-quote">"</div><div class="stars">★★★★★</div><p class="tcard-text">As a first-time buyer, I was terrified. My agent walked me through every step, negotiated $40,000 off asking, and made the whole process feel effortless. Couldn't recommend more.</p><div class="tcard-author"><div class="tav">SP</div><div><div class="tav-name">Sophia P.</div><div class="tav-detail">Purchased in Austin, TX</div></div></div></div>
+      <div class="tcard fade-up" style="transition-delay:0.24s"><div class="tcard-quote">"</div><div class="stars">★★★★★</div><p class="tcard-text">We relocated from New York to Miami and needed an agent who understood luxury. They found us a perfect waterfront property within two weeks. The concierge-level service is unmatched.</p><div class="tcard-author"><div class="tav">JK</div><div><div class="tav-name">James & Karen W.</div><div class="tav-detail">Relocated to Miami, FL</div></div></div></div>
+      <div class="tcard fade-up" style="transition-delay:0.36s"><div class="tcard-quote">"</div><div class="stars">★★★★★</div><p class="tcard-text">I've bought and sold six properties. This team is hands-down the best I've ever worked with. Their negotiating skills alone saved me over $85,000 on my last investment property.</p><div class="tcard-author"><div class="tav">DL</div><div><div class="tav-name">David L.</div><div class="tav-detail">Investor, Denver, CO</div></div></div></div>
+      <div class="tcard fade-up" style="transition-delay:0.48s"><div class="tcard-quote">"</div><div class="stars">★★★★★</div><p class="tcard-text">The home valuation was spot on. When we decided to list, our agent's marketing strategy was brilliant — professional photos, drone footage, and a campaign that brought in 14 offers.</p><div class="tcard-author"><div class="tav">AH</div><div><div class="tav-name">Amanda H.</div><div class="tav-detail">Sold in Scottsdale, AZ</div></div></div></div>
+      <div class="tcard fade-up" style="transition-delay:0.6s"><div class="tcard-quote">"</div><div class="stars">★★★★★</div><p class="tcard-text">From valuation to closing in 21 days. I was skeptical. They proved me wrong — responsive, knowledgeable, and genuinely invested in getting us the best outcome possible.</p><div class="tcard-author"><div class="tav">TC</div><div><div class="tav-name">Thomas C.</div><div class="tav-detail">Sold in Nashville, TN</div></div></div></div>
     </div>
   </div>
 </section>
 
 <!-- AGENTS -->
 <section id="agents">
-  <div class="section-eyebrow">The Team</div>
-  <h2 class="section-title">Meet Our Expert Agents</h2>
-  <p class="section-sub">Award-winning professionals with deep local knowledge and a track record of outstanding results.</p>
-  <div class="agents-grid">
-    <div class="agent-card fade-up">
-      <div class="agent-photo"><div class="agent-photo-inner">JM</div></div>
-      <div class="agent-info">
-        <div class="agent-name">James Monroe</div>
-        <div class="agent-title">Senior Listing Agent</div>
-        <div class="agent-stats">
-          <div class="agent-stat"><div class="agent-stat-num">142</div><div class="agent-stat-label">Sales</div></div>
-          <div class="agent-stat"><div class="agent-stat-num">$98M</div><div class="agent-stat-label">Volume</div></div>
-          <div class="agent-stat"><div class="agent-stat-num">12yr</div><div class="agent-stat-label">Exp.</div></div>
-        </div>
-        <button class="agent-contact-btn" onclick="openModal('James Monroe')">Contact Agent</button>
-      </div>
-    </div>
-    <div class="agent-card fade-up" style="transition-delay:0.1s">
-      <div class="agent-photo"><div class="agent-photo-inner">SC</div></div>
-      <div class="agent-info">
-        <div class="agent-name">Sofia Chen</div>
-        <div class="agent-title">Luxury Buyer's Agent</div>
-        <div class="agent-stats">
-          <div class="agent-stat"><div class="agent-stat-num">118</div><div class="agent-stat-label">Sales</div></div>
-          <div class="agent-stat"><div class="agent-stat-num">$74M</div><div class="agent-stat-label">Volume</div></div>
-          <div class="agent-stat"><div class="agent-stat-num">9yr</div><div class="agent-stat-label">Exp.</div></div>
-        </div>
-        <button class="agent-contact-btn" onclick="openModal('Sofia Chen')">Contact Agent</button>
-      </div>
-    </div>
-    <div class="agent-card fade-up" style="transition-delay:0.2s">
-      <div class="agent-photo"><div class="agent-photo-inner">RB</div></div>
-      <div class="agent-info">
-        <div class="agent-name">Robert Blake</div>
-        <div class="agent-title">Investment Specialist</div>
-        <div class="agent-stats">
-          <div class="agent-stat"><div class="agent-stat-num">203</div><div class="agent-stat-label">Sales</div></div>
-          <div class="agent-stat"><div class="agent-stat-num">$141M</div><div class="agent-stat-label">Volume</div></div>
-          <div class="agent-stat"><div class="agent-stat-num">16yr</div><div class="agent-stat-label">Exp.</div></div>
-        </div>
-        <button class="agent-contact-btn" onclick="openModal('Robert Blake')">Contact Agent</button>
-      </div>
-    </div>
-    <div class="agent-card fade-up" style="transition-delay:0.3s">
-      <div class="agent-photo"><div class="agent-photo-inner">NK</div></div>
-      <div class="agent-info">
-        <div class="agent-name">Natalie Kim</div>
-        <div class="agent-title">Relocation Specialist</div>
-        <div class="agent-stats">
-          <div class="agent-stat"><div class="agent-stat-num">87</div><div class="agent-stat-label">Sales</div></div>
-          <div class="agent-stat"><div class="agent-stat-num">$52M</div><div class="agent-stat-label">Volume</div></div>
-          <div class="agent-stat"><div class="agent-stat-num">7yr</div><div class="agent-stat-label">Exp.</div></div>
-        </div>
-        <button class="agent-contact-btn" onclick="openModal('Natalie Kim')">Contact Agent</button>
-      </div>
-    </div>
+  <div class="container">
+    <div class="eyebrow fade-up">The Team</div>
+    <h2 class="section-h fade-up">Meet Our Expert Agents</h2>
+    <p class="section-p fade-up">Award-winning professionals with deep local knowledge and a track record of outstanding results.</p>
+    <div class="agent-grid" id="agent-grid"></div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="contact-inner">
-    <div class="contact-info fade-up">
-      <div class="section-eyebrow">Get In Touch</div>
-      <h2 class="section-title">Let's Start Your<br>Journey</h2>
-      <p style="font-family:'Helvetica Neue',sans-serif;font-size:15px;color:var(--gray);line-height:1.8;margin-bottom:48px;">Whether you're buying, selling, or simply exploring — our team is ready to answer every question and guide you with zero pressure.</p>
-      <div class="contact-detail">
-        <div class="contact-detail-label">Main Office</div>
-        <div class="contact-detail-value">8500 Wilshire Boulevard, Suite 200<br>Beverly Hills, CA 90211</div>
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info fade-up">
+        <div class="eyebrow">Get In Touch</div>
+        <h2 class="section-h">Let's Start Your<br>Journey</h2>
+        <p style="font-size:15px;color:var(--gray);line-height:1.8;margin-bottom:48px;font-weight:300;">Whether you're buying, selling, or simply exploring — our team is ready to answer every question and guide you with zero pressure.</p>
+        <div class="cdet"><div class="cdet-label">Main Office</div><div class="cdet-val">8500 Wilshire Boulevard, Suite 200<br>Beverly Hills, CA 90211</div></div>
+        <div class="cdet"><div class="cdet-label">Phone</div><div class="cdet-val"><a href="tel:+13105550100">(310) 555-0100</a></div></div>
+        <div class="cdet"><div class="cdet-label">Email</div><div class="cdet-val"><a href="mailto:hello@prestigerealty.com">hello@prestigerealty.com</a></div></div>
+        <div class="cdet"><div class="cdet-label">Hours</div><div class="cdet-val">Mon – Fri: 8am – 7pm<br>Sat – Sun: 9am – 5pm</div></div>
+        <div class="social">
+          <a class="soc" href="#">ig</a>
+          <a class="soc" href="#">fb</a>
+          <a class="soc" href="#">in</a>
+          <a class="soc" href="#">yt</a>
+        </div>
       </div>
-      <div class="contact-detail">
-        <div class="contact-detail-label">Phone</div>
-        <div class="contact-detail-value"><a href="tel:+13105550100">(310) 555-0100</a></div>
-      </div>
-      <div class="contact-detail">
-        <div class="contact-detail-label">Email</div>
-        <div class="contact-detail-value"><a href="mailto:hello@prestigerealty.com">hello@prestigerealty.com</a></div>
-      </div>
-      <div class="contact-detail">
-        <div class="contact-detail-label">Hours</div>
-        <div class="contact-detail-value">Mon – Fri: 8am – 7pm<br>Sat – Sun: 9am – 5pm</div>
-      </div>
-      <div class="social-links">
-        <a class="social-link" href="#" title="Instagram">𝕀</a>
-        <a class="social-link" href="#" title="Facebook">f</a>
-        <a class="social-link" href="#" title="LinkedIn">in</a>
-        <a class="social-link" href="#" title="YouTube">▶</a>
-      </div>
-    </div>
-    <div class="contact-form-card fade-up">
-      <h3 class="contact-form-title">Send Us a Message</h3>
-      <form onsubmit="submitForm(event, 'contact')">
-        <div class="form-row">
-          <div class="form-group">
-            <label>First Name</label>
-            <input type="text" placeholder="First Name" required>
+      <div class="form-card fade-up">
+        <div class="form-card-title">Send Us a Message</div>
+        <div class="form-card-sub" style="margin-bottom:32px;">We'll respond within one business day</div>
+        <form onsubmit="submitForm(event,'contact')">
+          <div class="form-row">
+            <div class="fg"><label>First Name</label><input type="text" placeholder="First Name" required></div>
+            <div class="fg"><label>Last Name</label><input type="text" placeholder="Last Name" required></div>
           </div>
-          <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" placeholder="Last Name" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" placeholder="you@email.com" required>
-        </div>
-        <div class="form-group">
-          <label>Phone Number</label>
-          <input type="tel" placeholder="(555) 000-0000">
-        </div>
-        <div class="form-group">
-          <label>I Am Interested In</label>
-          <select>
-            <option>Buying a Home</option>
-            <option>Selling a Home</option>
-            <option>Home Valuation</option>
-            <option>Investment Properties</option>
-            <option>Relocation Services</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea placeholder="Tell us about your needs, timeline, and any questions you have…"></textarea>
-        </div>
-        <button type="submit" class="btn-primary" style="width:100%;">Send Message</button>
-      </form>
+          <div class="fg"><label>Email</label><input type="email" placeholder="you@email.com" required></div>
+          <div class="fg"><label>Phone</label><input type="tel" placeholder="(555) 000-0000"></div>
+          <div class="fg"><label>I Am Interested In</label><select><option>Buying a Home</option><option>Selling a Home</option><option>Home Valuation</option><option>Investment Properties</option><option>Relocation Services</option><option>Other</option></select></div>
+          <div class="fg"><label>Message</label><textarea placeholder="Tell us about your needs, timeline, and any questions you have…"></textarea></div>
+          <button type="submit" class="btn-gold btn-full">Send Message</button>
+        </form>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div>
-      <span class="footer-logo">Prestige <span>Realty</span></span>
-      <p class="footer-tagline">Setting the standard for luxury real estate — one exceptional client experience at a time.</p>
-      <p style="font-family:'Helvetica Neue',sans-serif;font-size:12px;color:var(--gray-dim);">Licensed Real Estate Brokerage<br>CA DRE #01234567</p>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <span class="footer-logo">Prestige <span>Realty</span></span>
+        <p class="footer-tag">Setting the standard for luxury real estate — one exceptional client experience at a time.</p>
+        <p class="footer-lic">Licensed Real Estate Brokerage<br>CA DRE #01234567</p>
+      </div>
+      <div><div class="fh">Company</div><ul class="flinks"><li><a href="#services">Our Services</a></li><li><a href="#agents">Meet the Team</a></li><li><a href="#process">How We Work</a></li><li><a href="#testimonials">Client Stories</a></li><li><a href="#contact">Careers</a></li></ul></div>
+      <div><div class="fh">Properties</div><ul class="flinks"><li><a href="#listings">Homes for Sale</a></li><li><a href="#listings">Homes for Rent</a></li><li><a href="#listings">New Construction</a></li><li><a href="#listings">Luxury Homes</a></li><li><a href="#valuation">Get a Valuation</a></li></ul></div>
+      <div><div class="fh">Resources</div><ul class="flinks"><li><a href="#">Buyer's Guide</a></li><li><a href="#">Seller's Guide</a></li><li><a href="#">Mortgage Calculator</a></li><li><a href="#">Neighborhood Guide</a></li><li><a href="#">Market Reports</a></li></ul></div>
     </div>
-    <div>
-      <div class="footer-heading">Company</div>
-      <ul class="footer-links">
-        <li><a href="#services">Our Services</a></li>
-        <li><a href="#agents">Meet the Team</a></li>
-        <li><a href="#process">How We Work</a></li>
-        <li><a href="#testimonials">Client Stories</a></li>
-        <li><a href="#contact">Careers</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-heading">Properties</div>
-      <ul class="footer-links">
-        <li><a href="#listings">Homes for Sale</a></li>
-        <li><a href="#listings">Homes for Rent</a></li>
-        <li><a href="#listings">New Construction</a></li>
-        <li><a href="#listings">Luxury Homes</a></li>
-        <li><a href="#valuation">Get a Valuation</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-heading">Resources</div>
-      <ul class="footer-links">
-        <li><a href="#">Buyer's Guide</a></li>
-        <li><a href="#">Seller's Guide</a></li>
-        <li><a href="#">Mortgage Calculator</a></li>
-        <li><a href="#">Neighborhood Guide</a></li>
-        <li><a href="#">Market Reports</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2026 Prestige Realty Group. All rights reserved.</div>
-    <div class="footer-legal">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
-      <a href="#">Fair Housing</a>
-      <a href="#">Accessibility</a>
+    <div class="footer-bottom">
+      <div class="fcopy">© 2026 Prestige Realty Group. All rights reserved.</div>
+      <div class="flegal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Fair Housing</a><a href="#">Accessibility</a></div>
     </div>
   </div>
 </footer>
 
 <!-- MODAL -->
-<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+<div class="moverlay" id="moverlay" onclick="closeModal(event)">
   <div class="modal">
-    <button class="modal-close" onclick="closeModalDirect()">×</button>
-    <h3 class="modal-title" id="modal-agent-name">Contact Agent</h3>
-    <p class="modal-sub" id="modal-agent-title">Prestige Realty Group</p>
-    <form onsubmit="submitForm(event, 'agent')">
+    <button class="modal-x" onclick="closeModalNow()">×</button>
+    <div class="modal-title" id="modal-name">Contact Agent</div>
+    <div class="modal-sub">Prestige Realty Group</div>
+    <form onsubmit="submitForm(event,'agent')">
       <div class="form-row">
-        <div class="form-group">
-          <label>Your Name</label>
-          <input type="text" placeholder="Full Name" required>
-        </div>
-        <div class="form-group">
-          <label>Phone</label>
-          <input type="tel" placeholder="(555) 000-0000">
-        </div>
+        <div class="fg"><label>Your Name</label><input type="text" placeholder="Full Name" required></div>
+        <div class="fg"><label>Phone</label><input type="tel" placeholder="(555) 000-0000"></div>
       </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" placeholder="you@email.com" required>
-      </div>
-      <div class="form-group">
-        <label>Message</label>
-        <textarea placeholder="What can we help you with?" style="min-height:90px;"></textarea>
-      </div>
-      <button type="submit" class="btn-primary" style="width:100%;">Send Message</button>
+      <div class="fg"><label>Email</label><input type="email" placeholder="you@email.com" required></div>
+      <div class="fg"><label>Message</label><textarea placeholder="What can we help you with?" style="min-height:90px;"></textarea></div>
+      <button type="submit" class="btn-gold btn-full">Send Message</button>
     </form>
   </div>
 </div>
 
-<!-- THREE.JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-// ─── HERO 3D SCENE ───────────────────────────────────────────────────────────
-(function initHero() {
+// ═══════════════════════════════════════════════════════
+//  HERO 3D SCENE — Photorealistic luxury home at dusk
+// ═══════════════════════════════════════════════════════
+(function() {
   const canvas = document.getElementById('hero-canvas');
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.outputEncoding = THREE.sRGBEncoding;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 0.8;
+  renderer.toneMappingExposure = 0.9;
 
   const scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2(0x0A0A0B, 0.018);
+  scene.background = new THREE.Color(0x06060A);
+  scene.fog = new THREE.FogExp2(0x06060A, 0.014);
 
-  const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 200);
-  camera.position.set(8, 6, 14);
-  camera.lookAt(0, 1.5, 0);
+  const camera = new THREE.PerspectiveCamera(52, 1, 0.1, 300);
+  camera.position.set(9, 7, 16);
+  camera.lookAt(0, 2, 0);
 
   function resize() {
     const w = canvas.clientWidth, h = canvas.clientHeight;
@@ -1129,384 +545,441 @@
   window.addEventListener('resize', resize);
   resize();
 
-  // Lights
-  const ambient = new THREE.AmbientLight(0x1a1a2e, 1.2);
-  scene.add(ambient);
+  // ── Lighting ──────────────────────────────────────────
+  scene.add(new THREE.AmbientLight(0x1a1a30, 1.4));
 
-  const sunLight = new THREE.DirectionalLight(0xC9A84C, 2.5);
-  sunLight.position.set(10, 18, 8);
-  sunLight.castShadow = true;
-  sunLight.shadow.mapSize.set(2048, 2048);
-  sunLight.shadow.camera.near = 0.5;
-  sunLight.shadow.camera.far = 60;
-  sunLight.shadow.camera.left = -20;
-  sunLight.shadow.camera.right = 20;
-  sunLight.shadow.camera.top = 20;
-  sunLight.shadow.camera.bottom = -20;
-  sunLight.shadow.bias = -0.001;
-  scene.add(sunLight);
+  const sun = new THREE.DirectionalLight(0xD4A855, 3.0);
+  sun.position.set(12, 20, 8);
+  sun.castShadow = true;
+  Object.assign(sun.shadow.mapSize, { width: 4096, height: 4096 });
+  Object.assign(sun.shadow.camera, { near: 0.5, far: 80, left: -25, right: 25, top: 25, bottom: -25 });
+  sun.shadow.bias = -0.001;
+  scene.add(sun);
 
-  const fillLight = new THREE.PointLight(0x4466aa, 1.2, 40);
-  fillLight.position.set(-8, 4, -4);
-  scene.add(fillLight);
+  const moon = new THREE.DirectionalLight(0x3355AA, 0.6);
+  moon.position.set(-10, 12, -8);
+  scene.add(moon);
 
-  const rimLight = new THREE.DirectionalLight(0xE8C96A, 0.5);
-  rimLight.position.set(-6, 8, -10);
-  scene.add(rimLight);
+  const fill = new THREE.HemisphereLight(0x223366, 0x0A0A0F, 0.8);
+  scene.add(fill);
 
-  // Materials
-  const goldMat = new THREE.MeshStandardMaterial({ color: 0xC9A84C, metalness: 0.8, roughness: 0.25 });
-  const wallMat = new THREE.MeshStandardMaterial({ color: 0x1C1C22, metalness: 0.1, roughness: 0.85 });
-  const roofMat = new THREE.MeshStandardMaterial({ color: 0x0D0D10, metalness: 0.3, roughness: 0.7 });
-  const glassMat = new THREE.MeshStandardMaterial({ color: 0x88AACC, metalness: 0.1, roughness: 0.05, transparent: true, opacity: 0.35 });
-  const groundMat = new THREE.MeshStandardMaterial({ color: 0x0E0E12, metalness: 0.0, roughness: 1.0 });
-  const trimMat = new THREE.MeshStandardMaterial({ color: 0x8B6914, metalness: 0.6, roughness: 0.4 });
-  const doorMat = new THREE.MeshStandardMaterial({ color: 0x0A0A0C, metalness: 0.4, roughness: 0.5 });
+  // ── Materials ─────────────────────────────────────────
+  const M = (c, opts={}) => new THREE.MeshStandardMaterial({ color: c, ...opts });
+  const wall   = M(0x1D1D25, { roughness: 0.85, metalness: 0.05 });
+  const wall2  = M(0x15151C, { roughness: 0.9, metalness: 0.0 });
+  const roof   = M(0x0C0C10, { roughness: 0.8, metalness: 0.15 });
+  const gold   = M(0xC9A84C, { roughness: 0.25, metalness: 0.85 });
+  const glass  = M(0x88AADD, { roughness: 0.02, metalness: 0.0, transparent: true, opacity: 0.28 });
+  const glowW  = M(0xFFEECC, { roughness: 0.0, metalness: 0.0, emissive: 0xFFCC66, emissiveIntensity: 1.8 });
+  const ground = M(0x0D0D12, { roughness: 1.0 });
+  const stone  = M(0x18181E, { roughness: 0.9, metalness: 0.1 });
+  const door   = M(0x0A0A0D, { roughness: 0.5, metalness: 0.4 });
+  const wood   = M(0x1A0E08, { roughness: 0.9 });
+  const leaf   = M(0x0E1A0A, { roughness: 1.0 });
+  const concrete = M(0x141418, { roughness: 0.95 });
 
-  function makeMesh(geo, mat, x=0, y=0, z=0, rx=0, ry=0, rz=0) {
+  function mesh(geo, mat, x=0, y=0, z=0, rx=0, ry=0, rz=0, cast=true) {
     const m = new THREE.Mesh(geo, mat);
     m.position.set(x, y, z);
     m.rotation.set(rx, ry, rz);
-    m.castShadow = true; m.receiveShadow = true;
-    scene.add(m); return m;
+    m.castShadow = cast;
+    m.receiveShadow = true;
+    scene.add(m);
+    return m;
   }
 
-  // Ground
-  makeMesh(new THREE.PlaneGeometry(80, 80), groundMat, 0, 0, 0, -Math.PI/2, 0, 0).castShadow = false;
+  // ── Ground & Driveway ─────────────────────────────────
+  mesh(new THREE.PlaneGeometry(120, 120), ground, 0, 0, 0, -Math.PI/2, 0, 0, false);
+  mesh(new THREE.PlaneGeometry(3.5, 12), concrete, 0, 0.01, 8, -Math.PI/2);
 
-  // ── MAIN HOUSE ──
-  // Body
-  makeMesh(new THREE.BoxGeometry(6, 4, 5), wallMat, 0, 2, 0);
-  // Roof
-  const roofGeo = new THREE.ConeGeometry(5, 2.5, 4);
-  makeMesh(roofGeo, roofMat, 0, 5.25, 0, 0, Math.PI/4, 0);
-  // Gold roof trim line
-  makeMesh(new THREE.BoxGeometry(6.2, 0.15, 5.2), goldMat, 0, 4.02, 0);
+  // Side walkway
+  mesh(new THREE.PlaneGeometry(1.5, 6), stone, -3.5, 0.01, 4, -Math.PI/2);
 
-  // Windows - front
-  makeMesh(new THREE.BoxGeometry(1.4, 1.1, 0.08), glassMat, -1.5, 2.4, 2.55);
-  makeMesh(new THREE.BoxGeometry(1.4, 1.1, 0.08), glassMat, 1.5, 2.4, 2.55);
-  makeMesh(new THREE.BoxGeometry(0.06, 1.2, 0.12), trimMat, -1.5, 2.4, 2.55);
-  makeMesh(new THREE.BoxGeometry(1.5, 0.06, 0.12), trimMat, -1.5, 2.4, 2.55);
-  makeMesh(new THREE.BoxGeometry(0.06, 1.2, 0.12), trimMat, 1.5, 2.4, 2.55);
-  makeMesh(new THREE.BoxGeometry(1.5, 0.06, 0.12), trimMat, 1.5, 2.4, 2.55);
+  // ── Main House Body ────────────────────────────────────
+  // Ground floor
+  mesh(new THREE.BoxGeometry(7, 3.2, 5.5), wall, 0, 1.6, 0);
+  // Second floor (slightly inset)
+  mesh(new THREE.BoxGeometry(6.4, 2.6, 5.0), wall2, 0, 4.5, 0.1);
 
-  // Upper window (dormer effect)
-  makeMesh(new THREE.BoxGeometry(1.0, 0.8, 0.08), glassMat, 0, 3.8, 2.55);
+  // Hip Roof
+  const roofGeo = new THREE.ConeGeometry(5.2, 2.8, 4);
+  mesh(roofGeo, roof, 0, 6.7, 0.1, 0, Math.PI/4);
+  // Roof trim line (gold)
+  mesh(new THREE.BoxGeometry(7.2, 0.12, 5.6), gold, 0, 3.22, 0);
+  mesh(new THREE.BoxGeometry(6.6, 0.1, 5.2), gold, 0, 5.85, 0.1);
+
+  // Corner trim pillars
+  for (const [x,z] of [[-3.6,2.85],[-3.6,-2.85],[3.6,2.85],[3.6,-2.85]]) {
+    mesh(new THREE.BoxGeometry(0.2, 3.2, 0.2), stone, x, 1.6, z);
+    mesh(new THREE.BoxGeometry(0.24, 0.14, 0.24), gold, x, 3.22, z);
+  }
+
+  // ── Front Entrance Portico ────────────────────────────
+  mesh(new THREE.BoxGeometry(2.8, 3.0, 1.2), wall, 0, 1.5, 3.55);
+  mesh(new THREE.BoxGeometry(3.0, 0.15, 1.4), roof, 0, 3.08, 3.55);
+  mesh(new THREE.BoxGeometry(3.0, 0.1, 1.4), gold, 0, 3.0, 3.55);
+
+  // Entrance Columns (4)
+  for (const x of [-0.9, -0.3, 0.3, 0.9]) {
+    mesh(new THREE.CylinderGeometry(0.07, 0.09, 3.0, 16), stone, x, 1.5, 3.7);
+    mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.1, 16), gold, x, 3.06, 3.7);
+    mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.1, 16), gold, x, 0.05, 3.7);
+  }
 
   // Door
-  makeMesh(new THREE.BoxGeometry(0.9, 1.8, 0.1), doorMat, 0, 0.9, 2.56);
-  makeMesh(new THREE.BoxGeometry(0.95, 0.06, 0.14), goldMat, 0, 1.82, 2.56);
-  // Door handle
-  makeMesh(new THREE.SphereGeometry(0.06, 8, 8), goldMat, 0.32, 0.85, 2.62);
+  mesh(new THREE.BoxGeometry(1.0, 2.2, 0.08), door, 0, 1.1, 2.77);
+  // Door panels detail
+  for (const [dy, h] of [[0.4, 0.5],[1.1, 0.7],[1.75, 0.3]]) {
+    mesh(new THREE.BoxGeometry(0.85, h, 0.04), M(0x121214, {roughness:0.6,metalness:0.3}), 0, dy, 2.78);
+  }
+  // Gold door hardware
+  mesh(new THREE.SphereGeometry(0.055, 10, 10), gold, 0.36, 1.1, 2.82);
+  mesh(new THREE.BoxGeometry(0.02, 0.18, 0.02), gold, 0.36, 1.0, 2.82);
   // Door frame
-  makeMesh(new THREE.BoxGeometry(0.08, 1.9, 0.14), trimMat, 0.49, 0.9, 2.55);
-  makeMesh(new THREE.BoxGeometry(0.08, 1.9, 0.14), trimMat, -0.49, 0.9, 2.55);
-  makeMesh(new THREE.BoxGeometry(1.05, 0.08, 0.14), trimMat, 0, 1.86, 2.55);
+  mesh(new THREE.BoxGeometry(0.08, 2.3, 0.12), stone, 0.54, 1.1, 2.77);
+  mesh(new THREE.BoxGeometry(0.08, 2.3, 0.12), stone, -0.54, 1.1, 2.77);
+  mesh(new THREE.BoxGeometry(1.15, 0.08, 0.12), stone, 0, 2.26, 2.77);
 
-  // Steps
-  makeMesh(new THREE.BoxGeometry(1.6, 0.12, 0.7), trimMat, 0, 0.06, 3.0);
-  makeMesh(new THREE.BoxGeometry(1.4, 0.12, 0.6), wallMat, 0, 0.18, 2.75);
+  // Transom window above door
+  mesh(new THREE.BoxGeometry(0.9, 0.35, 0.06), glass, 0, 2.48, 2.77);
+  mesh(new THREE.BoxGeometry(0.9, 0.35, 0.04), glowW, 0, 2.48, 2.75);
 
-  // Columns
-  for (let x of [-0.7, 0.7]) {
-    makeMesh(new THREE.CylinderGeometry(0.07, 0.07, 2.1, 12), trimMat, x, 1.05, 2.56);
-    makeMesh(new THREE.CylinderGeometry(0.1, 0.1, 0.12, 12), goldMat, x, 2.16, 2.56);
-    makeMesh(new THREE.CylinderGeometry(0.1, 0.1, 0.12, 12), goldMat, x, 0, 2.56);
+  // Steps (3 tiers)
+  mesh(new THREE.BoxGeometry(2.6, 0.13, 1.0), stone, 0, 0.13, 3.52);
+  mesh(new THREE.BoxGeometry(2.2, 0.13, 0.8), stone, 0, 0.26, 3.22);
+  mesh(new THREE.BoxGeometry(1.8, 0.13, 0.6), stone, 0, 0.39, 2.96);
+
+  // ── Windows Ground Floor ──────────────────────────────
+  const winPositions = [[-2.4, 1.8, 2.78],[2.4, 1.8, 2.78],[-2.4, 1.8, -2.78],[2.4, 1.8, -2.78]];
+  for (const [wx, wy, wz] of winPositions) {
+    const isBack = wz < 0;
+    const roty = isBack ? Math.PI : 0;
+    const zOff = isBack ? -0.01 : 0.01;
+    mesh(new THREE.BoxGeometry(1.4, 1.3, 0.06), glass, wx, wy, wz);
+    mesh(new THREE.BoxGeometry(1.4, 1.3, 0.04), glowW, wx, wy, wz - zOff * 8);
+    mesh(new THREE.BoxGeometry(0.05, 1.35, 0.1), stone, wx, wy, wz);
+    mesh(new THREE.BoxGeometry(1.45, 0.05, 0.1), stone, wx, wy + 0.68, wz);
+    mesh(new THREE.BoxGeometry(1.45, 0.05, 0.1), stone, wx, wy - 0.68, wz);
+    mesh(new THREE.BoxGeometry(1.45, 0.05, 0.1), gold, wx, wy - 0.7, wz);
   }
 
-  // Garage (attached, right side)
-  makeMesh(new THREE.BoxGeometry(3, 2.6, 4), wallMat, 4.5, 1.3, -0.2);
-  const garageRoof = new THREE.BoxGeometry(3.2, 0.2, 4.2);
-  makeMesh(garageRoof, roofMat, 4.5, 2.7, -0.2);
-  // Garage door
-  makeMesh(new THREE.BoxGeometry(2.2, 1.8, 0.08), new THREE.MeshStandardMaterial({color:0x141418,metalness:0.5,roughness:0.4}), 4.5, 1.0, 1.82);
-  // Garage door panels
-  for (let y of [0.3, 0.8, 1.3]) {
-    makeMesh(new THREE.BoxGeometry(2.2, 0.06, 0.1), trimMat, 4.5, y, 1.88);
+  // ── Windows Second Floor ──────────────────────────────
+  const win2 = [[-2.1, 4.6, 2.51],[0, 4.6, 2.51],[2.1, 4.6, 2.51]];
+  for (const [wx, wy, wz] of win2) {
+    mesh(new THREE.BoxGeometry(1.1, 1.2, 0.06), glass, wx, wy, wz);
+    mesh(new THREE.BoxGeometry(1.1, 1.2, 0.04), glowW, wx, wy, wz - 0.06);
+    mesh(new THREE.BoxGeometry(0.04, 1.25, 0.1), stone, wx, wy, wz);
+    mesh(new THREE.BoxGeometry(1.15, 0.04, 0.1), stone, wx, wy + 0.63, wz);
+    mesh(new THREE.BoxGeometry(1.15, 0.04, 0.1), gold, wx, wy - 0.63, wz);
   }
 
-  // ── WING / SIDE EXTENSION ──
-  makeMesh(new THREE.BoxGeometry(2, 2.4, 3.5), wallMat, -4, 1.2, 0.2);
-  makeMesh(new THREE.BoxGeometry(2.1, 0.15, 3.6), goldMat, -4, 2.48, 0.2);
-  // flat roof parapet detail
-  makeMesh(new THREE.BoxGeometry(0.15, 0.4, 3.6), trimMat, -5.05, 2.65, 0.2);
-  makeMesh(new THREE.BoxGeometry(2.1, 0.4, 0.15), trimMat, -4, 2.65, 1.98);
-
-  // ── LANDSCAPING ──
-  // Driveway path
-  const pathMat = new THREE.MeshStandardMaterial({ color: 0x141418, roughness: 0.9 });
-  makeMesh(new THREE.PlaneGeometry(2, 8), pathMat, 0, 0.01, 6, -Math.PI/2);
-
-  // Bushes
-  const bushMat = new THREE.MeshStandardMaterial({ color: 0x1A2818, roughness: 1.0 });
-  for (let [x, z] of [[-2.2, 2.8], [2.2, 2.8], [-2.8, 2.2], [2.8, 2.2]]) {
-    makeMesh(new THREE.SphereGeometry(0.45, 8, 6), bushMat, x, 0.35, z);
+  // ── Side Window Panels ────────────────────────────────
+  for (const [wy, wz] of [[1.8, -0.5],[1.8, 0.9],[4.5, 0.2]]) {
+    mesh(new THREE.BoxGeometry(0.06, 1.1, 1.0), glass, 3.54, wy, wz);
+    mesh(new THREE.BoxGeometry(0.04, 1.1, 1.0), glowW, 3.52, wy, wz);
   }
 
-  // Trees (further back)
-  const trunkMat = new THREE.MeshStandardMaterial({ color: 0x2A1A0A, roughness: 0.9 });
-  const leafMat = new THREE.MeshStandardMaterial({ color: 0x182214, roughness: 1.0 });
-  for (let [x, z] of [[-5.5, -1], [5.5, -1], [-4, -3.5], [4.5, -3.5], [-7, 2], [7, 0]]) {
-    makeMesh(new THREE.CylinderGeometry(0.1, 0.15, 1.5, 8), trunkMat, x, 0.75, z);
-    makeMesh(new THREE.ConeGeometry(0.7, 2.2, 8), leafMat, x, 2.6, z);
-    makeMesh(new THREE.ConeGeometry(0.5, 1.6, 8), leafMat, x, 3.4, z);
+  // ── Attached Garage ───────────────────────────────────
+  mesh(new THREE.BoxGeometry(3.6, 2.8, 5.2), wall, 5.3, 1.4, -0.2);
+  mesh(new THREE.BoxGeometry(3.7, 0.2, 5.4), roof, 5.3, 2.9, -0.2);
+  mesh(new THREE.BoxGeometry(3.7, 0.1, 5.4), gold, 5.3, 2.82, -0.2);
+
+  // Garage doors (two)
+  for (const gx of [4.4, 6.2]) {
+    mesh(new THREE.BoxGeometry(1.4, 2.0, 0.08), M(0x111114, {roughness:0.5,metalness:0.5}), gx, 1.0, 2.45);
+    for (const gy of [0.3, 0.7, 1.1, 1.5]) {
+      mesh(new THREE.BoxGeometry(1.38, 0.06, 0.1), M(0x1A1A20, {roughness:0.6}), gx, gy, 2.5);
+    }
+    mesh(new THREE.SphereGeometry(0.04, 8, 8), gold, gx, 1.0, 2.54);
   }
 
-  // Fence posts
-  const fenceMat = new THREE.MeshStandardMaterial({ color: 0x8B6914, metalness: 0.5, roughness: 0.5 });
+  // ── Wing Extension (Left) ─────────────────────────────
+  mesh(new THREE.BoxGeometry(2.2, 2.5, 4.2), wall2, -4.6, 1.25, 0.1);
+  mesh(new THREE.BoxGeometry(2.3, 0.15, 4.4), roof, -4.6, 2.58, 0.1);
+  mesh(new THREE.BoxGeometry(2.3, 0.1, 4.4), gold, -4.6, 2.51, 0.1);
+  // Wing window
+  mesh(new THREE.BoxGeometry(1.2, 1.0, 0.06), glass, -4.6, 1.5, 2.22);
+  mesh(new THREE.BoxGeometry(1.2, 1.0, 0.04), glowW, -4.6, 1.5, 2.20);
+
+  // Connecting wall
+  mesh(new THREE.BoxGeometry(0.2, 3.2, 5.5), wall, -3.65, 1.6, 0.0);
+
+  // ── Landscaping ───────────────────────────────────────
+  // Lawn areas
+  mesh(new THREE.PlaneGeometry(8, 6), M(0x0A120A, {roughness:1.0}), -1, 0.005, 8, -Math.PI/2, 0, 0, false);
+  mesh(new THREE.PlaneGeometry(6, 6), M(0x0A120A, {roughness:1.0}), -7, 0.005, 2, -Math.PI/2, 0, 0, false);
+
+  // Hedge row along front
+  const hedgeMat = M(0x0D160A, {roughness:1.0});
   for (let i = -4; i <= 4; i++) {
-    if (Math.abs(i) !== 0 || true) {
-      makeMesh(new THREE.BoxGeometry(0.08, 0.8, 0.08), fenceMat, i * 1.2, 0.4, 4.2);
+    if (Math.abs(i) > 0.5) {
+      mesh(new THREE.BoxGeometry(0.9, 0.65, 0.65), hedgeMat, i * 1.1, 0.32, 4.1);
     }
   }
-  makeMesh(new THREE.BoxGeometry(9.8, 0.06, 0.08), fenceMat, 0, 0.65, 4.2);
 
-  // Lamppost
-  makeMesh(new THREE.CylinderGeometry(0.04, 0.06, 3.5, 8), trimMat, -2.8, 1.75, 3.8);
-  makeMesh(new THREE.SphereGeometry(0.14, 12, 12), new THREE.MeshStandardMaterial({color:0xFFEEAA, emissive:0xFFCC44, emissiveIntensity:1.5}), -2.8, 3.6, 3.8);
-  const lampGlow = new THREE.PointLight(0xFFCC44, 1.8, 6);
-  lampGlow.position.set(-2.8, 3.6, 3.8);
-  scene.add(lampGlow);
-
-  // Floating particles
-  const particleCount = 120;
-  const pGeo = new THREE.BufferGeometry();
-  const pPos = new Float32Array(particleCount * 3);
-  for (let i = 0; i < particleCount; i++) {
-    pPos[i*3]   = (Math.random() - 0.5) * 40;
-    pPos[i*3+1] = Math.random() * 16;
-    pPos[i*3+2] = (Math.random() - 0.5) * 30;
+  // Feature bushes
+  const bushMat = M(0x0E1A0C, {roughness:1.0});
+  for (const [x, z, r] of [[-2.6, 3.0, 0.5],[-3.2, 2.4, 0.4],[2.6, 3.0, 0.5],[3.2, 2.4, 0.4],[-5.8, 1.5, 0.55],[-5.8, -1, 0.5]]) {
+    mesh(new THREE.SphereGeometry(r, 8, 7), bushMat, x, r * 0.7, z);
   }
+
+  // Tall trees
+  for (const [x, z, s] of [[-7.5, -2, 1.0],[-6.0, -5, 0.85],[8.0, -2, 0.9],[8.5, 2, 1.1],[-8.5, 4, 0.8],[7, -5, 0.75],[-4, -6, 0.7],[0, -7, 0.8]]) {
+    mesh(new THREE.CylinderGeometry(0.09*s, 0.14*s, 2.2*s, 8), wood, x, 1.1*s, z);
+    mesh(new THREE.ConeGeometry(0.8*s, 2.8*s, 8), leaf, x, 3.2*s, z);
+    mesh(new THREE.ConeGeometry(0.6*s, 2.2*s, 8), M(0x0C1508, {roughness:1.0}), x, 4.4*s, z);
+    mesh(new THREE.ConeGeometry(0.4*s, 1.6*s, 8), M(0x101A0C, {roughness:1.0}), x, 5.4*s, z);
+  }
+
+  // ── Fence & Gate ──────────────────────────────────────
+  const fenceM = M(0xC9A84C, {roughness:0.4, metalness:0.7});
+  const postM  = M(0x1A1A20, {roughness:0.8, metalness:0.2});
+  for (let i = -5; i <= 5; i++) {
+    if (Math.abs(i) > 0.3) {
+      mesh(new THREE.BoxGeometry(0.08, 1.0, 0.08), postM, i * 0.9, 0.5, 4.6);
+    }
+  }
+  mesh(new THREE.BoxGeometry(9.0, 0.06, 0.06), fenceM, 0, 0.8, 4.6);
+  mesh(new THREE.BoxGeometry(9.0, 0.06, 0.06), fenceM, 0, 0.4, 4.6);
+  // Gate posts
+  mesh(new THREE.BoxGeometry(0.15, 1.4, 0.15), postM, -1.1, 0.7, 4.6);
+  mesh(new THREE.BoxGeometry(0.15, 1.4, 0.15), postM, 1.1, 0.7, 4.6);
+  mesh(new THREE.SphereGeometry(0.1, 10, 10), fenceM, -1.1, 1.45, 4.6);
+  mesh(new THREE.SphereGeometry(0.1, 10, 10), fenceM, 1.1, 1.45, 4.6);
+
+  // ── Lampposts ─────────────────────────────────────────
+  const lampPostM = M(0x222230, {roughness:0.5, metalness:0.8});
+  for (const [lx, lz] of [[-2.4, 4.3],[2.4, 4.3],[-6.5, 0.5]]) {
+    mesh(new THREE.CylinderGeometry(0.035, 0.055, 4.0, 12), lampPostM, lx, 2.0, lz);
+    mesh(new THREE.CylinderGeometry(0.12, 0.04, 0.5, 8), lampPostM, lx, 4.1, lz);
+    mesh(new THREE.SphereGeometry(0.13, 14, 14), glowW, lx, 4.4, lz);
+    const lgt = new THREE.PointLight(0xFFCC44, 2.2, 9);
+    lgt.position.set(lx, 4.4, lz);
+    scene.add(lgt);
+  }
+
+  // ── Interior glow through windows ─────────────────────
+  const intLight1 = new THREE.PointLight(0xFFCC88, 1.5, 8);
+  intLight1.position.set(2.4, 1.8, 2.0);
+  scene.add(intLight1);
+  const intLight2 = new THREE.PointLight(0xFFDD99, 1.2, 7);
+  intLight2.position.set(-2.4, 1.8, 1.5);
+  scene.add(intLight2);
+  const intLight3 = new THREE.PointLight(0xFFCC88, 1.0, 7);
+  intLight3.position.set(0, 4.6, 1.5);
+  scene.add(intLight3);
+
+  // ── Floating particles ────────────────────────────────
+  const pCount = 180;
+  const pPos = new Float32Array(pCount * 3);
+  for (let i = 0; i < pCount; i++) {
+    pPos[i*3]   = (Math.random() - 0.5) * 50;
+    pPos[i*3+1] = Math.random() * 18;
+    pPos[i*3+2] = (Math.random() - 0.5) * 40;
+  }
+  const pGeo = new THREE.BufferGeometry();
   pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
-  const particles = new THREE.Points(pGeo, new THREE.PointsMaterial({
-    color: 0xC9A84C, size: 0.06, transparent: true, opacity: 0.5
-  }));
+  const particles = new THREE.Points(pGeo, new THREE.PointsMaterial({ color: 0xC9A84C, size: 0.07, transparent: true, opacity: 0.45 }));
   scene.add(particles);
 
   // Stars
-  const starCount = 300;
-  const sGeo = new THREE.BufferGeometry();
-  const sPos = new Float32Array(starCount * 3);
-  for (let i = 0; i < starCount; i++) {
-    sPos[i*3]   = (Math.random() - 0.5) * 200;
-    sPos[i*3+1] = 15 + Math.random() * 60;
-    sPos[i*3+2] = (Math.random() - 0.5) * 200;
+  const sCount = 400;
+  const sPos = new Float32Array(sCount * 3);
+  for (let i = 0; i < sCount; i++) {
+    sPos[i*3]   = (Math.random() - 0.5) * 300;
+    sPos[i*3+1] = 20 + Math.random() * 100;
+    sPos[i*3+2] = (Math.random() - 0.5) * 300;
   }
+  const sGeo = new THREE.BufferGeometry();
   sGeo.setAttribute('position', new THREE.BufferAttribute(sPos, 3));
-  scene.add(new THREE.Points(sGeo, new THREE.PointsMaterial({
-    color: 0xffffff, size: 0.12, transparent: true, opacity: 0.6
-  })));
+  scene.add(new THREE.Points(sGeo, new THREE.PointsMaterial({ color: 0xffffff, size: 0.15, transparent: true, opacity: 0.55 })));
 
-  // Mouse parallax
-  let mx = 0, my = 0, tx = 0, ty = 0;
+  // ── Animation ─────────────────────────────────────────
+  let mx=0, my=0, tx=0, ty=0, t=0;
   document.addEventListener('mousemove', e => {
     mx = (e.clientX / window.innerWidth - 0.5) * 2;
     my = (e.clientY / window.innerHeight - 0.5) * 2;
   });
 
-  let t = 0;
-  function animate() {
+  const lampLights = scene.children.filter(c => c.isPointLight && c.position.y > 3.5);
+  const intLights = [intLight1, intLight2, intLight3];
+
+  (function animate() {
     requestAnimationFrame(animate);
-    t += 0.006;
+    t += 0.005;
+    tx += (mx - tx) * 0.035;
+    ty += (my - ty) * 0.035;
 
-    tx += (mx - tx) * 0.04;
-    ty += (my - ty) * 0.04;
+    camera.position.x = 9 + tx * 2.0 + Math.sin(t * 0.2) * 0.4;
+    camera.position.y = 7 - ty * 1.0 + Math.cos(t * 0.15) * 0.2;
+    camera.position.z = 16 + Math.sin(t * 0.18) * 0.6;
+    camera.lookAt(0, 2, 0);
 
-    camera.position.x = 8 + tx * 1.5 + Math.sin(t * 0.3) * 0.3;
-    camera.position.y = 6 - ty * 0.8 + Math.sin(t * 0.2) * 0.2;
-    camera.position.z = 14 + Math.cos(t * 0.25) * 0.5;
-    camera.lookAt(0, 1.5, 0);
+    particles.rotation.y = t * 0.03;
+    particles.position.y = Math.sin(t * 0.4) * 0.1;
 
-    particles.rotation.y = t * 0.04;
-    particles.position.y = Math.sin(t * 0.5) * 0.15;
-
-    lampGlow.intensity = 1.8 + Math.sin(t * 2) * 0.15;
-    sunLight.intensity = 2.5 + Math.sin(t * 0.4) * 0.3;
+    // Flicker lamps gently
+    lampLights.forEach((l, i) => { l.intensity = 2.2 + Math.sin(t * 1.5 + i) * 0.2; });
+    intLights.forEach((l, i) => { l.intensity = 1.2 + Math.sin(t * 0.8 + i * 0.7) * 0.1; });
+    sun.intensity = 3.0 + Math.sin(t * 0.3) * 0.3;
 
     renderer.render(scene, camera);
-  }
-  animate();
+  })();
 })();
 
-// ─── LISTING CARDS ──────────────────────────────────────────────────────────
-const listings = [
-  { price:'$3,850,000', addr:'421 Sunset Ridge Drive', loc:'Beverly Hills, CA 90210', bed:5, bath:6, sqft:'6,200', type:'buy', agent:'JM', agentName:'James Monroe', label:'For Sale' },
-  { price:'$2,175,000', addr:'88 Oceanview Terrace', loc:'Malibu, CA 90265', bed:4, bath:4, sqft:'3,900', type:'buy', agent:'SC', agentName:'Sofia Chen', label:'For Sale' },
-  { price:'$14,500/mo', addr:'1205 Pacific Crest Lane', loc:'Santa Monica, CA 90402', bed:3, bath:3, sqft:'2,800', type:'rent', agent:'NK', agentName:'Natalie Kim', label:'For Rent' },
-  { price:'$5,200,000', addr:'300 Hillcrest Estates', loc:'Bel Air, CA 90077', bed:7, bath:8, sqft:'9,400', type:'buy', agent:'RB', agentName:'Robert Blake', label:'For Sale' },
-  { price:'$1,650,000', addr:'52 Garden View Court', loc:'Pasadena, CA 91101', bed:4, bath:3, sqft:'3,100', type:'sold', agent:'JM', agentName:'James Monroe', label:'Sold' },
-  { price:'$8,750/mo', addr:'620 Marina Boulevard', loc:'Marina del Rey, CA 90292', bed:2, bath:2, sqft:'1,950', type:'rent', agent:'SC', agentName:'Sofia Chen', label:'For Rent' },
+// ═══════════════════════════════════════════════════════
+//  LISTINGS DATA + RENDER
+// ═══════════════════════════════════════════════════════
+const LISTINGS = [
+  {
+    price: '$3,850,000', addr: '421 Sunset Ridge Drive', city: 'Beverly Hills, CA 90210',
+    bed: 5, bath: 6, sqft: '6,200', type: 'buy', badge: 'For Sale', badgeClass: 'badge-sale',
+    agent: 'JM', agentName: 'James Monroe',
+    img: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800&q=80&auto=format'
+  },
+  {
+    price: '$2,175,000', addr: '88 Oceanview Terrace', city: 'Malibu, CA 90265',
+    bed: 4, bath: 4, sqft: '3,900', type: 'buy', badge: 'For Sale', badgeClass: 'badge-sale',
+    agent: 'SC', agentName: 'Sofia Chen',
+    img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80&auto=format'
+  },
+  {
+    price: '$14,500/mo', addr: '1205 Pacific Crest Lane', city: 'Santa Monica, CA 90402',
+    bed: 3, bath: 3, sqft: '2,800', type: 'rent', badge: 'For Rent', badgeClass: 'badge-rent',
+    agent: 'NK', agentName: 'Natalie Kim',
+    img: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80&auto=format'
+  },
+  {
+    price: '$5,200,000', addr: '300 Hillcrest Estates', city: 'Bel Air, CA 90077',
+    bed: 7, bath: 8, sqft: '9,400', type: 'buy', badge: 'For Sale', badgeClass: 'badge-sale',
+    agent: 'RB', agentName: 'Robert Blake',
+    img: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80&auto=format'
+  },
+  {
+    price: '$1,650,000', addr: '52 Garden View Court', city: 'Pasadena, CA 91101',
+    bed: 4, bath: 3, sqft: '3,100', type: 'sold', badge: 'Sold', badgeClass: 'badge-sold',
+    agent: 'JM', agentName: 'James Monroe',
+    img: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80&auto=format'
+  },
+  {
+    price: '$8,750/mo', addr: '620 Marina Boulevard', city: 'Marina del Rey, CA 90292',
+    bed: 2, bath: 2, sqft: '1,950', type: 'rent', badge: 'For Rent', badgeClass: 'badge-rent',
+    agent: 'SC', agentName: 'Sofia Chen',
+    img: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80&auto=format'
+  }
 ];
 
-// Mini canvas house thumbnails
-function drawListingThumb(canvas, colors) {
-  const ctx = canvas.getContext('2d');
-  const w = canvas.width, h = canvas.height;
-  // Sky gradient
-  const sky = ctx.createLinearGradient(0, 0, 0, h);
-  sky.addColorStop(0, '#0D0D14');
-  sky.addColorStop(1, '#1A1A24');
-  ctx.fillStyle = sky; ctx.fillRect(0, 0, w, h);
-
-  // Stars
-  ctx.fillStyle = 'rgba(255,255,255,0.6)';
-  for (let i = 0; i < 30; i++) {
-    ctx.beginPath(); ctx.arc(Math.random()*w, Math.random()*(h*0.6), 0.8, 0, Math.PI*2); ctx.fill();
-  }
-
-  const cx = w/2, base = h * 0.72;
-
-  // Ground
-  const ground = ctx.createLinearGradient(0, base, 0, h);
-  ground.addColorStop(0, '#111118'); ground.addColorStop(1, '#0A0A0D');
-  ctx.fillStyle = ground; ctx.fillRect(0, base, w, h - base);
-
-  // House body
-  ctx.fillStyle = colors.wall;
-  ctx.fillRect(cx-60, base-70, 120, 70);
-
-  // Roof
-  ctx.fillStyle = colors.roof;
-  ctx.beginPath(); ctx.moveTo(cx-70, base-70); ctx.lineTo(cx, base-115); ctx.lineTo(cx+70, base-70); ctx.closePath(); ctx.fill();
-
-  // Gold roof trim
-  ctx.fillStyle = '#C9A84C';
-  ctx.fillRect(cx-63, base-72, 126, 4);
-
-  // Windows
-  ctx.fillStyle = 'rgba(100,150,220,0.5)';
-  ctx.fillRect(cx-42, base-58, 28, 22);
-  ctx.fillRect(cx+14, base-58, 28, 22);
-  // Window light glow
-  ctx.fillStyle = 'rgba(255,220,100,0.15)';
-  ctx.fillRect(cx-42, base-58, 28, 22);
-
-  // Door
-  ctx.fillStyle = '#0A0A0C'; ctx.fillRect(cx-12, base-32, 24, 32);
-  ctx.fillStyle = '#C9A84C'; ctx.beginPath(); ctx.arc(cx+7, base-16, 2.5, 0, Math.PI*2); ctx.fill();
-
-  // Doorstep
-  ctx.fillStyle = '#8B6914'; ctx.fillRect(cx-16, base-2, 32, 4);
-
-  // Lamppost
-  ctx.strokeStyle = '#8B6914'; ctx.lineWidth = 2;
-  ctx.beginPath(); ctx.moveTo(cx+80, base); ctx.lineTo(cx+80, base-50); ctx.stroke();
-  ctx.fillStyle = '#FFDD44';
-  ctx.beginPath(); ctx.arc(cx+80, base-50, 5, 0, Math.PI*2); ctx.fill();
-  // Glow
-  const glow = ctx.createRadialGradient(cx+80, base-50, 0, cx+80, base-50, 20);
-  glow.addColorStop(0, 'rgba(255,220,60,0.3)'); glow.addColorStop(1, 'transparent');
-  ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(cx+80, base-50, 20, 0, Math.PI*2); ctx.fill();
-
-  // Trees
-  ctx.fillStyle = '#1A2818';
-  for (let [tx, ty] of [[cx-90, base-50],[cx+90, base-50]]) {
-    ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(tx-14, base); ctx.lineTo(tx+14, base); ctx.closePath(); ctx.fill();
-  }
-}
-
-const colorVariants = [
-  { wall:'#1C1C22', roof:'#0D0D10' },
-  { wall:'#1A1820', roof:'#111014' },
-  { wall:'#18181E', roof:'#0F0F12' },
-  { wall:'#1E1C1A', roof:'#121010' },
-  { wall:'#1A1C20', roof:'#0D0E12' },
-  { wall:'#1C1A18', roof:'#100E0C' },
-];
-
-function renderListings(filter) {
-  const grid = document.getElementById('listings-grid');
-  grid.innerHTML = '';
-  const filtered = filter === 'all' ? listings : listings.filter(l => l.type === filter);
-  filtered.forEach((l, i) => {
-    const card = document.createElement('div');
-    card.className = 'listing-card fade-up';
-    card.style.transitionDelay = (i * 0.08) + 's';
-    card.innerHTML = `
-      <div class="listing-img">
-        <canvas width="400" height="260" id="lcanvas-${i}"></canvas>
-        <div class="listing-badge ${l.type==='sold'?'sold':''}">${l.label}</div>
+function renderListings(f) {
+  const grid = document.getElementById('lgrid');
+  const data = f === 'all' ? LISTINGS : LISTINGS.filter(l => l.type === f);
+  grid.innerHTML = data.map((l, i) => `
+    <div class="lcard fade-up" style="transition-delay:${i*0.08}s">
+      <div class="lcard-img">
+        <img src="${l.img}" alt="${l.addr}" loading="lazy">
+        <div class="lcard-badge ${l.badgeClass}">${l.badge}</div>
       </div>
-      <div class="listing-body">
-        <div class="listing-price">${l.price}</div>
-        <div class="listing-address">${l.addr}</div>
-        <div class="listing-location">${l.loc}</div>
-        <div class="listing-specs">
-          <div class="spec"><strong>${l.bed}</strong> Beds</div>
-          <div class="spec"><strong>${l.bath}</strong> Baths</div>
-          <div class="spec"><strong>${l.sqft}</strong> sq ft</div>
+      <div class="lcard-body">
+        <div class="lcard-price">${l.price}</div>
+        <div class="lcard-addr">${l.addr}</div>
+        <div class="lcard-city">${l.city}</div>
+        <div class="lcard-specs">
+          <div class="spec"><strong>${l.bed}</strong>&nbsp;Beds</div>
+          <div class="spec"><strong>${l.bath}</strong>&nbsp;Baths</div>
+          <div class="spec"><strong>${l.sqft}</strong>&nbsp;sq ft</div>
         </div>
       </div>
-      <div class="listing-footer">
+      <div class="lcard-foot">
         <div class="agent-mini">
-          <div class="agent-avatar">${l.agent}</div>
-          <div class="agent-mini-name">${l.agentName}</div>
+          <div class="av">${l.agent}</div>
+          <div class="av-name">${l.agentName}</div>
         </div>
-        <a class="listing-link" href="#contact">View Details →</a>
-      </div>`;
-    grid.appendChild(card);
-    setTimeout(() => {
-      const c = document.getElementById('lcanvas-' + i);
-      if (c) drawListingThumb(c, colorVariants[i % colorVariants.length]);
-    }, 10);
-  });
-  setTimeout(checkFadeUps, 50);
+        <a class="view-link" href="#contact">View Details →</a>
+      </div>
+    </div>`).join('');
+  setTimeout(checkFade, 50);
 }
 
-function filterListings(type, btn) {
-  document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
+function filter(type, btn) {
+  document.querySelectorAll('.ftab').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
   renderListings(type);
 }
 
-// ─── SCROLL & FADE ───────────────────────────────────────────────────────────
-const navbar = document.getElementById('navbar');
-function checkFadeUps() {
-  document.querySelectorAll('.fade-up:not(.visible)').forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight * 0.92) el.classList.add('visible');
+// ═══════════════════════════════════════════════════════
+//  AGENTS
+// ═══════════════════════════════════════════════════════
+const AGENTS = [
+  { name:'James Monroe', title:'Senior Listing Agent', initials:'JM', sales:142, vol:'$98M', exp:'12yr',
+    img:'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80&auto=format' },
+  { name:'Sofia Chen', title:"Luxury Buyer's Agent", initials:'SC', sales:118, vol:'$74M', exp:'9yr',
+    img:'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&auto=format' },
+  { name:'Robert Blake', title:'Investment Specialist', initials:'RB', sales:203, vol:'$141M', exp:'16yr',
+    img:'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80&auto=format' },
+  { name:'Natalie Kim', title:'Relocation Specialist', initials:'NK', sales:87, vol:'$52M', exp:'7yr',
+    img:'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80&auto=format' }
+];
+
+document.getElementById('agent-grid').innerHTML = AGENTS.map((a, i) => `
+  <div class="acard fade-up" style="transition-delay:${i*0.1}s">
+    <div class="acard-img"><img src="${a.img}" alt="${a.name}" loading="lazy"></div>
+    <div class="acard-body">
+      <div class="acard-name">${a.name}</div>
+      <div class="acard-title">${a.title}</div>
+      <div class="acard-stats">
+        <div class="ast"><div class="ast-n">${a.sales}</div><div class="ast-l">Sales</div></div>
+        <div class="ast"><div class="ast-n">${a.vol}</div><div class="ast-l">Volume</div></div>
+        <div class="ast"><div class="ast-n">${a.exp}</div><div class="ast-l">Exp.</div></div>
+      </div>
+      <button class="acard-btn" onclick="openModal('${a.name}','${a.title}')">Contact Agent</button>
+    </div>
+  </div>`).join('');
+
+// ═══════════════════════════════════════════════════════
+//  SCROLL + FADE
+// ═══════════════════════════════════════════════════════
+function checkFade() {
+  document.querySelectorAll('.fade-up:not(.in)').forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.93) el.classList.add('in');
   });
 }
 window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
-  checkFadeUps();
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+  checkFade();
 }, { passive: true });
 
-// ─── MODAL ───────────────────────────────────────────────────────────────────
-function openModal(name) {
-  document.getElementById('modal-agent-name').textContent = name;
-  document.getElementById('modal-agent-title').textContent = 'Prestige Realty Group';
-  document.getElementById('modal-overlay').classList.add('active');
+// ═══════════════════════════════════════════════════════
+//  MODAL
+// ═══════════════════════════════════════════════════════
+function openModal(name, title) {
+  document.getElementById('modal-name').textContent = name;
+  document.getElementById('moverlay').classList.add('on');
 }
-function closeModal(e) {
-  if (e.target === document.getElementById('modal-overlay')) closeModalDirect();
-}
-function closeModalDirect() {
-  document.getElementById('modal-overlay').classList.remove('active');
-}
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalDirect(); });
+function closeModal(e) { if (e.target.id === 'moverlay') closeModalNow(); }
+function closeModalNow() { document.getElementById('moverlay').classList.remove('on'); }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalNow(); });
 
-// ─── FORM SUBMIT ─────────────────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════
+//  FORM SUBMIT
+// ═══════════════════════════════════════════════════════
 function submitForm(e, type) {
   e.preventDefault();
   const btn = e.target.querySelector('button[type=submit]');
   const orig = btn.textContent;
   btn.textContent = '✓ Message Sent!';
-  btn.style.background = '#2a6a2a';
+  btn.style.background = '#1F5C1F';
   btn.style.color = '#fff';
   setTimeout(() => {
-    btn.textContent = orig;
-    btn.style.background = '';
-    btn.style.color = '';
+    btn.textContent = orig; btn.style.background = ''; btn.style.color = '';
     e.target.reset();
-    if (type === 'agent') closeModalDirect();
-  }, 2800);
+    if (type === 'agent') closeModalNow();
+  }, 3000);
 }
 
-// ─── INIT ────────────────────────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════════════
 renderListings('all');
-setTimeout(checkFadeUps, 100);
+setTimeout(checkFade, 120);
 </script>
 </body>
 </html>
