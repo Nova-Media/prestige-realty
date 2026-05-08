@@ -79,6 +79,12 @@ nav.scrolled {
 @keyframes scroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
 /* ── SECTIONS ── */
+section, .marquee, footer {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
 section { padding: 130px 0; }
 section#hero { padding: 0; }
 .eyebrow { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; font-weight: 500; display: flex; align-items: center; gap: 14px; }
