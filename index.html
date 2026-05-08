@@ -3,449 +3,543 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prestige Realty Group — Luxury Real Estate</title>
+<title>Nova Media Marketing — Lead Generation for Real Estate Agents</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --gold: #C9A84C;
   --gold-light: #E8C96A;
   --gold-dim: #8B6914;
-  --obsidian: #09090B;
-  --obsidian-2: #0F0F12;
-  --obsidian-3: #16161A;
-  --obsidian-4: #1E1E24;
-  --white: #F7F4EE;
+  --dark: #07070A;
+  --dark-2: #0D0D11;
+  --dark-3: #141419;
+  --dark-4: #1C1C22;
+  --white: #F5F2EC;
   --gray: #8A8A96;
-  --gray-dim: #44444E;
-  --max: 1280px;
+  --gray-dim: #3E3E48;
+  --max: 1500px;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { background: var(--obsidian); color: var(--white); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+body { background: var(--dark); color: var(--white); font-family: 'Inter', sans-serif; overflow-x: hidden; }
 ::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--obsidian-2); }
+::-webkit-scrollbar-track { background: var(--dark-2); }
 ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
 
-.container { max-width: var(--max); margin: 0 auto; padding: 0 60px; }
+.container { max-width: var(--max); margin: 0 auto; padding: 0 80px; }
 
-/* NAV */
+/* ── NAV ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  padding: 24px 0; transition: all 0.5s;
+  padding: 22px 0; transition: all 0.4s;
 }
 nav.scrolled {
-  background: rgba(9,9,11,0.95);
+  background: rgba(7,7,10,0.97);
   padding: 14px 0;
-  border-bottom: 1px solid rgba(201,168,76,0.15);
+  border-bottom: 1px solid rgba(201,168,76,0.12);
   backdrop-filter: blur(24px);
 }
-.nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 60px; display: flex; align-items: center; justify-content: space-between; }
-.nav-logo { display: flex; align-items: center; text-decoration: none; }
-.nav-logo img { height: 44px; width: auto; filter: brightness(0) invert(1); transition: opacity 0.3s; }
-.nav-logo img:hover { opacity: 0.8; }
-.nav-links { display: flex; gap: 40px; list-style: none; }
-.nav-links a { color: var(--gray); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; transition: color 0.3s; }
+.nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 80px; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo img { height: 42px; width: auto; filter: brightness(0) invert(1); }
+.nav-links { display: flex; gap: 44px; list-style: none; }
+.nav-links a { color: var(--gray); text-decoration: none; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500; transition: color 0.3s; }
 .nav-links a:hover { color: var(--gold); }
-.nav-cta { border: 1px solid var(--gold); color: var(--gold); padding: 10px 26px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: all 0.3s; font-weight: 500; }
-.nav-cta:hover { background: var(--gold); color: var(--obsidian); }
+.nav-cta { background: var(--gold); color: var(--dark); padding: 11px 30px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
 
-/* HERO */
-#hero { position: relative; width: 100%; height: 100vh; min-height: 700px; display: flex; align-items: center; overflow: hidden; }
+/* ── HERO ── */
+#hero { position: relative; width: 100%; height: 100vh; min-height: 700px; display: flex; align-items: center; justify-content: center; overflow: hidden; text-align: center; }
 #hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(120deg, rgba(9,9,11,0.88) 0%, rgba(9,9,11,0.35) 50%, rgba(9,9,11,0.6) 100%); }
-.hero-content { position: relative; z-index: 2; max-width: var(--max); margin: 0 auto; padding: 0 60px; width: 100%; }
-.hero-eyebrow { font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 14px; font-weight: 500; }
-.hero-eyebrow::before { content:''; display:block; width:36px; height:1px; background:var(--gold); }
-.hero-h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(50px, 5.8vw, 88px); font-weight: 300; line-height: 1.06; margin-bottom: 24px; letter-spacing: -1px; max-width: 660px; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7,7,10,0.75) 0%, rgba(7,7,10,0.45) 40%, rgba(7,7,10,0.80) 100%); }
+.hero-content { position: relative; z-index: 2; width: 100%; padding: 0 80px; display: flex; flex-direction: column; align-items: center; }
+.hero-eyebrow { font-size: 11px; letter-spacing: 6px; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; font-weight: 500; display: flex; align-items: center; gap: 16px; }
+.hero-eyebrow::before, .hero-eyebrow::after { content:''; display:block; width:48px; height:1px; background:var(--gold); }
+.hero-h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(56px, 7.5vw, 120px); font-weight: 300; line-height: 1.0; margin-bottom: 28px; letter-spacing: -2px; max-width: 1100px; }
 .hero-h1 em { color: var(--gold); font-style: italic; }
-.hero-sub { font-size: 15px; color: var(--gray); line-height: 1.85; margin-bottom: 48px; max-width: 460px; font-weight: 300; }
-.hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
-.btn-gold { background: var(--gold); color: var(--obsidian); padding: 15px 42px; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 600; border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; }
-.btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
-.btn-ghost { background: transparent; color: var(--white); padding: 15px 42px; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 500; border: 1px solid rgba(255,255,255,0.22); cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; }
+.hero-h1 strong { font-weight: 600; }
+.hero-sub { font-size: clamp(15px, 1.2vw, 18px); color: rgba(245,242,236,0.7); line-height: 1.8; margin-bottom: 52px; max-width: 620px; font-weight: 300; }
+.hero-btns { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+.btn-gold { background: var(--gold); color: var(--dark); padding: 18px 52px; font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 700; border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; }
+.btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(201,168,76,0.25); }
+.btn-ghost { background: transparent; color: var(--white); padding: 18px 52px; font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 500; border: 1px solid rgba(255,255,255,0.2); cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; }
 .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
-.hero-stats { position: absolute; bottom: 48px; left: 0; right: 0; z-index: 2; }
-.hero-stats-inner { max-width: var(--max); margin: 0 auto; padding: 0 60px; display: flex; gap: 52px; }
-.stat { border-left: 2px solid var(--gold); padding-left: 18px; }
-.stat-n { font-family: 'Cormorant Garamond', serif; font-size: 34px; color: var(--gold); font-weight: 400; line-height: 1; }
-.stat-l { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-top: 6px; font-weight: 400; }
+.hero-stats { position: absolute; bottom: 0; left: 0; right: 0; z-index: 2; background: linear-gradient(0deg, rgba(7,7,10,0.95) 0%, transparent 100%); padding: 32px 0; }
+.hero-stats-inner { max-width: var(--max); margin: 0 auto; padding: 0 80px; display: flex; justify-content: center; gap: 80px; }
+.stat { text-align: center; }
+.stat-n { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 3vw, 48px); color: var(--gold); font-weight: 400; line-height: 1; }
+.stat-l { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-top: 8px; font-weight: 400; }
 
-/* scroll hint */
-.scroll-hint { position: absolute; bottom: 52px; right: 60px; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.6; }
-.scroll-hint span { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); }
-.scroll-arrow { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); animation: arrowPulse 2s ease-in-out infinite; }
-@keyframes arrowPulse { 0%,100%{opacity:0.4;transform:scaleY(0.8)} 50%{opacity:1;transform:scaleY(1)} }
-
-/* MARQUEE */
-.marquee { background: var(--gold); padding: 12px 0; overflow: hidden; white-space: nowrap; }
-.marquee-track { display: inline-block; animation: scroll 28s linear infinite; }
-.marquee-track span { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--obsidian); padding: 0 32px; font-weight: 600; }
-.marquee-track span::after { content:'◆'; margin-left:32px; font-size:7px; }
+/* ── MARQUEE ── */
+.marquee { background: var(--gold); padding: 14px 0; overflow: hidden; white-space: nowrap; }
+.marquee-track { display: inline-block; animation: scroll 32s linear infinite; }
+.marquee-track span { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--dark); padding: 0 36px; font-weight: 700; }
+.marquee-track span::after { content:'◆'; margin-left:36px; font-size:7px; }
 @keyframes scroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
-/* SECTIONS */
-section { padding: 120px 0; }
-.eyebrow { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: flex; align-items: center; gap: 14px; font-weight: 500; }
+/* ── SECTIONS ── */
+section { padding: 130px 0; }
+.eyebrow { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; font-weight: 500; display: flex; align-items: center; gap: 14px; }
 .eyebrow::before { content:''; display:block; width:32px; height:1px; background:var(--gold); }
-.eyebrow-center { justify-content: center; }
-.eyebrow-center::before { display:none; }
-.section-h { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 3.2vw, 52px); font-weight: 300; line-height: 1.12; margin-bottom: 16px; }
-.section-p { font-size: 15px; color: var(--gray); line-height: 1.85; max-width: 520px; font-weight: 300; }
-.text-center { text-align: center; }
+.eyebrow-c { justify-content: center; }
+.eyebrow-c::before { display:none; }
+.section-h { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 3.8vw, 64px); font-weight: 300; line-height: 1.08; margin-bottom: 18px; }
+.section-p { font-size: 16px; color: var(--gray); line-height: 1.85; max-width: 560px; font-weight: 300; }
+.tc { text-align: center; }
 .mx-auto { margin-left: auto; margin-right: auto; }
 
-/* SERVICES */
-#services { background: var(--obsidian-2); }
-.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(201,168,76,0.07); margin-top: 60px; }
-.svc-card { background: var(--obsidian-2); padding: 48px 40px; border: 1px solid transparent; transition: all 0.4s; position: relative; overflow: hidden; }
-.svc-card::after { content:''; position:absolute; bottom:0; left:0; width:0; height:2px; background:var(--gold); transition:width 0.4s; }
-.svc-card:hover { background: var(--obsidian-3); border-color: rgba(201,168,76,0.1); }
-.svc-card:hover::after { width:100%; }
-.svc-num { font-family: 'Cormorant Garamond', serif; font-size: 44px; color: rgba(201,168,76,0.12); line-height: 1; margin-bottom: 20px; font-weight: 300; }
-.svc-icon { font-size: 26px; margin-bottom: 16px; }
-.svc-title { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 400; margin-bottom: 12px; }
-.svc-text { font-size: 13px; color: var(--gray); line-height: 1.8; font-weight: 300; }
+/* ── SERVICES ── */
+#services { background: var(--dark-2); }
+.services-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: end; margin-bottom: 80px; }
+.services-intro .section-p { max-width: 100%; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(201,168,76,0.06); }
+.svc-card { background: var(--dark-2); padding: 52px 48px; transition: all 0.4s; position: relative; overflow: hidden; cursor: default; }
+.svc-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:var(--gold); transform:scaleX(0); transform-origin:left; transition:transform 0.4s; }
+.svc-card:hover { background: var(--dark-3); }
+.svc-card:hover::before { transform:scaleX(1); }
+.svc-num { font-family: 'Cormorant Garamond', serif; font-size: 52px; color: rgba(201,168,76,0.1); line-height: 1; margin-bottom: 22px; font-weight: 300; }
+.svc-title { font-size: 18px; font-weight: 600; margin-bottom: 14px; letter-spacing: -0.3px; }
+.svc-text { font-size: 14px; color: var(--gray); line-height: 1.8; font-weight: 300; }
+.svc-tag { display: inline-block; margin-top: 20px; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(201,168,76,0.3); padding: 4px 12px; font-weight: 500; }
 
-/* LISTINGS */
-#listings { background: var(--obsidian); }
-.listings-top { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 52px; gap: 24px; flex-wrap: wrap; }
-.filters { display: flex; gap: 4px; }
-.ftab { background: transparent; border: 1px solid var(--gray-dim); color: var(--gray); padding: 9px 22px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.3s; font-weight: 500; font-family: 'Inter', sans-serif; }
-.ftab.on, .ftab:hover { background: var(--gold); border-color: var(--gold); color: var(--obsidian); }
-.listings-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.lcard { background: var(--obsidian-3); overflow: hidden; transition: all 0.4s; cursor: pointer; box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
-.lcard:hover { transform: translateY(-8px); box-shadow: 0 28px 64px rgba(0,0,0,0.55), 0 0 0 1px rgba(201,168,76,0.3); }
-.lcard-img { width: 100%; height: 250px; position: relative; overflow: hidden; }
-.lcard-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s; filter: brightness(0.85); }
-.lcard:hover .lcard-img img { transform: scale(1.07); filter: brightness(1); }
-.lcard-badge { position: absolute; top: 14px; left: 14px; padding: 5px 12px; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
-.badge-sale { background: var(--gold); color: var(--obsidian); }
-.badge-rent { background: #1E4A7A; color: #A8C8F0; }
-.badge-sold { background: rgba(60,60,60,0.9); color: #888; }
-.lcard-body { padding: 26px; }
-.lcard-price { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: var(--gold); font-weight: 400; margin-bottom: 5px; }
-.lcard-addr { font-size: 13px; font-weight: 500; margin-bottom: 3px; }
-.lcard-city { font-size: 12px; color: var(--gray); margin-bottom: 18px; font-weight: 300; }
-.lcard-specs { display: flex; gap: 20px; padding-top: 16px; border-top: 1px solid rgba(201,168,76,0.08); }
-.spec { font-size: 11px; color: var(--gray); display: flex; align-items: center; gap: 4px; }
-.spec strong { color: var(--white); font-size: 13px; font-weight: 500; }
-.lcard-foot { display: flex; align-items: center; justify-content: space-between; padding: 12px 26px; border-top: 1px solid rgba(255,255,255,0.04); }
-.agent-mini { display: flex; align-items: center; gap: 10px; }
-.av { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--gold-dim), var(--gold)); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--obsidian); font-weight: 700; flex-shrink: 0; }
-.av-name { font-size: 11px; color: var(--gray); font-weight: 400; }
-.view-link { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); text-decoration: none; font-weight: 500; transition: color 0.3s; }
-.view-link:hover { color: var(--gold-light); }
+/* ── RESULTS BANNER ── */
+#results { background: var(--dark); padding: 100px 0; }
+.results-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid rgba(201,168,76,0.12); }
+.res-item { padding: 56px 48px; border-right: 1px solid rgba(201,168,76,0.12); text-align: center; transition: background 0.3s; }
+.res-item:last-child { border-right: none; }
+.res-item:hover { background: var(--dark-2); }
+.res-n { font-family: 'Cormorant Garamond', serif; font-size: clamp(44px, 4vw, 72px); color: var(--gold); font-weight: 400; line-height: 1; margin-bottom: 12px; }
+.res-l { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); font-weight: 400; line-height: 1.6; }
 
-/* VALUATION */
-#valuation { background: var(--obsidian-2); position: relative; overflow: hidden; }
-#valuation::before { content:''; position:absolute; top:-300px; right:-300px; width:700px; height:700px; border-radius:50%; background:radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%); pointer-events:none; }
-.val-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
-.val-features { margin-top: 40px; display: flex; flex-direction: column; gap: 26px; }
-.val-feat { display: flex; gap: 18px; align-items: flex-start; }
-.val-feat-line { width: 2px; height: 48px; background: var(--gold); flex-shrink: 0; margin-top: 3px; }
-.val-feat-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
-.val-feat-text { font-size: 13px; color: var(--gray); line-height: 1.7; font-weight: 300; }
-.form-card { background: var(--obsidian-3); padding: 48px; box-shadow: 0 8px 48px rgba(0,0,0,0.4); }
-.form-card-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; margin-bottom: 5px; }
-.form-card-sub { font-size: 10px; letter-spacing: 2px; color: var(--gold); margin-bottom: 32px; font-weight: 500; }
-.fg { margin-bottom: 18px; }
-.fg label { display: block; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; font-weight: 500; }
-.fg input, .fg select, .fg textarea { width: 100%; background: var(--obsidian-4); border: 1px solid rgba(201,168,76,0.15); color: var(--white); padding: 12px 14px; font-family: 'Inter', sans-serif; font-size: 13px; outline: none; transition: border-color 0.3s; appearance: none; font-weight: 300; }
-.fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--gold); }
-.fg textarea { resize: vertical; min-height: 100px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.fg select option { background: var(--obsidian-3); }
-.btn-full { width: 100%; margin-top: 6px; }
+/* ── WHY US ── */
+#why { background: var(--dark-2); }
+.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 120px; align-items: center; }
+.why-visual { position: relative; }
+.why-img-block { background: var(--dark-3); aspect-ratio: 4/3; position: relative; overflow: hidden; }
+.why-img-block::after { content:''; position:absolute; inset:0; background: linear-gradient(135deg, rgba(201,168,76,0.08) 0%, transparent 60%); }
+.why-accent { position: absolute; bottom: -24px; right: -24px; width: 180px; height: 180px; border: 1px solid rgba(201,168,76,0.2); z-index: -1; }
+.why-accent-2 { position: absolute; top: -24px; left: -24px; width: 120px; height: 120px; background: rgba(201,168,76,0.04); z-index: -1; }
+.big-stat { padding: 40px 48px; background: var(--dark); border-left: 3px solid var(--gold); margin-top: 32px; }
+.big-stat-n { font-family: 'Cormorant Garamond', serif; font-size: 56px; color: var(--gold); font-weight: 400; line-height: 1; }
+.big-stat-l { font-size: 13px; color: var(--gray); margin-top: 6px; font-weight: 300; }
+.why-points { display: flex; flex-direction: column; gap: 32px; margin-top: 44px; }
+.why-point { display: flex; gap: 22px; align-items: flex-start; }
+.why-point-num { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: rgba(201,168,76,0.25); line-height: 1; flex-shrink: 0; width: 40px; font-weight: 300; }
+.why-point-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; letter-spacing: -0.2px; }
+.why-point-text { font-size: 14px; color: var(--gray); line-height: 1.75; font-weight: 300; }
 
-/* PROCESS */
-#process { background: var(--obsidian); }
-.process-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin-top: 72px; position: relative; }
-.process-grid::before { content:''; position:absolute; top:44px; left:10%; right:10%; height:1px; background:linear-gradient(90deg, transparent, rgba(201,168,76,0.3) 20%, rgba(201,168,76,0.3) 80%, transparent); z-index:0; }
-.pstep { text-align: center; padding: 0 16px; position: relative; z-index: 1; }
-.pnum { width: 84px; height: 84px; border: 1px solid rgba(201,168,76,0.5); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; background: var(--obsidian); }
-.pnum span { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--gold); font-style: italic; font-weight: 300; }
-.pstep h3 { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 400; margin-bottom: 10px; }
-.pstep p { font-size: 12px; color: var(--gray); line-height: 1.75; font-weight: 300; }
+/* ── PROCESS ── */
+#process { background: var(--dark); }
+.process-header { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 80px; }
+.process-steps { display: grid; grid-template-columns: repeat(5, 1fr); position: relative; }
+.process-line { position: absolute; top: 36px; left: 8%; right: 8%; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,168,76,0.25) 20%, rgba(201,168,76,0.25) 80%, transparent); }
+.pstep { text-align: center; padding: 0 20px; position: relative; z-index: 1; }
+.pnum { width: 72px; height: 72px; border: 1px solid rgba(201,168,76,0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; background: var(--dark); }
+.pnum span { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--gold); font-style: italic; font-weight: 300; }
+.pstep h3 { font-size: 15px; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.2px; }
+.pstep p { font-size: 13px; color: var(--gray); line-height: 1.75; font-weight: 300; }
 
-/* TESTIMONIALS */
-#testimonials { background: var(--obsidian-2); }
-.tgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
-.tcard { background: var(--obsidian-3); padding: 40px 36px; transition: all 0.3s; position: relative; }
-.tcard:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(0,0,0,0.4), 0 0 0 1px rgba(201,168,76,0.2); }
-.tcard-quote { font-family: 'Cormorant Garamond', serif; font-size: 64px; color: var(--gold); opacity: 0.15; line-height: 0.6; margin-bottom: 20px; }
-.stars { color: var(--gold); font-size: 12px; letter-spacing: 3px; margin-bottom: 16px; }
-.tcard-text { font-family: 'Cormorant Garamond', serif; font-size: 16px; line-height: 1.8; color: var(--white); font-style: italic; margin-bottom: 28px; font-weight: 300; }
-.tcard-author { display: flex; align-items: center; gap: 12px; }
-.tav { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, var(--gold-dim), var(--gold)); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--obsidian); flex-shrink: 0; }
-.tav-name { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
+/* ── TESTIMONIALS ── */
+#testimonials { background: var(--dark-2); }
+.test-header { margin-bottom: 72px; }
+.tgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(201,168,76,0.05); }
+.tcard { background: var(--dark-2); padding: 52px 48px; transition: all 0.3s; }
+.tcard:hover { background: var(--dark-3); }
+.stars { color: var(--gold); font-size: 13px; letter-spacing: 3px; margin-bottom: 22px; }
+.tcard-text { font-family: 'Cormorant Garamond', serif; font-size: 18px; line-height: 1.78; color: var(--white); font-style: italic; margin-bottom: 36px; font-weight: 300; }
+.tcard-author { display: flex; align-items: center; gap: 16px; padding-top: 28px; border-top: 1px solid rgba(201,168,76,0.08); }
+.tav { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--gold-dim), var(--gold)); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: var(--dark); flex-shrink: 0; }
+.tav-name { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
 .tav-detail { font-size: 11px; color: var(--gold); letter-spacing: 1px; font-weight: 400; }
+.tcard-result { display: inline-block; margin-bottom: 22px; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.2); padding: 5px 14px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 600; }
 
-/* AGENTS */
-#agents { background: var(--obsidian); }
-.agent-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 60px; }
-.acard { background: var(--obsidian-3); overflow: hidden; transition: all 0.4s; }
-.acard:hover { transform: translateY(-6px); box-shadow: 0 24px 56px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.25); }
-.acard-img { width: 100%; height: 280px; position: relative; overflow: hidden; }
-.acard-img img { width: 100%; height: 100%; object-fit: cover; object-position: top; filter: brightness(0.85) grayscale(15%); transition: all 0.5s; }
-.acard:hover .acard-img img { filter: brightness(0.95) grayscale(0%); transform: scale(1.04); }
-.acard-body { padding: 24px 22px; text-align: center; }
-.acard-name { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 400; margin-bottom: 4px; }
-.acard-title { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; font-weight: 500; }
-.acard-stats { display: flex; justify-content: center; gap: 20px; padding: 14px 0; border-top: 1px solid rgba(201,168,76,0.08); border-bottom: 1px solid rgba(201,168,76,0.08); margin-bottom: 18px; }
-.ast { text-align: center; }
-.ast-n { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--gold); font-weight: 400; }
-.ast-l { font-size: 9px; color: var(--gray); letter-spacing: 1px; text-transform: uppercase; font-weight: 400; }
-.acard-btn { width: 100%; background: transparent; border: 1px solid var(--gold-dim); color: var(--gold); padding: 9px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.3s; font-family: 'Inter', sans-serif; font-weight: 500; }
-.acard-btn:hover { background: var(--gold); color: var(--obsidian); }
+/* ── CTA BANNER ── */
+#cta { background: var(--gold); padding: 100px 0; }
+.cta-inner { max-width: var(--max); margin: 0 auto; padding: 0 80px; display: flex; align-items: center; justify-content: space-between; gap: 60px; flex-wrap: wrap; }
+.cta-h { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4vw, 64px); font-weight: 300; color: var(--dark); line-height: 1.08; }
+.cta-h em { font-style: italic; font-weight: 300; }
+.cta-right { display: flex; flex-direction: column; gap: 16px; flex-shrink: 0; }
+.btn-dark { background: var(--dark); color: var(--gold); padding: 18px 52px; font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 700; border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; text-align: center; }
+.btn-dark:hover { background: #111116; transform: translateY(-2px); }
+.cta-note { font-size: 11px; color: rgba(9,9,11,0.55); letter-spacing: 1px; text-align: center; font-weight: 400; }
 
-/* CONTACT */
-#contact { background: var(--obsidian-2); position: relative; overflow: hidden; }
-#contact::after { content:''; position:absolute; bottom:-200px; left:-200px; width:600px; height:600px; border-radius:50%; background:radial-gradient(circle, rgba(201,168,76,0.035) 0%, transparent 70%); pointer-events:none; }
-.contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 100px; align-items: start; }
-.contact-info { padding-top: 10px; }
-.cdet { margin-bottom: 32px; }
-.cdet-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 7px; font-weight: 500; }
-.cdet-val { font-size: 15px; color: var(--white); line-height: 1.65; font-weight: 300; }
+/* ── CONTACT ── */
+#contact { background: var(--dark-2); }
+.contact-wrap { display: grid; grid-template-columns: 1fr 1.6fr; gap: 120px; align-items: start; }
+.contact-info { }
+.cdet { margin-bottom: 36px; }
+.cdet-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; font-weight: 500; }
+.cdet-val { font-size: 16px; color: var(--white); line-height: 1.65; font-weight: 300; }
 .cdet-val a { color: var(--white); text-decoration: none; transition: color 0.3s; }
 .cdet-val a:hover { color: var(--gold); }
-.social { display: flex; gap: 10px; margin-top: 40px; }
-.soc { width: 42px; height: 42px; border: 1px solid var(--gray-dim); display: flex; align-items: center; justify-content: center; color: var(--gray); text-decoration: none; font-size: 13px; transition: all 0.3s; font-weight: 500; }
+.social { display: flex; gap: 10px; margin-top: 48px; }
+.soc { width: 44px; height: 44px; border: 1px solid var(--gray-dim); display: flex; align-items: center; justify-content: center; color: var(--gray); text-decoration: none; font-size: 13px; transition: all 0.3s; font-weight: 500; }
 .soc:hover { border-color: var(--gold); color: var(--gold); }
+.form-card { background: var(--dark-3); padding: 56px; }
+.form-card-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; margin-bottom: 6px; }
+.form-card-sub { font-size: 10px; letter-spacing: 2px; color: var(--gold); margin-bottom: 36px; font-weight: 500; }
+.fg { margin-bottom: 20px; }
+.fg label { display: block; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 9px; font-weight: 500; }
+.fg input, .fg select, .fg textarea { width: 100%; background: var(--dark-4); border: 1px solid rgba(201,168,76,0.12); color: var(--white); padding: 14px 16px; font-family: 'Inter', sans-serif; font-size: 14px; outline: none; transition: border-color 0.3s; appearance: none; font-weight: 300; }
+.fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--gold); }
+.fg textarea { resize: vertical; min-height: 110px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.fg select option { background: var(--dark-3); }
+.btn-full { width: 100%; margin-top: 8px; }
 
-/* FOOTER */
-footer { background: var(--obsidian); border-top: 1px solid rgba(201,168,76,0.08); padding: 72px 0 40px; }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 56px; }
-.footer-logo { display: block; margin-bottom: 16px; }
-.footer-logo img { height: 48px; width: auto; filter: brightness(0) invert(1); opacity: 0.85; }
-.footer-tag { font-size: 13px; color: var(--gray); line-height: 1.8; max-width: 270px; margin-bottom: 20px; font-weight: 300; }
+/* ── FOOTER ── */
+footer { background: var(--dark); border-top: 1px solid rgba(201,168,76,0.08); padding: 80px 0 40px; }
+.footer-grid { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 70px; margin-bottom: 64px; }
+.footer-logo { display: block; margin-bottom: 18px; }
+.footer-logo img { height: 44px; width: auto; filter: brightness(0) invert(1); opacity: 0.85; }
+.footer-tag { font-size: 14px; color: var(--gray); line-height: 1.8; max-width: 300px; margin-bottom: 24px; font-weight: 300; }
 .footer-lic { font-size: 11px; color: var(--gray-dim); line-height: 1.6; font-weight: 300; }
-.fh { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; font-weight: 500; }
+.fh { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; font-weight: 500; }
 .flinks { list-style: none; }
-.flinks li { margin-bottom: 11px; }
+.flinks li { margin-bottom: 12px; }
 .flinks a { font-size: 13px; color: var(--gray); text-decoration: none; transition: color 0.3s; font-weight: 300; }
 .flinks a:hover { color: var(--white); }
-.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.04); flex-wrap: wrap; gap: 14px; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.04); flex-wrap: wrap; gap: 14px; }
 .fcopy { font-size: 11px; color: var(--gray-dim); font-weight: 300; }
-.flegal { display: flex; gap: 22px; }
-.flegal a { font-size: 11px; color: var(--gray-dim); text-decoration: none; transition: color 0.3s; font-weight: 300; }
+.flegal { display: flex; gap: 24px; }
+.flegal a { font-size: 11px; color: var(--gray-dim); text-decoration: none; transition: color 0.3s; }
 .flegal a:hover { color: var(--gold); }
 
-/* MODAL */
+/* ── MODAL ── */
 .moverlay { position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; backdrop-filter: blur(8px); }
 .moverlay.on { opacity: 1; pointer-events: all; }
-.modal { background: var(--obsidian-3); padding: 48px; max-width: 480px; width: 90%; position: relative; transform: translateY(16px); transition: transform 0.3s; box-shadow: 0 32px 80px rgba(0,0,0,0.7); }
+.modal { background: var(--dark-3); padding: 56px; max-width: 520px; width: 90%; position: relative; transform: translateY(16px); transition: transform 0.3s; }
 .moverlay.on .modal { transform: translateY(0); }
-.modal-x { position: absolute; top: 16px; right: 20px; background: none; border: none; color: var(--gray); font-size: 24px; cursor: pointer; line-height: 1; transition: color 0.3s; }
+.modal-x { position: absolute; top: 18px; right: 22px; background: none; border: none; color: var(--gray); font-size: 24px; cursor: pointer; line-height: 1; transition: color 0.3s; }
 .modal-x:hover { color: var(--white); }
-.modal-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; margin-bottom: 5px; }
-.modal-sub { font-size: 10px; letter-spacing: 2px; color: var(--gold); margin-bottom: 30px; font-weight: 500; }
+.modal-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; margin-bottom: 5px; }
+.modal-sub { font-size: 10px; letter-spacing: 2px; color: var(--gold); margin-bottom: 32px; font-weight: 500; }
 
-/* FADE ANIMATION */
-.fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.75s ease, transform 0.75s ease; }
+/* ── SCROLL HINT ── */
+.scroll-hint { position: absolute; bottom: 100px; right: 80px; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.55; }
+.scroll-hint span { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); }
+.scroll-arrow { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); animation: arrowPulse 2s ease-in-out infinite; }
+@keyframes arrowPulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+
+/* ── FADE ── */
+.fade-up { opacity: 0; transform: translateY(22px); transition: opacity 0.75s ease, transform 0.75s ease; }
 .fade-up.in { opacity: 1; transform: translateY(0); }
 
-/* RESPONSIVE */
-@media (max-width: 1100px) {
-  .listings-grid, .tgrid { grid-template-columns: repeat(2, 1fr); }
-  .agent-grid { grid-template-columns: repeat(2, 1fr); }
+/* ── RESPONSIVE ── */
+@media (max-width: 1200px) {
+  .container, .nav-inner, .cta-inner { padding: 0 48px; }
+  .hero-content, .hero-stats-inner { padding: 0 48px; }
+  .why-grid, .contact-wrap, .process-header, .services-intro { grid-template-columns: 1fr; gap: 60px; }
+  .results-grid { grid-template-columns: repeat(2, 1fr); }
+  .tgrid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 44px; }
+  .process-steps { grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  .process-line { display: none; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
-  .val-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
-  .process-grid { grid-template-columns: repeat(3, 1fr); gap: 36px; }
-  .process-grid::before { display: none; }
 }
 @media (max-width: 768px) {
-  .container { padding: 0 22px; }
-  .nav-inner { padding: 0 22px; }
+  .container, .nav-inner, .cta-inner { padding: 0 24px; }
+  .hero-content, .hero-stats-inner { padding: 0 24px; }
   .nav-links { display: none; }
-  section { padding: 72px 0; }
-  .hero-content { padding: 0 22px; }
-  .hero-stats-inner { padding: 0 22px; gap: 24px; flex-wrap: wrap; }
-  .listings-grid, .tgrid, .agent-grid, .services-grid { grid-template-columns: 1fr; }
+  section { padding: 80px 0; }
+  .hero-stats-inner { gap: 32px; flex-wrap: wrap; justify-content: center; }
+  .results-grid, .tgrid, .services-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
-  footer { padding: 48px 0 28px; }
+  footer { padding: 56px 0 28px; }
   .form-row { grid-template-columns: 1fr; }
-  .process-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-steps { grid-template-columns: repeat(2, 1fr); }
+  .cta-inner { flex-direction: column; text-align: center; }
   .scroll-hint { display: none; }
 }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav id="nav">
   <div class="nav-inner">
     <a href="#hero" class="nav-logo"><img src="https://raw.githubusercontent.com/Nova-Media/Nova-Media-Marketing-Webpage/main/logo.png" alt="Nova Media Marketing"></a>
     <ul class="nav-links">
-      <li><a href="#listings">Listings</a></li>
       <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why Us</a></li>
       <li><a href="#process">Process</a></li>
-      <li><a href="#agents">Agents</a></li>
-      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#testimonials">Results</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-    <a href="#contact" class="nav-cta">Contact Us</a>
+    <a href="#contact" class="nav-cta">Book a Call</a>
   </div>
 </nav>
 
+<!-- HERO -->
 <section id="hero">
   <canvas id="hero-canvas"></canvas>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow fade-up">Luxury Real Estate</div>
-    <h1 class="hero-h1 fade-up" style="transition-delay:0.1s">Find Your <em>Dream</em><br>Home Today</h1>
-    <p class="hero-sub fade-up" style="transition-delay:0.2s">We connect discerning buyers and sellers with exceptional properties — delivering white-glove service from first showing to final closing.</p>
+    <div class="hero-eyebrow fade-up">Real Estate Lead Generation</div>
+    <h1 class="hero-h1 fade-up" style="transition-delay:0.1s">
+      We Get Real Estate Agents<br><em>More Leads.</em> <strong>More Closings.</strong>
+    </h1>
+    <p class="hero-sub fade-up" style="transition-delay:0.2s">Nova Media Marketing builds AI-powered lead generation systems exclusively for real estate agents — so you spend less time prospecting and more time closing deals.</p>
     <div class="hero-btns fade-up" style="transition-delay:0.3s">
-      <a href="#listings" class="btn-gold">Browse Listings</a>
-      <a href="#valuation" class="btn-ghost">Get Home Value</a>
+      <a href="#contact" class="btn-gold">Book Your Free Strategy Call</a>
+      <a href="#results" class="btn-ghost">See Our Results</a>
     </div>
   </div>
   <div class="hero-stats">
     <div class="hero-stats-inner">
-      <div class="stat fade-up" style="transition-delay:0.35s"><div class="stat-n">$2.4B+</div><div class="stat-l">Properties Sold</div></div>
-      <div class="stat fade-up" style="transition-delay:0.45s"><div class="stat-n">3,800+</div><div class="stat-l">Happy Clients</div></div>
-      <div class="stat fade-up" style="transition-delay:0.55s"><div class="stat-n">18 Yrs</div><div class="stat-l">Experience</div></div>
-      <div class="stat fade-up" style="transition-delay:0.65s"><div class="stat-n">97%</div><div class="stat-l">Satisfaction</div></div>
+      <div class="stat fade-up" style="transition-delay:0.35s"><div class="stat-n">12,000+</div><div class="stat-l">Leads Delivered</div></div>
+      <div class="stat fade-up" style="transition-delay:0.42s"><div class="stat-n">200+</div><div class="stat-l">Agents Served</div></div>
+      <div class="stat fade-up" style="transition-delay:0.49s"><div class="stat-n">$4.8M+</div><div class="stat-l">Commissions Generated</div></div>
+      <div class="stat fade-up" style="transition-delay:0.56s"><div class="stat-n">94%</div><div class="stat-l">Client Retention Rate</div></div>
     </div>
   </div>
-  <div class="scroll-hint">
-    <span>Scroll</span>
-    <div class="scroll-arrow"></div>
-  </div>
+  <div class="scroll-hint"><span>Scroll</span><div class="scroll-arrow"></div></div>
 </section>
 
+<!-- MARQUEE -->
 <div class="marquee">
   <div class="marquee-track">
-    <span>Luxury Homes</span><span>Expert Agents</span><span>Premium Listings</span><span>Trusted Results</span><span>White-Glove Service</span><span>Top Negotiators</span><span>Market Leaders</span><span>Verified Sales</span>
-    <span>Luxury Homes</span><span>Expert Agents</span><span>Premium Listings</span><span>Trusted Results</span><span>White-Glove Service</span><span>Top Negotiators</span><span>Market Leaders</span><span>Verified Sales</span>
+    <span>Lead Generation</span><span>Meta Ads</span><span>Google Ads</span><span>CRM Automation</span><span>Landing Pages</span><span>Social Media</span><span>Email Marketing</span><span>SMS Campaigns</span>
+    <span>Lead Generation</span><span>Meta Ads</span><span>Google Ads</span><span>CRM Automation</span><span>Landing Pages</span><span>Social Media</span><span>Email Marketing</span><span>SMS Campaigns</span>
   </div>
 </div>
 
+<!-- SERVICES -->
 <section id="services">
   <div class="container">
-    <div class="eyebrow fade-up">What We Offer</div>
-    <h2 class="section-h fade-up">Full-Service Real<br>Estate Excellence</h2>
-    <p class="section-p fade-up">From first consultation to keys in hand, we handle every detail so you can focus on what matters most.</p>
+    <div class="services-intro fade-up">
+      <div>
+        <div class="eyebrow">What We Do</div>
+        <h2 class="section-h">Everything You Need to<br>Dominate Your Market</h2>
+      </div>
+      <div>
+        <p class="section-p">We handle every piece of your marketing so you can stay focused on what you do best — closing. From paid ads to full automation, we build the system and you reap the results.</p>
+      </div>
+    </div>
     <div class="services-grid">
-      <div class="svc-card fade-up"><div class="svc-num">01</div><div class="svc-icon">🏡</div><div class="svc-title">Home Buying</div><p class="svc-text">We guide buyers through every step — market analysis, property tours, offer strategy, inspections, and closing. Your dream home is our mission.</p></div>
-      <div class="svc-card fade-up" style="transition-delay:0.1s"><div class="svc-num">02</div><div class="svc-icon">💰</div><div class="svc-title">Home Selling</div><p class="svc-text">Strategic pricing, professional photography, targeted marketing, and expert negotiation to maximize your sale price and minimize time on market.</p></div>
-      <div class="svc-card fade-up" style="transition-delay:0.2s"><div class="svc-num">03</div><div class="svc-icon">📊</div><div class="svc-title">Home Valuation</div><p class="svc-text">Accurate, data-driven property valuations using local comparables, market trends, and 18+ years of regional expertise. Know what your home is worth today.</p></div>
-      <div class="svc-card fade-up" style="transition-delay:0.3s"><div class="svc-num">04</div><div class="svc-icon">🏢</div><div class="svc-title">Investment Properties</div><p class="svc-text">From multi-family units to commercial real estate, we help investors identify high-yield opportunities and build long-term portfolio value.</p></div>
-      <div class="svc-card fade-up" style="transition-delay:0.4s"><div class="svc-num">05</div><div class="svc-icon">🔑</div><div class="svc-title">Relocation Services</div><p class="svc-text">Moving to a new city? We make relocation seamless with local market insights, neighborhood guides, and a dedicated agent from day one.</p></div>
-      <div class="svc-card fade-up" style="transition-delay:0.5s"><div class="svc-num">06</div><div class="svc-icon">📋</div><div class="svc-title">Property Management</div><p class="svc-text">Let us handle tenant screening, rent collection, maintenance coordination, and lease renewals — hands-free ownership done right.</p></div>
+      <div class="svc-card fade-up">
+        <div class="svc-num">01</div>
+        <div class="svc-title">Lead Generation Campaigns</div>
+        <p class="svc-text">Hyper-targeted ad campaigns on Meta and Google that put your listings and brand in front of qualified buyers and sellers actively looking in your market.</p>
+        <span class="svc-tag">Meta · Google · YouTube</span>
+      </div>
+      <div class="svc-card fade-up" style="transition-delay:0.08s">
+        <div class="svc-num">02</div>
+        <div class="svc-title">Social Media Marketing</div>
+        <p class="svc-text">Done-for-you content creation, posting, and community management that builds your brand, grows your audience, and turns followers into leads.</p>
+        <span class="svc-tag">Instagram · Facebook · TikTok</span>
+      </div>
+      <div class="svc-card fade-up" style="transition-delay:0.16s">
+        <div class="svc-num">03</div>
+        <div class="svc-title">CRM & Lead Automation</div>
+        <p class="svc-text">We build and configure your GoHighLevel CRM with automated follow-up sequences, appointment booking, and pipeline management — so no lead ever falls through the cracks.</p>
+        <span class="svc-tag">GoHighLevel · Automation · CRM</span>
+      </div>
+      <div class="svc-card fade-up" style="transition-delay:0.24s">
+        <div class="svc-num">04</div>
+        <div class="svc-title">High-Converting Landing Pages</div>
+        <p class="svc-text">Custom-designed landing pages and funnels built specifically for real estate lead capture — optimised for mobile, speed, and maximum conversion rate.</p>
+        <span class="svc-tag">Funnels · A/B Testing · Design</span>
+      </div>
+      <div class="svc-card fade-up" style="transition-delay:0.32s">
+        <div class="svc-num">05</div>
+        <div class="svc-title">Email & SMS Marketing</div>
+        <p class="svc-text">Automated nurture sequences that warm up cold leads, re-engage past clients, and keep you top-of-mind until they're ready to buy or sell.</p>
+        <span class="svc-tag">Email · SMS · Drip Campaigns</span>
+      </div>
+      <div class="svc-card fade-up" style="transition-delay:0.40s">
+        <div class="svc-num">06</div>
+        <div class="svc-title">Brand & Listing Marketing</div>
+        <p class="svc-text">Professional video ads, graphic design, and listing promotion packages that make your properties stand out and build a brand agents in your area recognise.</p>
+        <span class="svc-tag">Video · Design · Listing Ads</span>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="listings">
+<!-- RESULTS -->
+<section id="results">
   <div class="container">
-    <div class="listings-top">
-      <div>
-        <div class="eyebrow fade-up">Available Now</div>
-        <h2 class="section-h fade-up">Featured Properties</h2>
+    <div class="tc" style="margin-bottom:64px;">
+      <div class="eyebrow eyebrow-c fade-up">By The Numbers</div>
+      <h2 class="section-h fade-up">Real Results for Real Agents</h2>
+    </div>
+    <div class="results-grid">
+      <div class="res-item fade-up">
+        <div class="res-n">12,000+</div>
+        <div class="res-l">Qualified Leads<br>Delivered to Agents</div>
       </div>
-      <div class="filters fade-up">
-        <button class="ftab on" onclick="filter('all',this)">All</button>
-        <button class="ftab" onclick="filter('buy',this)">For Sale</button>
-        <button class="ftab" onclick="filter('rent',this)">For Rent</button>
-        <button class="ftab" onclick="filter('sold',this)">Sold</button>
+      <div class="res-item fade-up" style="transition-delay:0.1s">
+        <div class="res-n">$4.8M+</div>
+        <div class="res-l">In Agent Commissions<br>Directly Attributed</div>
+      </div>
+      <div class="res-item fade-up" style="transition-delay:0.2s">
+        <div class="res-n">3.2×</div>
+        <div class="res-l">Average Return on<br>Ad Spend (ROAS)</div>
+      </div>
+      <div class="res-item fade-up" style="transition-delay:0.3s">
+        <div class="res-n">48 hrs</div>
+        <div class="res-l">Average Time to<br>First Lead Delivered</div>
       </div>
     </div>
-    <div class="listings-grid" id="lgrid"></div>
   </div>
 </section>
 
-<section id="valuation">
+<!-- WHY US -->
+<section id="why">
   <div class="container">
-    <div class="val-grid">
-      <div>
-        <div class="eyebrow fade-up">Know Your Worth</div>
-        <h2 class="section-h fade-up">Get Your Free<br>Home Valuation</h2>
-        <p class="section-p fade-up">Our expert agents use live market data and hyper-local knowledge to give you an accurate estimate — completely free, no obligation.</p>
-        <div class="val-features">
-          <div class="val-feat fade-up"><div class="val-feat-line"></div><div><div class="val-feat-title">Comparable Sales Analysis</div><div class="val-feat-text">We pull recent sales data within your neighborhood for accurate benchmarking.</div></div></div>
-          <div class="val-feat fade-up" style="transition-delay:0.1s"><div class="val-feat-line"></div><div><div class="val-feat-title">Live Market Conditions</div><div class="val-feat-text">Current supply, demand, and seasonal factors are factored into your valuation.</div></div></div>
-          <div class="val-feat fade-up" style="transition-delay:0.2s"><div class="val-feat-line"></div><div><div class="val-feat-title">No Obligation, Ever</div><div class="val-feat-text">Your valuation is a gift — no pressure, no sales pitch, no strings attached.</div></div></div>
+    <div class="why-grid">
+      <div class="why-visual fade-up">
+        <div class="why-img-block">
+          <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:48px;">
+            <div style="text-align:center;">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:72px;color:var(--gold);opacity:0.15;line-height:1;">100%</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--white);font-weight:300;margin-bottom:8px;">Real Estate Focused</div>
+              <div style="font-size:13px;color:var(--gray);font-weight:300;line-height:1.7;">We only work with real estate<br>agents. No generalists. No<br>divided attention.</div>
+            </div>
+          </div>
+        </div>
+        <div class="why-accent"></div>
+        <div class="why-accent-2"></div>
+        <div class="big-stat">
+          <div class="big-stat-n">200+</div>
+          <div class="big-stat-l">Real estate agents trust Nova Media Marketing to grow their pipeline every single month.</div>
         </div>
       </div>
-      <div class="form-card fade-up">
-        <div class="form-card-title">Request Your Valuation</div>
-        <div class="form-card-sub">Free · Confidential · No Obligation</div>
-        <form onsubmit="submitForm(event,'val')">
-          <div class="fg"><label>Property Address</label><input type="text" placeholder="123 Main Street, City, State"></div>
-          <div class="form-row">
-            <div class="fg"><label>Bedrooms</label><select><option>1 Bed</option><option>2 Beds</option><option>3 Beds</option><option selected>4 Beds</option><option>5+ Beds</option></select></div>
-            <div class="fg"><label>Bathrooms</label><select><option>1 Bath</option><option>2 Baths</option><option selected>3 Baths</option><option>4+ Baths</option></select></div>
+      <div>
+        <div class="eyebrow fade-up">Why Nova Media</div>
+        <h2 class="section-h fade-up">We Only Work With<br>Real Estate Agents</h2>
+        <p class="section-p fade-up" style="margin-bottom:0;">We don't spread ourselves thin across every industry. We go deep on one niche — real estate — so every strategy, every campaign, and every funnel is built on what actually works for agents.</p>
+        <div class="why-points">
+          <div class="why-point fade-up">
+            <div class="why-point-num">01</div>
+            <div>
+              <div class="why-point-title">AI-Powered Targeting</div>
+              <div class="why-point-text">Our campaigns use machine learning to identify in-market buyers and sellers in your area — so your ad spend reaches people actually ready to act, not just browsing.</div>
+            </div>
           </div>
-          <div class="form-row">
-            <div class="fg"><label>Square Footage</label><input type="text" placeholder="e.g. 2,400 sq ft"></div>
-            <div class="fg"><label>Year Built</label><input type="text" placeholder="e.g. 2005"></div>
+          <div class="why-point fade-up" style="transition-delay:0.1s">
+            <div class="why-point-num">02</div>
+            <div>
+              <div class="why-point-title">Done For You, End to End</div>
+              <div class="why-point-text">We handle everything — ads, funnels, CRM, follow-up automation — so you never have to touch a piece of marketing software. Just take calls and close deals.</div>
+            </div>
           </div>
-          <div class="fg"><label>Your Name</label><input type="text" placeholder="First and Last Name"></div>
-          <div class="form-row">
-            <div class="fg"><label>Email</label><input type="email" placeholder="you@email.com"></div>
-            <div class="fg"><label>Phone</label><input type="tel" placeholder="(555) 000-0000"></div>
+          <div class="why-point fade-up" style="transition-delay:0.2s">
+            <div class="why-point-num">03</div>
+            <div>
+              <div class="why-point-title">Transparent Reporting</div>
+              <div class="why-point-text">A live dashboard shows you exactly where every lead came from, what it cost, and what stage it's at in your pipeline. Full visibility, no guesswork.</div>
+            </div>
           </div>
-          <button type="submit" class="btn-gold btn-full">Get My Free Valuation</button>
-        </form>
+          <div class="why-point fade-up" style="transition-delay:0.3s">
+            <div class="why-point-num">04</div>
+            <div>
+              <div class="why-point-title">Exclusive to Your Area</div>
+              <div class="why-point-text">We only partner with one agent per market area. Your leads stay yours — we never sell the same territory twice.</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- PROCESS -->
 <section id="process">
   <div class="container">
-    <div class="text-center" style="margin-bottom:72px;">
-      <div class="eyebrow eyebrow-center fade-up" style="justify-content:center">How It Works</div>
-      <h2 class="section-h fade-up">Our Proven Process</h2>
-      <p class="section-p mx-auto text-center fade-up" style="margin-top:14px;">A clear, streamlined path from your first conversation to the closing table.</p>
+    <div class="process-header fade-up">
+      <div>
+        <div class="eyebrow">How It Works</div>
+        <h2 class="section-h">From Sign-Up to<br>Leads in 48 Hours</h2>
+      </div>
+      <div>
+        <p class="section-p" style="max-width:100%">We've built a proven onboarding process that gets your campaigns live fast — most agents receive their first leads within 48 hours of launch.</p>
+      </div>
     </div>
-    <div class="process-grid">
-      <div class="pstep fade-up"><div class="pnum"><span>01</span></div><h3>Consultation</h3><p>Deep-dive conversation to understand your goals, timeline, budget, and must-haves.</p></div>
-      <div class="pstep fade-up" style="transition-delay:0.12s"><div class="pnum"><span>02</span></div><h3>Market Analysis</h3><p>Detailed market report with pricing strategy, comparable properties, and local insights.</p></div>
-      <div class="pstep fade-up" style="transition-delay:0.24s"><div class="pnum"><span>03</span></div><h3>Search & Tour</h3><p>Curated shortlist of properties and guided private tours — no wasted time, only perfect matches.</p></div>
-      <div class="pstep fade-up" style="transition-delay:0.36s"><div class="pnum"><span>04</span></div><h3>Offer & Negotiate</h3><p>We craft compelling offers and negotiate aggressively on your behalf for the best possible terms.</p></div>
-      <div class="pstep fade-up" style="transition-delay:0.48s"><div class="pnum"><span>05</span></div><h3>Close & Celebrate</h3><p>We manage all paperwork, inspections, and closing coordination so you walk away stress-free.</p></div>
+    <div class="process-steps">
+      <div class="process-line"></div>
+      <div class="pstep fade-up"><div class="pnum"><span>01</span></div><h3>Strategy Call</h3><p>We learn your market, goals, budget, and ideal client profile to build a custom growth plan.</p></div>
+      <div class="pstep fade-up" style="transition-delay:0.1s"><div class="pnum"><span>02</span></div><h3>System Build</h3><p>We set up your CRM, landing pages, ad accounts, and automation sequences — all done for you.</p></div>
+      <div class="pstep fade-up" style="transition-delay:0.2s"><div class="pnum"><span>03</span></div><h3>Campaign Launch</h3><p>Targeted ad campaigns go live across Meta and Google, driving qualified traffic to your funnels.</p></div>
+      <div class="pstep fade-up" style="transition-delay:0.3s"><div class="pnum"><span>04</span></div><h3>Leads Flow In</h3><p>Leads land directly in your CRM with automated follow-up sequences running immediately.</p></div>
+      <div class="pstep fade-up" style="transition-delay:0.4s"><div class="pnum"><span>05</span></div><h3>Optimize & Scale</h3><p>We continuously test, refine, and scale what's working — lowering cost per lead every month.</p></div>
     </div>
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
 <section id="testimonials">
   <div class="container">
-    <div class="text-center" style="margin-bottom:56px;">
-      <div class="eyebrow eyebrow-center fade-up">Client Stories</div>
-      <h2 class="section-h fade-up">What Our Clients Say</h2>
+    <div class="test-header">
+      <div class="eyebrow fade-up">Client Results</div>
+      <h2 class="section-h fade-up">What Agents Are Saying</h2>
     </div>
     <div class="tgrid">
-      <div class="tcard fade-up"><div class="tcard-quote">"</div><div class="stars">★★★★★</div><p class="tcard-text">They sold our home in 9 days — at 6% over asking price. I've worked with other agents before but never experienced this level of dedication and professionalism. Truly exceptional.</p><div class="tcard-author"><div class="tav">MR</div><div><div class="tav-name">Michael & Rachel T.</div><div class="tav-detail">Sold in Beverly Hills, CA</div></div></div></div>
-      <div class="tcard fade-up" style="transition-delay:0.12s"><div class="tcard-quote">"</div><div class="stars">★★★★★</div><p class="tcard-text">As a first-time buyer, I was terrified. My agent walked me through every step, negotiated $40,000 off asking, and made the whole process feel effortless. Couldn't recommend more.</p><div class="tcard-author"><div class="tav">SP</div><div><div class="tav-name">Sophia P.</div><div class="tav-detail">Purchased in Austin, TX</div></div></div></div>
-      <div class="tcard fade-up" style="transition-delay:0.24s"><div class="tcard-quote">"</div><div class="stars">★★★★★</div><p class="tcard-text">We relocated from New York to Miami and needed an agent who understood luxury. They found us a perfect waterfront property within two weeks. The concierge-level service is unmatched.</p><div class="tcard-author"><div class="tav">JK</div><div><div class="tav-name">James & Karen W.</div><div class="tav-detail">Relocated to Miami, FL</div></div></div></div>
-      <div class="tcard fade-up" style="transition-delay:0.36s"><div class="tcard-quote">"</div><div class="stars">★★★★★</div><p class="tcard-text">I've bought and sold six properties. This team is hands-down the best I've ever worked with. Their negotiating skills alone saved me over $85,000 on my last investment property.</p><div class="tcard-author"><div class="tav">DL</div><div><div class="tav-name">David L.</div><div class="tav-detail">Investor, Denver, CO</div></div></div></div>
-      <div class="tcard fade-up" style="transition-delay:0.48s"><div class="tcard-quote">"</div><div class="stars">★★★★★</div><p class="tcard-text">The home valuation was spot on. When we decided to list, our agent's marketing strategy was brilliant — professional photos, drone footage, and a campaign that brought in 14 offers.</p><div class="tcard-author"><div class="tav">AH</div><div><div class="tav-name">Amanda H.</div><div class="tav-detail">Sold in Scottsdale, AZ</div></div></div></div>
-      <div class="tcard fade-up" style="transition-delay:0.6s"><div class="tcard-quote">"</div><div class="stars">★★★★★</div><p class="tcard-text">From valuation to closing in 21 days. I was skeptical. They proved me wrong — responsive, knowledgeable, and genuinely invested in getting us the best outcome possible.</p><div class="tcard-author"><div class="tav">TC</div><div><div class="tav-name">Thomas C.</div><div class="tav-detail">Sold in Nashville, TN</div></div></div></div>
+      <div class="tcard fade-up">
+        <div class="tcard-result">32 Leads in 30 Days</div>
+        <div class="stars">★★★★★</div>
+        <p class="tcard-text">"I was skeptical about paid ads — I'd wasted money before. Nova Media had my campaigns running inside a week and I had my first lead call booked within 48 hours. 32 leads in my first month. Two have already closed."</p>
+        <div class="tcard-author"><div class="tav">MR</div><div><div class="tav-name">Marcus Reynolds</div><div class="tav-detail">Real Estate Agent · Dallas, TX</div></div></div>
+      </div>
+      <div class="tcard fade-up" style="transition-delay:0.1s">
+        <div class="tcard-result">$180K in New Commissions</div>
+        <div class="stars">★★★★★</div>
+        <p class="tcard-text">"The CRM automation alone changed my business. I used to let leads go cold. Now every lead gets followed up automatically and I just step in when they're ready. $180K in commissions I can directly trace back to Nova Media."</p>
+        <div class="tcard-author"><div class="tav">JL</div><div><div class="tav-name">Jessica Lane</div><div class="tav-detail">Realtor · Miami, FL</div></div></div>
+      </div>
+      <div class="tcard fade-up" style="transition-delay:0.2s">
+        <div class="tcard-result">3× More Listings</div>
+        <div class="stars">★★★★★</div>
+        <p class="tcard-text">"I went from 4 listings a year to 12 in nine months. The targeting is incredible — the people who fill out my forms are actually serious. Best investment I've made in my real estate career, no question."</p>
+        <div class="tcard-author"><div class="tav">KW</div><div><div class="tav-name">Kevin Walsh</div><div class="tav-detail">Listing Agent · Phoenix, AZ</div></div></div>
+      </div>
+      <div class="tcard fade-up" style="transition-delay:0.3s">
+        <div class="tcard-result">Cost Per Lead Dropped 60%</div>
+        <div class="stars">★★★★★</div>
+        <p class="tcard-text">"I was paying $80–100 per lead with my previous agency. Nova Media got that down to $28 in two months while the lead quality actually improved. The reporting dashboard makes it easy to see exactly what's working."</p>
+        <div class="tcard-author"><div class="tav">SP</div><div><div class="tav-name">Sandra Park</div><div class="tav-detail">Buyer's Agent · Austin, TX</div></div></div>
+      </div>
+      <div class="tcard fade-up" style="transition-delay:0.4s">
+        <div class="tcard-result">Fully Booked Calendar</div>
+        <div class="stars">★★★★★</div>
+        <p class="tcard-text">"My problem isn't finding leads anymore — it's managing my calendar. The appointment booking automation fills my schedule while I sleep. I had to hire an assistant because I was too busy. That's a good problem to have."</p>
+        <div class="tcard-author"><div class="tav">DT</div><div><div class="tav-name">David Torres</div><div class="tav-detail">Real Estate Agent · Denver, CO</div></div></div>
+      </div>
+      <div class="tcard fade-up" style="transition-delay:0.5s">
+        <div class="tcard-result">6× Return on Ad Spend</div>
+        <div class="stars">★★★★★</div>
+        <p class="tcard-text">"I spent $2,000 on ads last month and closed $12,000 in commissions from those leads. That's a 6× return. The team handles everything — I haven't touched an ad account or landing page once. Just closing deals."</p>
+        <div class="tcard-author"><div class="tav">AH</div><div><div class="tav-name">Amanda Hughes</div><div class="tav-detail">Real Estate Agent · Nashville, TN</div></div></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="agents">
-  <div class="container">
-    <div class="eyebrow fade-up">The Team</div>
-    <h2 class="section-h fade-up">Meet Our Expert Agents</h2>
-    <p class="section-p fade-up">Award-winning professionals with deep local knowledge and a track record of outstanding results.</p>
-    <div class="agent-grid" id="agent-grid"></div>
+<!-- CTA BANNER -->
+<section id="cta" style="padding:0;">
+  <div class="cta-inner" style="padding-top:100px;padding-bottom:100px;">
+    <div>
+      <h2 class="cta-h">Ready to Fill Your<br>Pipeline With <em>Qualified Leads?</em></h2>
+    </div>
+    <div class="cta-right">
+      <a href="#contact" class="btn-dark">Book Your Free Strategy Call</a>
+      <div class="cta-note">No contract · No setup fees · First leads in 48 hrs</div>
+    </div>
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
   <div class="container">
-    <div class="contact-grid">
-      <div class="contact-info fade-up">
-        <div class="eyebrow">Get In Touch</div>
-        <h2 class="section-h">Let's Start Your<br>Journey</h2>
-        <p style="font-size:14px;color:var(--gray);line-height:1.85;margin-bottom:44px;font-weight:300;">Whether you're buying, selling, or simply exploring — our team is ready to answer every question and guide you with zero pressure.</p>
-        <div class="cdet"><div class="cdet-label">Main Office</div><div class="cdet-val">8500 Wilshire Boulevard, Suite 200<br>Beverly Hills, CA 90211</div></div>
-        <div class="cdet"><div class="cdet-label">Phone</div><div class="cdet-val"><a href="tel:+13105550100">(310) 555-0100</a></div></div>
+    <div class="contact-wrap">
+      <div class="fade-up">
+        <div class="eyebrow">Get Started</div>
+        <h2 class="section-h">Book Your Free<br>Strategy Call</h2>
+        <p style="font-size:15px;color:var(--gray);line-height:1.85;margin-bottom:52px;font-weight:300;max-width:400px;">Tell us about your market and goals. We'll put together a custom lead generation strategy — completely free, no strings attached.</p>
         <div class="cdet"><div class="cdet-label">Email</div><div class="cdet-val"><a href="mailto:marketing@novamedia.services">marketing@novamedia.services</a></div></div>
-        <div class="cdet"><div class="cdet-label">Hours</div><div class="cdet-val">Mon – Fri: 8am – 7pm<br>Sat – Sun: 9am – 5pm</div></div>
+        <div class="cdet"><div class="cdet-label">Response Time</div><div class="cdet-val">We reply within one business day</div></div>
+        <div class="cdet"><div class="cdet-label">Service Area</div><div class="cdet-val">United States · Canada · United Kingdom</div></div>
         <div class="social">
           <a class="soc" href="#">ig</a>
           <a class="soc" href="#">fb</a>
@@ -454,8 +548,8 @@ footer { background: var(--obsidian); border-top: 1px solid rgba(201,168,76,0.08
         </div>
       </div>
       <div class="form-card fade-up">
-        <div class="form-card-title">Send Us a Message</div>
-        <div class="form-card-sub" style="margin-bottom:28px;">We'll respond within one business day</div>
+        <div class="form-card-title">Let's Build Your Lead Machine</div>
+        <div class="form-card-sub">Free Strategy Call · No Obligation · No Contract Required</div>
         <form onsubmit="submitForm(event,'contact')">
           <div class="form-row">
             <div class="fg"><label>First Name</label><input type="text" placeholder="First Name" required></div>
@@ -463,47 +557,85 @@ footer { background: var(--obsidian); border-top: 1px solid rgba(201,168,76,0.08
           </div>
           <div class="fg"><label>Email</label><input type="email" placeholder="you@email.com" required></div>
           <div class="fg"><label>Phone</label><input type="tel" placeholder="(555) 000-0000"></div>
-          <div class="fg"><label>I Am Interested In</label><select><option>Buying a Home</option><option>Selling a Home</option><option>Home Valuation</option><option>Investment Properties</option><option>Relocation Services</option><option>Other</option></select></div>
-          <div class="fg"><label>Message</label><textarea placeholder="Tell us about your needs, timeline, and any questions you have…"></textarea></div>
-          <button type="submit" class="btn-gold btn-full">Send Message</button>
+          <div class="fg"><label>Your Market / City</label><input type="text" placeholder="e.g. Dallas, TX"></div>
+          <div class="fg"><label>Monthly Marketing Budget</label>
+            <select>
+              <option>Less than $500/mo</option>
+              <option>$500 – $1,000/mo</option>
+              <option selected>$1,000 – $2,500/mo</option>
+              <option>$2,500 – $5,000/mo</option>
+              <option>$5,000+/mo</option>
+            </select>
+          </div>
+          <div class="fg"><label>What's Your Biggest Challenge Right Now?</label><textarea placeholder="Tell us about your current lead situation and what you're looking to achieve…"></textarea></div>
+          <button type="submit" class="btn-gold btn-full">Book My Free Strategy Call</button>
         </form>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-grid">
       <div>
         <a href="#hero" class="footer-logo"><img src="https://raw.githubusercontent.com/Nova-Media/Nova-Media-Marketing-Webpage/main/logo.png" alt="Nova Media Marketing"></a>
-        <p class="footer-tag">Setting the standard for luxury real estate — one exceptional client experience at a time.</p>
-        <p class="footer-lic">Licensed Real Estate Brokerage<br>CA DRE #01234567</p>
+        <p class="footer-tag">AI-powered lead generation built exclusively for real estate agents. More leads, more closings, more revenue.</p>
+        <p class="footer-lic">Nova Media Marketing<br>marketing@novamedia.services</p>
       </div>
-      <div><div class="fh">Company</div><ul class="flinks"><li><a href="#services">Our Services</a></li><li><a href="#agents">Meet the Team</a></li><li><a href="#process">How We Work</a></li><li><a href="#testimonials">Client Stories</a></li><li><a href="#contact">Careers</a></li></ul></div>
-      <div><div class="fh">Properties</div><ul class="flinks"><li><a href="#listings">Homes for Sale</a></li><li><a href="#listings">Homes for Rent</a></li><li><a href="#listings">New Construction</a></li><li><a href="#listings">Luxury Homes</a></li><li><a href="#valuation">Get a Valuation</a></li></ul></div>
-      <div><div class="fh">Resources</div><ul class="flinks"><li><a href="#">Buyer's Guide</a></li><li><a href="#">Seller's Guide</a></li><li><a href="#">Mortgage Calculator</a></li><li><a href="#">Neighborhood Guide</a></li><li><a href="#">Market Reports</a></li></ul></div>
+      <div>
+        <div class="fh">Services</div>
+        <ul class="flinks">
+          <li><a href="#services">Lead Generation</a></li>
+          <li><a href="#services">Social Media Marketing</a></li>
+          <li><a href="#services">CRM & Automation</a></li>
+          <li><a href="#services">Landing Pages</a></li>
+          <li><a href="#services">Email & SMS</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="fh">Company</div>
+        <ul class="flinks">
+          <li><a href="#why">Why Nova Media</a></li>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#testimonials">Client Results</a></li>
+          <li><a href="#contact">Book a Call</a></li>
+          <li><a href="mailto:marketing@novamedia.services">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="fh">Resources</div>
+        <ul class="flinks">
+          <li><a href="#">Free Lead Gen Guide</a></li>
+          <li><a href="#">Real Estate Marketing Blog</a></li>
+          <li><a href="#">Case Studies</a></li>
+          <li><a href="#">GHL Setup Guide</a></li>
+          <li><a href="#">ROI Calculator</a></li>
+        </ul>
+      </div>
     </div>
     <div class="footer-bottom">
-      <div class="fcopy">© 2026 Prestige Realty Group. All rights reserved.</div>
-      <div class="flegal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Fair Housing</a><a href="#">Accessibility</a></div>
+      <div class="fcopy">© 2026 Nova Media Marketing. All rights reserved.</div>
+      <div class="flegal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
     </div>
   </div>
 </footer>
 
+<!-- MODAL -->
 <div class="moverlay" id="moverlay" onclick="closeModal(event)">
   <div class="modal">
     <button class="modal-x" onclick="closeModalNow()">×</button>
-    <div class="modal-title" id="modal-name">Contact Agent</div>
-    <div class="modal-sub">Prestige Realty Group</div>
-    <form onsubmit="submitForm(event,'agent')">
+    <div class="modal-title" id="modal-name">Book a Strategy Call</div>
+    <div class="modal-sub">Nova Media Marketing</div>
+    <form onsubmit="submitForm(event,'modal')">
       <div class="form-row">
         <div class="fg"><label>Your Name</label><input type="text" placeholder="Full Name" required></div>
         <div class="fg"><label>Phone</label><input type="tel" placeholder="(555) 000-0000"></div>
       </div>
       <div class="fg"><label>Email</label><input type="email" placeholder="you@email.com" required></div>
-      <div class="fg"><label>Message</label><textarea placeholder="What can we help you with?" style="min-height:80px;"></textarea></div>
-      <button type="submit" class="btn-gold btn-full">Send Message</button>
+      <div class="fg"><label>Message</label><textarea placeholder="Tell us about your market and goals…" style="min-height:80px;"></textarea></div>
+      <button type="submit" class="btn-gold btn-full">Book My Free Call</button>
     </form>
   </div>
 </div>
@@ -511,11 +643,11 @@ footer { background: var(--obsidian); border-top: 1px solid rgba(201,168,76,0.08
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 // ═══════════════════════════════════════════════════════
-//  HERO 3D SCENE — Three luxury homes, SOLD signs on scroll
+//  HERO 3D — Three homes with SOLD signs on scroll
 // ═══════════════════════════════════════════════════════
 (function () {
   const canvas = document.getElementById('hero-canvas');
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -525,7 +657,7 @@ footer { background: var(--obsidian); border-top: 1px solid rgba(201,168,76,0.08
 
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0x06060A);
-  scene.fog = new THREE.FogExp2(0x06060A, 0.010);
+  scene.fog = new THREE.FogExp2(0x06060A, 0.009);
 
   const camera = new THREE.PerspectiveCamera(58, 1, 0.1, 400);
   camera.position.set(0, 9, 30);
@@ -540,582 +672,320 @@ footer { background: var(--obsidian); border-top: 1px solid rgba(201,168,76,0.08
   window.addEventListener('resize', resize);
   resize();
 
-  // ── Materials ─────────────────────────────────────────
-  const M = (c, o = {}) => new THREE.MeshStandardMaterial({ color: c, ...o });
-  const wall     = M(0x1D1D25, { roughness: 0.85, metalness: 0.05 });
-  const wall2    = M(0x15151C, { roughness: 0.9 });
-  const roofMat  = M(0x0C0C10, { roughness: 0.8, metalness: 0.15 });
-  const gold     = M(0xC9A84C, { roughness: 0.25, metalness: 0.85 });
-  const glass    = M(0x88AADD, { roughness: 0.02, transparent: true, opacity: 0.28 });
-  const glowW    = M(0xFFEECC, { roughness: 0, emissive: 0xFFCC66, emissiveIntensity: 1.8 });
-  const gnd      = M(0x0D0D12, { roughness: 1.0 });
-  const stone    = M(0x18181E, { roughness: 0.9, metalness: 0.1 });
-  const doorMat  = M(0x0A0A0D, { roughness: 0.5, metalness: 0.4 });
-  const wood     = M(0x1A0E08, { roughness: 0.9 });
-  const leaf     = M(0x0E1A0A, { roughness: 1.0 });
-  const concMat  = M(0x141418, { roughness: 0.95 });
-  const postMat  = M(0x2C1A08, { roughness: 0.9 });
+  // Materials
+  const M = (c, o={}) => new THREE.MeshStandardMaterial({ color:c, ...o });
+  const wall    = M(0x1D1D25, { roughness:0.85, metalness:0.05 });
+  const wall2   = M(0x15151C, { roughness:0.9 });
+  const roofM   = M(0x0C0C10, { roughness:0.8, metalness:0.15 });
+  const gold    = M(0xC9A84C, { roughness:0.25, metalness:0.85 });
+  const glass   = M(0x88AADD, { roughness:0.02, transparent:true, opacity:0.28 });
+  const glowW   = M(0xFFEECC, { roughness:0, emissive:0xFFCC66, emissiveIntensity:1.8 });
+  const gnd     = M(0x0D0D12, { roughness:1.0 });
+  const stone   = M(0x18181E, { roughness:0.9, metalness:0.1 });
+  const doorM   = M(0x0A0A0D, { roughness:0.5, metalness:0.4 });
+  const woodM   = M(0x1A0E08, { roughness:0.9 });
+  const leafM   = M(0x0E1A0A, { roughness:1.0 });
+  const concM   = M(0x141418, { roughness:0.95 });
+  const postM   = M(0x2C1A08, { roughness:0.9 });
 
-  // ── Helpers ────────────────────────────────────────────
-  function mesh(geo, mat, x=0, y=0, z=0, rx=0, ry=0, rz=0, cast=true) {
+  function sc(geo, mat, x=0,y=0,z=0,rx=0,ry=0,rz=0,cast=true) {
     const m = new THREE.Mesh(geo, mat);
-    m.position.set(x, y, z);
-    m.rotation.set(rx, ry, rz);
-    m.castShadow = cast;
-    m.receiveShadow = true;
-    scene.add(m);
-    return m;
+    m.position.set(x,y,z); m.rotation.set(rx,ry,rz);
+    m.castShadow=cast; m.receiveShadow=true; scene.add(m); return m;
   }
 
-  function grp(geo, mat, x=0, y=0, z=0, rx=0, ry=0, rz=0) {
-    const m = new THREE.Mesh(geo, mat);
-    m.position.set(x, y, z);
-    m.rotation.set(rx, ry, rz);
-    m.castShadow = true;
-    m.receiveShadow = true;
-    return m;
-  }
-
-  // ── Lighting ──────────────────────────────────────────
+  // Lighting
   scene.add(new THREE.AmbientLight(0x1a1a30, 1.3));
-
   const sun = new THREE.DirectionalLight(0xD4A855, 2.8);
-  sun.position.set(18, 28, 12);
-  sun.castShadow = true;
-  sun.shadow.mapSize.width = 4096;
-  sun.shadow.mapSize.height = 4096;
-  Object.assign(sun.shadow.camera, { near:0.5, far:120, left:-50, right:50, top:35, bottom:-35 });
-  sun.shadow.bias = -0.001;
-  scene.add(sun);
+  sun.position.set(18,28,12); sun.castShadow=true;
+  sun.shadow.mapSize.width=4096; sun.shadow.mapSize.height=4096;
+  Object.assign(sun.shadow.camera,{near:0.5,far:120,left:-55,right:55,top:35,bottom:-35});
+  sun.shadow.bias=-0.001; scene.add(sun);
+  scene.add(new THREE.DirectionalLight(0x3355AA,0.5).position.set(-15,14,-10));
+  scene.add(new THREE.HemisphereLight(0x223366,0x0A0A0F,0.75));
 
-  const moon = new THREE.DirectionalLight(0x3355AA, 0.5);
-  moon.position.set(-15, 14, -10);
-  scene.add(moon);
-  scene.add(new THREE.HemisphereLight(0x223366, 0x0A0A0F, 0.75));
+  // Ground & paths
+  sc(new THREE.PlaneGeometry(250,250), gnd, 0,0,0,-Math.PI/2,0,0,false);
+  sc(new THREE.PlaneGeometry(70,2.5), stone, 0,0.01,5.5,-Math.PI/2,0,0,false);
+  sc(new THREE.PlaneGeometry(3.5,12), concM, 0,0.015,9,-Math.PI/2);
 
-  // ── Ground ────────────────────────────────────────────
-  mesh(new THREE.PlaneGeometry(200, 200), gnd, 0, 0, 0, -Math.PI/2, 0, 0, false);
-  // Sidewalk running across front
-  mesh(new THREE.PlaneGeometry(60, 2.5), stone, 0, 0.01, 5.5, -Math.PI/2, 0, 0, false);
-  // Main driveway
-  mesh(new THREE.PlaneGeometry(3.5, 12), concMat, 0, 0.015, 9, -Math.PI/2);
-
-  // ── Shared tree builder ────────────────────────────────
-  function addTree(x, z, s=1.0) {
-    const ws = M(0x1A0E08, {roughness:0.9});
-    mesh(new THREE.CylinderGeometry(0.09*s, 0.14*s, 2.2*s, 8), ws, x, 1.1*s, z);
-    mesh(new THREE.ConeGeometry(0.8*s, 2.8*s, 8), leaf, x, 3.2*s, z);
-    mesh(new THREE.ConeGeometry(0.6*s, 2.2*s, 8), M(0x0C1508,{roughness:1}), x, 4.4*s, z);
-    mesh(new THREE.ConeGeometry(0.4*s, 1.6*s, 8), M(0x101A0C,{roughness:1}), x, 5.4*s, z);
+  // Tree helper
+  function tree(x,z,s=1) {
+    sc(new THREE.CylinderGeometry(0.09*s,0.14*s,2.2*s,8),woodM,x,1.1*s,z);
+    sc(new THREE.ConeGeometry(0.8*s,2.8*s,8),leafM,x,3.2*s,z);
+    sc(new THREE.ConeGeometry(0.6*s,2.2*s,8),M(0x0C1508,{roughness:1}),x,4.4*s,z);
+    sc(new THREE.ConeGeometry(0.4*s,1.6*s,8),M(0x101A0C,{roughness:1}),x,5.4*s,z);
   }
 
-  // ── SOLD sign builder ─────────────────────────────────
-  function buildSoldSign(px, pz) {
+  // SOLD sign builder
+  function soldSign(px,pz) {
     const g = new THREE.Group();
-
-    // Post
-    const post = grp(new THREE.CylinderGeometry(0.05, 0.065, 3.2, 10), postMat, 0, 1.6, 0);
-    g.add(post);
-
-    // Arm
-    const arm = grp(new THREE.CylinderGeometry(0.03, 0.03, 1.0, 8), postMat, 0, 3.1, 0, 0, 0, Math.PI/2);
-    g.add(arm);
-
-    // Canvas texture
-    const cnv = document.createElement('canvas');
-    cnv.width = 512; cnv.height = 220;
-    const ctx = cnv.getContext('2d');
-
-    const grad = ctx.createLinearGradient(0, 0, 0, 220);
-    grad.addColorStop(0, '#C80A0A');
-    grad.addColorStop(1, '#8C0606');
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, 512, 220);
-
-    ctx.strokeStyle = '#C9A84C';
-    ctx.lineWidth = 14;
-    ctx.strokeRect(8, 8, 496, 204);
-
-    ctx.strokeStyle = 'rgba(201,168,76,0.35)';
-    ctx.lineWidth = 4;
-    ctx.strokeRect(22, 22, 468, 176);
-
-    ctx.fillStyle = '#FFFFFF';
-    ctx.font = 'bold 128px Georgia, serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.shadowColor = 'rgba(0,0,0,0.5)';
-    ctx.shadowBlur = 8;
-    ctx.fillText('SOLD', 256, 110);
-
-    const tex = new THREE.CanvasTexture(cnv);
-    const frontMat = new THREE.MeshStandardMaterial({ map: tex, roughness: 0.35 });
-    const backMat  = M(0x660808, { roughness: 0.7 });
-    const board = new THREE.Mesh(
-      new THREE.BoxGeometry(2.2, 0.94, 0.1),
-      [backMat, backMat, backMat, backMat, frontMat, backMat]
-    );
-    board.position.set(0, 3.08, 0);
-    board.castShadow = true;
-    g.add(board);
-
-    // Hook chain dots
-    const hookMat = M(0xC9A84C, { roughness: 0.3, metalness: 0.9 });
-    for (const hx of [-0.45, 0.45]) {
-      const hook = grp(new THREE.TorusGeometry(0.06, 0.018, 8, 12), hookMat, hx, 3.08, 0.06);
-      hook.rotation.x = Math.PI / 2;
-      g.add(hook);
-    }
-
-    g.position.set(px, -5, pz);
-    scene.add(g);
-    return g;
-  }
-
-  // ── Side house builder ─────────────────────────────────
-  function buildSideHouse(ox, oz, s) {
-    const g = new THREE.Group();
-
-    const add = (geo, mat, x=0, y=0, z=0, rx=0, ry=0, rz=0) => {
-      const m = new THREE.Mesh(geo, mat);
-      m.position.set(x, y, z);
-      m.rotation.set(rx, ry, rz);
-      m.castShadow = true; m.receiveShadow = true;
-      g.add(m); return m;
+    const add=(geo,mat,x=0,y=0,z=0,rx=0,ry=0,rz=0)=>{
+      const m=new THREE.Mesh(geo,mat);
+      m.position.set(x,y,z); m.rotation.set(rx,ry,rz);
+      m.castShadow=true; g.add(m); return m;
     };
-
-    // Bodies
-    add(new THREE.BoxGeometry(6.5*s, 3.0*s, 4.8*s), wall, 0, 1.5*s, 0);
-    add(new THREE.BoxGeometry(5.8*s, 2.4*s, 4.2*s), wall2, 0, 4.2*s, 0);
-
-    // Roof
-    const rc = new THREE.Mesh(new THREE.ConeGeometry(4.6*s, 2.6*s, 4), roofMat);
-    rc.position.set(0, 6.05*s, 0); rc.rotation.y = Math.PI/4;
-    rc.castShadow = true; rc.receiveShadow = true; g.add(rc);
-
-    // Gold trims
-    add(new THREE.BoxGeometry(6.7*s, 0.1*s, 5.0*s), gold, 0, 3.04*s, 0);
-    add(new THREE.BoxGeometry(6.0*s, 0.08*s, 4.4*s), gold, 0, 5.42*s, 0);
-
-    // Corner pillars
-    for (const [px,pz2] of [[-3.35*s,2.5*s],[-3.35*s,-2.5*s],[3.35*s,2.5*s],[3.35*s,-2.5*s]]) {
-      add(new THREE.BoxGeometry(0.18*s, 3.0*s, 0.18*s), stone, px, 1.5*s, pz2);
-      add(new THREE.BoxGeometry(0.22*s, 0.1*s, 0.22*s), gold, px, 3.04*s, pz2);
+    add(new THREE.CylinderGeometry(0.05,0.065,3.2,10),postM,0,1.6,0);
+    add(new THREE.CylinderGeometry(0.03,0.03,1.0,8),postM,0,3.1,0,0,0,Math.PI/2);
+    const cnv=document.createElement('canvas');
+    cnv.width=512; cnv.height=220;
+    const ctx=cnv.getContext('2d');
+    const gr=ctx.createLinearGradient(0,0,0,220);
+    gr.addColorStop(0,'#C80A0A'); gr.addColorStop(1,'#8C0606');
+    ctx.fillStyle=gr; ctx.fillRect(0,0,512,220);
+    ctx.strokeStyle='#C9A84C'; ctx.lineWidth=14;
+    ctx.strokeRect(8,8,496,204);
+    ctx.strokeStyle='rgba(201,168,76,0.35)'; ctx.lineWidth=4;
+    ctx.strokeRect(22,22,468,176);
+    ctx.fillStyle='#FFFFFF';
+    ctx.font='bold 128px Georgia,serif';
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.shadowColor='rgba(0,0,0,0.5)'; ctx.shadowBlur=8;
+    ctx.fillText('SOLD',256,110);
+    const frontMat=new THREE.MeshStandardMaterial({map:new THREE.CanvasTexture(cnv),roughness:0.35});
+    const backMat=M(0x660808,{roughness:0.7});
+    const board=new THREE.Mesh(new THREE.BoxGeometry(2.2,0.94,0.1),[backMat,backMat,backMat,backMat,frontMat,backMat]);
+    board.position.set(0,3.08,0); board.castShadow=true; g.add(board);
+    const hookM=M(0xC9A84C,{roughness:0.3,metalness:0.9});
+    for(const hx of[-0.45,0.45]){
+      const h=new THREE.Mesh(new THREE.TorusGeometry(0.06,0.018,8,12),hookM);
+      h.position.set(hx,3.08,0.06); h.rotation.x=Math.PI/2; g.add(h);
     }
+    g.position.set(px,-5,pz);
+    scene.add(g); return g;
+  }
 
-    // Entrance portico
-    add(new THREE.BoxGeometry(2.5*s, 2.6*s, 1.0*s), wall, 0, 1.3*s, 2.8*s);
-    add(new THREE.BoxGeometry(2.7*s, 0.12*s, 1.2*s), roofMat, 0, 2.66*s, 2.8*s);
-    add(new THREE.BoxGeometry(2.7*s, 0.08*s, 1.2*s), gold, 0, 2.58*s, 2.8*s);
-
-    // Portico columns
-    for (const cx of [-0.8*s, 0.8*s]) {
-      add(new THREE.CylinderGeometry(0.065*s, 0.085*s, 2.6*s, 12), stone, cx, 1.3*s, 3.1*s);
-      add(new THREE.CylinderGeometry(0.11*s, 0.11*s, 0.08*s, 12), gold, cx, 2.64*s, 3.1*s);
-      add(new THREE.CylinderGeometry(0.11*s, 0.11*s, 0.08*s, 12), gold, cx, 0.04*s, 3.1*s);
+  // Side house builder
+  function sideHouse(ox,oz,s) {
+    const g=new THREE.Group();
+    const add=(geo,mat,x=0,y=0,z=0,rx=0,ry=0,rz=0)=>{
+      const m=new THREE.Mesh(geo,mat);
+      m.position.set(x,y,z); m.rotation.set(rx,ry,rz);
+      m.castShadow=true; m.receiveShadow=true; g.add(m); return m;
+    };
+    add(new THREE.BoxGeometry(6.5*s,3.0*s,4.8*s),wall,0,1.5*s,0);
+    add(new THREE.BoxGeometry(5.8*s,2.4*s,4.2*s),wall2,0,4.2*s,0);
+    const rc=new THREE.Mesh(new THREE.ConeGeometry(4.6*s,2.6*s,4),roofM);
+    rc.position.set(0,6.05*s,0); rc.rotation.y=Math.PI/4; rc.castShadow=true; rc.receiveShadow=true; g.add(rc);
+    add(new THREE.BoxGeometry(6.7*s,0.1*s,5.0*s),gold,0,3.04*s,0);
+    add(new THREE.BoxGeometry(6.0*s,0.08*s,4.4*s),gold,0,5.42*s,0);
+    for(const[px2,pz2]of[[-3.35*s,2.5*s],[-3.35*s,-2.5*s],[3.35*s,2.5*s],[3.35*s,-2.5*s]]){
+      add(new THREE.BoxGeometry(0.18*s,3*s,0.18*s),stone,px2,1.5*s,pz2);
+      add(new THREE.BoxGeometry(0.22*s,0.1*s,0.22*s),gold,px2,3.04*s,pz2);
     }
-
-    // Door
-    add(new THREE.BoxGeometry(0.88*s, 2.1*s, 0.08), doorMat, 0, 1.05*s, 2.41*s);
-    add(new THREE.SphereGeometry(0.052*s, 8, 8), gold, 0.32*s, 1.05*s, 2.46*s);
-    add(new THREE.BoxGeometry(0.07*s, 2.2*s, 0.1), stone, 0.48*s, 1.1*s, 2.41*s);
-    add(new THREE.BoxGeometry(0.07*s, 2.2*s, 0.1), stone, -0.48*s, 1.1*s, 2.41*s);
-
-    // Steps
-    add(new THREE.BoxGeometry(2.0*s, 0.12*s, 0.8*s), stone, 0, 0.12*s, 3.2*s);
-    add(new THREE.BoxGeometry(1.7*s, 0.12*s, 0.6*s), stone, 0, 0.24*s, 2.96*s);
-
-    // Ground-floor windows
-    for (const wx of [-2.0*s, 2.0*s]) {
-      add(new THREE.BoxGeometry(1.2*s, 1.1*s, 0.06), glass, wx, 1.7*s, 2.41*s);
-      add(new THREE.BoxGeometry(1.2*s, 1.1*s, 0.04), glowW, wx, 1.7*s, 2.37*s);
-      add(new THREE.BoxGeometry(0.04*s, 1.15*s, 0.1), stone, wx, 1.7*s, 2.41*s);
-      add(new THREE.BoxGeometry(1.25*s, 0.04*s, 0.1), stone, wx, 1.7*s+0.56*s, 2.41*s);
-      add(new THREE.BoxGeometry(1.25*s, 0.04*s, 0.1), gold,  wx, 1.7*s-0.57*s, 2.41*s);
+    add(new THREE.BoxGeometry(2.5*s,2.6*s,1.0*s),wall,0,1.3*s,2.8*s);
+    add(new THREE.BoxGeometry(2.7*s,0.12*s,1.2*s),roofM,0,2.66*s,2.8*s);
+    add(new THREE.BoxGeometry(2.7*s,0.08*s,1.2*s),gold,0,2.58*s,2.8*s);
+    for(const cx of[-0.8*s,0.8*s]){
+      add(new THREE.CylinderGeometry(0.065*s,0.085*s,2.6*s,12),stone,cx,1.3*s,3.1*s);
+      add(new THREE.CylinderGeometry(0.11*s,0.11*s,0.08*s,12),gold,cx,2.64*s,3.1*s);
+      add(new THREE.CylinderGeometry(0.11*s,0.11*s,0.08*s,12),gold,cx,0.04*s,3.1*s);
     }
-
-    // Upper-floor windows
-    for (const wx of [-1.8*s, 0, 1.8*s]) {
-      add(new THREE.BoxGeometry(1.0*s, 1.0*s, 0.06), glass, wx, 4.2*s, 2.12*s);
-      add(new THREE.BoxGeometry(1.0*s, 1.0*s, 0.04), glowW, wx, 4.2*s, 2.08*s);
-      add(new THREE.BoxGeometry(0.04*s, 1.04*s, 0.1), stone, wx, 4.2*s, 2.12*s);
-      add(new THREE.BoxGeometry(1.04*s, 0.04*s, 0.1), gold,  wx, 4.2*s-0.52*s, 2.12*s);
+    add(new THREE.BoxGeometry(0.88*s,2.1*s,0.08),doorM,0,1.05*s,2.41*s);
+    add(new THREE.SphereGeometry(0.052*s,8,8),gold,0.32*s,1.05*s,2.46*s);
+    add(new THREE.BoxGeometry(2.0*s,0.12*s,0.8*s),stone,0,0.12*s,3.2*s);
+    add(new THREE.BoxGeometry(1.7*s,0.12*s,0.6*s),stone,0,0.24*s,2.96*s);
+    for(const wx of[-2.0*s,2.0*s]){
+      add(new THREE.BoxGeometry(1.2*s,1.1*s,0.06),glass,wx,1.7*s,2.41*s);
+      add(new THREE.BoxGeometry(1.2*s,1.1*s,0.04),glowW,wx,1.7*s,2.37*s);
+      add(new THREE.BoxGeometry(1.25*s,0.04*s,0.1),gold,wx,1.7*s-0.57*s,2.41*s);
     }
-
-    // Chimney
-    add(new THREE.BoxGeometry(0.42*s, 1.5*s, 0.42*s), stone, 1.3*s, 7.3*s, -0.4*s);
-
-    // Interior light
-    const il = new THREE.PointLight(0xFFCC88, 1.1, 5.5*s);
-    il.position.set(0, 1.8*s, 1.2*s);
-    g.add(il);
-
-    g.position.set(ox, 0, oz);
-    scene.add(g);
-    return g;
-  }
-
-  // ── CENTER / MAIN HOUSE (original detailed house) ─────
-  // Ground floor
-  mesh(new THREE.BoxGeometry(7, 3.2, 5.5), wall, 0, 1.6, 0);
-  mesh(new THREE.BoxGeometry(6.4, 2.6, 5.0), wall2, 0, 4.5, 0.1);
-
-  // Hip Roof
-  mesh(new THREE.ConeGeometry(5.2, 2.8, 4), roofMat, 0, 6.7, 0.1, 0, Math.PI/4);
-  mesh(new THREE.BoxGeometry(7.2, 0.12, 5.6), gold, 0, 3.22, 0);
-  mesh(new THREE.BoxGeometry(6.6, 0.1, 5.2), gold, 0, 5.85, 0.1);
-
-  for (const [x,z] of [[-3.6,2.85],[-3.6,-2.85],[3.6,2.85],[3.6,-2.85]]) {
-    mesh(new THREE.BoxGeometry(0.2, 3.2, 0.2), stone, x, 1.6, z);
-    mesh(new THREE.BoxGeometry(0.24, 0.14, 0.24), gold, x, 3.22, z);
-  }
-
-  // Entrance portico
-  mesh(new THREE.BoxGeometry(2.8, 3.0, 1.2), wall, 0, 1.5, 3.55);
-  mesh(new THREE.BoxGeometry(3.0, 0.15, 1.4), roofMat, 0, 3.08, 3.55);
-  mesh(new THREE.BoxGeometry(3.0, 0.1, 1.4), gold, 0, 3.0, 3.55);
-  for (const x of [-0.9, -0.3, 0.3, 0.9]) {
-    mesh(new THREE.CylinderGeometry(0.07, 0.09, 3.0, 16), stone, x, 1.5, 3.7);
-    mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.1, 16), gold, x, 3.06, 3.7);
-    mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.1, 16), gold, x, 0.05, 3.7);
-  }
-
-  // Door
-  mesh(new THREE.BoxGeometry(1.0, 2.2, 0.08), doorMat, 0, 1.1, 2.77);
-  for (const [dy, h] of [[0.4,0.5],[1.1,0.7],[1.75,0.3]]) {
-    mesh(new THREE.BoxGeometry(0.85, h, 0.04), M(0x121214,{roughness:0.6,metalness:0.3}), 0, dy, 2.78);
-  }
-  mesh(new THREE.SphereGeometry(0.055, 10, 10), gold, 0.36, 1.1, 2.82);
-  mesh(new THREE.BoxGeometry(0.02, 0.18, 0.02), gold, 0.36, 1.0, 2.82);
-  mesh(new THREE.BoxGeometry(0.08, 2.3, 0.12), stone, 0.54, 1.1, 2.77);
-  mesh(new THREE.BoxGeometry(0.08, 2.3, 0.12), stone, -0.54, 1.1, 2.77);
-  mesh(new THREE.BoxGeometry(1.15, 0.08, 0.12), stone, 0, 2.26, 2.77);
-  mesh(new THREE.BoxGeometry(0.9, 0.35, 0.06), glass, 0, 2.48, 2.77);
-  mesh(new THREE.BoxGeometry(0.9, 0.35, 0.04), glowW, 0, 2.48, 2.75);
-
-  // Steps
-  mesh(new THREE.BoxGeometry(2.6, 0.13, 1.0), stone, 0, 0.13, 3.52);
-  mesh(new THREE.BoxGeometry(2.2, 0.13, 0.8), stone, 0, 0.26, 3.22);
-  mesh(new THREE.BoxGeometry(1.8, 0.13, 0.6), stone, 0, 0.39, 2.96);
-
-  // Ground-floor windows
-  for (const [wx,wy,wz] of [[-2.4,1.8,2.78],[2.4,1.8,2.78],[-2.4,1.8,-2.78],[2.4,1.8,-2.78]]) {
-    const zOff = wz < 0 ? 0.08 : -0.08;
-    mesh(new THREE.BoxGeometry(1.4, 1.3, 0.06), glass, wx, wy, wz);
-    mesh(new THREE.BoxGeometry(1.4, 1.3, 0.04), glowW, wx, wy, wz + zOff);
-    mesh(new THREE.BoxGeometry(0.05, 1.35, 0.1), stone, wx, wy, wz);
-    mesh(new THREE.BoxGeometry(1.45, 0.05, 0.1), stone, wx, wy+0.68, wz);
-    mesh(new THREE.BoxGeometry(1.45, 0.05, 0.1), gold, wx, wy-0.7, wz);
-  }
-
-  // Upper windows
-  for (const [wx,wy,wz] of [[-2.1,4.6,2.51],[0,4.6,2.51],[2.1,4.6,2.51]]) {
-    mesh(new THREE.BoxGeometry(1.1, 1.2, 0.06), glass, wx, wy, wz);
-    mesh(new THREE.BoxGeometry(1.1, 1.2, 0.04), glowW, wx, wy, wz-0.06);
-    mesh(new THREE.BoxGeometry(0.04, 1.25, 0.1), stone, wx, wy, wz);
-    mesh(new THREE.BoxGeometry(1.15, 0.04, 0.1), gold, wx, wy-0.63, wz);
-  }
-
-  // Side windows
-  for (const [wy,wz] of [[1.8,-0.5],[1.8,0.9],[4.5,0.2]]) {
-    mesh(new THREE.BoxGeometry(0.06, 1.1, 1.0), glass, 3.54, wy, wz);
-    mesh(new THREE.BoxGeometry(0.04, 1.1, 1.0), glowW, 3.52, wy, wz);
-  }
-
-  // Garage
-  mesh(new THREE.BoxGeometry(3.6, 2.8, 5.2), wall, 5.3, 1.4, -0.2);
-  mesh(new THREE.BoxGeometry(3.7, 0.2, 5.4), roofMat, 5.3, 2.9, -0.2);
-  mesh(new THREE.BoxGeometry(3.7, 0.1, 5.4), gold, 5.3, 2.82, -0.2);
-  for (const gx of [4.4, 6.2]) {
-    mesh(new THREE.BoxGeometry(1.4, 2.0, 0.08), M(0x111114,{roughness:0.5,metalness:0.5}), gx, 1.0, 2.45);
-    for (const gy of [0.3,0.7,1.1,1.5]) {
-      mesh(new THREE.BoxGeometry(1.38, 0.06, 0.1), M(0x1A1A20,{roughness:0.6}), gx, gy, 2.5);
+    for(const wx of[-1.8*s,0,1.8*s]){
+      add(new THREE.BoxGeometry(1.0*s,1.0*s,0.06),glass,wx,4.2*s,2.12*s);
+      add(new THREE.BoxGeometry(1.0*s,1.0*s,0.04),glowW,wx,4.2*s,2.08*s);
     }
-    mesh(new THREE.SphereGeometry(0.04, 8, 8), gold, gx, 1.0, 2.54);
+    add(new THREE.BoxGeometry(0.42*s,1.5*s,0.42*s),stone,1.3*s,7.3*s,-0.4*s);
+    const il=new THREE.PointLight(0xFFCC88,1.1,5.5*s);
+    il.position.set(0,1.8*s,1.2*s); g.add(il);
+    g.position.set(ox,0,oz); scene.add(g); return g;
   }
 
-  // Left wing
-  mesh(new THREE.BoxGeometry(2.2, 2.5, 4.2), wall2, -4.6, 1.25, 0.1);
-  mesh(new THREE.BoxGeometry(2.3, 0.15, 4.4), roofMat, -4.6, 2.58, 0.1);
-  mesh(new THREE.BoxGeometry(2.3, 0.1, 4.4), gold, -4.6, 2.51, 0.1);
-  mesh(new THREE.BoxGeometry(1.2, 1.0, 0.06), glass, -4.6, 1.5, 2.22);
-  mesh(new THREE.BoxGeometry(1.2, 1.0, 0.04), glowW, -4.6, 1.5, 2.20);
-  mesh(new THREE.BoxGeometry(0.2, 3.2, 5.5), wall, -3.65, 1.6, 0.0);
-
-  // Main landscaping
-  mesh(new THREE.PlaneGeometry(8, 6), M(0x0A120A,{roughness:1}), -1, 0.005, 8, -Math.PI/2, 0, 0, false);
-  mesh(new THREE.PlaneGeometry(6, 6), M(0x0A120A,{roughness:1}), -7, 0.005, 2, -Math.PI/2, 0, 0, false);
-
-  const hedgeMat = M(0x0D160A, {roughness:1});
-  for (let i=-4; i<=4; i++) {
-    if (Math.abs(i) > 0.5)
-      mesh(new THREE.BoxGeometry(0.9, 0.65, 0.65), hedgeMat, i*1.1, 0.32, 4.1);
+  // ── Center / main house ──
+  sc(new THREE.BoxGeometry(7,3.2,5.5),wall,0,1.6,0);
+  sc(new THREE.BoxGeometry(6.4,2.6,5.0),wall2,0,4.5,0.1);
+  sc(new THREE.ConeGeometry(5.2,2.8,4),roofM,0,6.7,0.1,0,Math.PI/4);
+  sc(new THREE.BoxGeometry(7.2,0.12,5.6),gold,0,3.22,0);
+  sc(new THREE.BoxGeometry(6.6,0.1,5.2),gold,0,5.85,0.1);
+  for(const[x,z]of[[-3.6,2.85],[-3.6,-2.85],[3.6,2.85],[3.6,-2.85]]){
+    sc(new THREE.BoxGeometry(0.2,3.2,0.2),stone,x,1.6,z);
+    sc(new THREE.BoxGeometry(0.24,0.14,0.24),gold,x,3.22,z);
   }
-  const bushMat = M(0x0E1A0C, {roughness:1});
-  for (const [x,z,r] of [[-2.6,3.0,0.5],[-3.2,2.4,0.4],[2.6,3.0,0.5],[3.2,2.4,0.4],[-5.8,1.5,0.55],[-5.8,-1,0.5]]) {
-    mesh(new THREE.SphereGeometry(r, 8, 7), bushMat, x, r*0.7, z);
+  sc(new THREE.BoxGeometry(2.8,3.0,1.2),wall,0,1.5,3.55);
+  sc(new THREE.BoxGeometry(3.0,0.15,1.4),roofM,0,3.08,3.55);
+  sc(new THREE.BoxGeometry(3.0,0.1,1.4),gold,0,3.0,3.55);
+  for(const x of[-0.9,-0.3,0.3,0.9]){
+    sc(new THREE.CylinderGeometry(0.07,0.09,3.0,16),stone,x,1.5,3.7);
+    sc(new THREE.CylinderGeometry(0.12,0.12,0.1,16),gold,x,3.06,3.7);
+    sc(new THREE.CylinderGeometry(0.12,0.12,0.1,16),gold,x,0.05,3.7);
+  }
+  sc(new THREE.BoxGeometry(1.0,2.2,0.08),doorM,0,1.1,2.77);
+  sc(new THREE.SphereGeometry(0.055,10,10),gold,0.36,1.1,2.82);
+  sc(new THREE.BoxGeometry(0.08,2.3,0.12),stone,0.54,1.1,2.77);
+  sc(new THREE.BoxGeometry(0.08,2.3,0.12),stone,-0.54,1.1,2.77);
+  sc(new THREE.BoxGeometry(0.9,0.35,0.06),glass,0,2.48,2.77);
+  sc(new THREE.BoxGeometry(0.9,0.35,0.04),glowW,0,2.48,2.75);
+  sc(new THREE.BoxGeometry(2.6,0.13,1.0),stone,0,0.13,3.52);
+  sc(new THREE.BoxGeometry(2.2,0.13,0.8),stone,0,0.26,3.22);
+  sc(new THREE.BoxGeometry(1.8,0.13,0.6),stone,0,0.39,2.96);
+  for(const[wx,wy,wz]of[[-2.4,1.8,2.78],[2.4,1.8,2.78],[-2.4,1.8,-2.78],[2.4,1.8,-2.78]]){
+    const zOff=wz<0?0.08:-0.08;
+    sc(new THREE.BoxGeometry(1.4,1.3,0.06),glass,wx,wy,wz);
+    sc(new THREE.BoxGeometry(1.4,1.3,0.04),glowW,wx,wy,wz+zOff);
+    sc(new THREE.BoxGeometry(1.45,0.05,0.1),gold,wx,wy-0.7,wz);
+  }
+  for(const[wx,wy,wz]of[[-2.1,4.6,2.51],[0,4.6,2.51],[2.1,4.6,2.51]]){
+    sc(new THREE.BoxGeometry(1.1,1.2,0.06),glass,wx,wy,wz);
+    sc(new THREE.BoxGeometry(1.1,1.2,0.04),glowW,wx,wy,wz-0.06);
+    sc(new THREE.BoxGeometry(1.15,0.04,0.1),gold,wx,wy-0.63,wz);
+  }
+  sc(new THREE.BoxGeometry(3.6,2.8,5.2),wall,5.3,1.4,-0.2);
+  sc(new THREE.BoxGeometry(3.7,0.2,5.4),roofM,5.3,2.9,-0.2);
+  sc(new THREE.BoxGeometry(3.7,0.1,5.4),gold,5.3,2.82,-0.2);
+  for(const gx of[4.4,6.2]){
+    sc(new THREE.BoxGeometry(1.4,2.0,0.08),M(0x111114,{roughness:0.5,metalness:0.5}),gx,1.0,2.45);
+    sc(new THREE.SphereGeometry(0.04,8,8),gold,gx,1.0,2.54);
+  }
+  sc(new THREE.BoxGeometry(2.2,2.5,4.2),wall2,-4.6,1.25,0.1);
+  sc(new THREE.BoxGeometry(2.3,0.1,4.4),gold,-4.6,2.51,0.1);
+  sc(new THREE.BoxGeometry(1.2,1.0,0.04),glowW,-4.6,1.5,2.20);
+  sc(new THREE.BoxGeometry(0.2,3.2,5.5),wall,-3.65,1.6,0.0);
+
+  // Landscaping center
+  sc(new THREE.PlaneGeometry(8,6),M(0x0A120A,{roughness:1}),-1,0.005,8,-Math.PI/2,0,0,false);
+  const hedgeM=M(0x0D160A,{roughness:1});
+  for(let i=-4;i<=4;i++) if(Math.abs(i)>0.5) sc(new THREE.BoxGeometry(0.9,0.65,0.65),hedgeM,i*1.1,0.32,4.1);
+  const bushM=M(0x0E1A0C,{roughness:1});
+  for(const[x,z,r]of[[-2.6,3.0,0.5],[-3.2,2.4,0.4],[2.6,3.0,0.5],[3.2,2.4,0.4]])
+    sc(new THREE.SphereGeometry(r,8,7),bushM,x,r*0.7,z);
+
+  // Fence
+  const fM=M(0xC9A84C,{roughness:0.4,metalness:0.7}),pM=M(0x1A1A20,{roughness:0.8,metalness:0.2});
+  for(let i=-5;i<=5;i++) if(Math.abs(i)>0.3) sc(new THREE.BoxGeometry(0.08,1.0,0.08),pM,i*0.9,0.5,4.6);
+  sc(new THREE.BoxGeometry(9.0,0.06,0.06),fM,0,0.8,4.6);
+  sc(new THREE.BoxGeometry(9.0,0.06,0.06),fM,0,0.4,4.6);
+  sc(new THREE.SphereGeometry(0.1,10,10),fM,-1.1,1.45,4.6);
+  sc(new THREE.SphereGeometry(0.1,10,10),fM,1.1,1.45,4.6);
+
+  // Lampposts center
+  const lpM=M(0x222230,{roughness:0.5,metalness:0.8});
+  for(const[lx,lz]of[[-2.4,4.3],[2.4,4.3]]){
+    sc(new THREE.CylinderGeometry(0.035,0.055,4.0,12),lpM,lx,2.0,lz);
+    sc(new THREE.SphereGeometry(0.13,14,14),glowW,lx,4.4,lz);
+    const l=new THREE.PointLight(0xFFCC44,2.0,8);
+    l.position.set(lx,4.4,lz); scene.add(l);
+  }
+  const iL1=new THREE.PointLight(0xFFCC88,1.5,8); iL1.position.set(2.4,1.8,2.0); scene.add(iL1);
+  const iL2=new THREE.PointLight(0xFFDD99,1.2,7); iL2.position.set(-2.4,1.8,1.5); scene.add(iL2);
+  const iL3=new THREE.PointLight(0xFFCC88,1.0,7); iL3.position.set(0,4.6,1.5); scene.add(iL3);
+
+  // Side houses & their landscaping
+  sideHouse(-17,-0.5,0.78);
+  sideHouse(17,-0.5,0.78);
+  sc(new THREE.PlaneGeometry(14,10),M(0x0A120A,{roughness:1}),-17,0.005,2,-Math.PI/2,0,0,false);
+  sc(new THREE.PlaneGeometry(14,10),M(0x0A120A,{roughness:1}),17,0.005,2,-Math.PI/2,0,0,false);
+  for(let i=-3;i<=3;i++) if(Math.abs(i)>0.4){
+    sc(new THREE.BoxGeometry(0.9,0.6,0.6),hedgeM,-17+i*1.05,0.3,4.5);
+    sc(new THREE.BoxGeometry(0.9,0.6,0.6),hedgeM, 17+i*1.05,0.3,4.5);
   }
 
-  // Fence & gate (center house)
-  const fenceM = M(0xC9A84C, {roughness:0.4, metalness:0.7});
-  const postFM = M(0x1A1A20, {roughness:0.8, metalness:0.2});
-  for (let i=-5; i<=5; i++) {
-    if (Math.abs(i) > 0.3) mesh(new THREE.BoxGeometry(0.08,1.0,0.08), postFM, i*0.9, 0.5, 4.6);
-  }
-  mesh(new THREE.BoxGeometry(9.0, 0.06, 0.06), fenceM, 0, 0.8, 4.6);
-  mesh(new THREE.BoxGeometry(9.0, 0.06, 0.06), fenceM, 0, 0.4, 4.6);
-  mesh(new THREE.BoxGeometry(0.15, 1.4, 0.15), postFM, -1.1, 0.7, 4.6);
-  mesh(new THREE.BoxGeometry(0.15, 1.4, 0.15), postFM, 1.1, 0.7, 4.6);
-  mesh(new THREE.SphereGeometry(0.1, 10, 10), fenceM, -1.1, 1.45, 4.6);
-  mesh(new THREE.SphereGeometry(0.1, 10, 10), fenceM, 1.1, 1.45, 4.6);
+  // Trees
+  for(const[tx,tz,ts]of[
+    [-9,-3,1.0],[-9.5,4,0.85],[9.5,-3,0.9],[9.5,4,1.0],
+    [-26,-4,1.1],[-25,3,0.9],[-27,8,0.85],[26,-4,1.0],[25,3,0.88],[27,8,0.92],
+    [-13,-5,0.8],[0,-7,0.75],[13,-5,0.82],[-21,8,0.7],[21,8,0.73]
+  ]) tree(tx,tz,ts);
 
-  // Center lampposts
-  const lampM2 = M(0x222230, {roughness:0.5, metalness:0.8});
-  for (const [lx,lz] of [[-2.4,4.3],[2.4,4.3],[-6.5,0.5]]) {
-    mesh(new THREE.CylinderGeometry(0.035, 0.055, 4.0, 12), lampM2, lx, 2.0, lz);
-    mesh(new THREE.CylinderGeometry(0.12, 0.04, 0.5, 8), lampM2, lx, 4.1, lz);
-    mesh(new THREE.SphereGeometry(0.13, 14, 14), glowW, lx, 4.4, lz);
-    const lgt = new THREE.PointLight(0xFFCC44, 2.0, 8);
-    lgt.position.set(lx, 4.4, lz); scene.add(lgt);
-  }
-
-  // Interior lights (center)
-  const iL1 = new THREE.PointLight(0xFFCC88, 1.5, 8);
-  iL1.position.set(2.4, 1.8, 2.0); scene.add(iL1);
-  const iL2 = new THREE.PointLight(0xFFDD99, 1.2, 7);
-  iL2.position.set(-2.4, 1.8, 1.5); scene.add(iL2);
-  const iL3 = new THREE.PointLight(0xFFCC88, 1.0, 7);
-  iL3.position.set(0, 4.6, 1.5); scene.add(iL3);
-
-  // ── Side houses ───────────────────────────────────────
-  buildSideHouse(-17, -0.5, 0.78);
-  buildSideHouse(17, -0.5, 0.78);
-
-  // Grass patches around side houses
-  mesh(new THREE.PlaneGeometry(12, 10), M(0x0A120A,{roughness:1}), -17, 0.005, 2, -Math.PI/2, 0, 0, false);
-  mesh(new THREE.PlaneGeometry(12, 10), M(0x0A120A,{roughness:1}), 17, 0.005, 2, -Math.PI/2, 0, 0, false);
-
-  // Hedges in front of side houses
-  for (let i=-3; i<=3; i++) {
-    if (Math.abs(i) > 0.4) {
-      mesh(new THREE.BoxGeometry(0.9, 0.6, 0.6), hedgeMat, -17+i*1.05, 0.3, 4.5);
-      mesh(new THREE.BoxGeometry(0.9, 0.6, 0.6), hedgeMat,  17+i*1.05, 0.3, 4.5);
-    }
-  }
-
-  // Trees throughout scene
-  for (const [tx2,tz2,ts] of [
-    [-9, -3, 1.0],[-9.5, 4, 0.85],[9.5, -3, 0.9],[9.5, 4, 1.0],
-    [-25, -4, 1.1],[-24, 3, 0.9],[-26, 8, 0.85],
-    [25, -4, 1.0],[24, 3, 0.88],[26, 8, 0.92],
-    [-13, -5, 0.8],[0, -6, 0.75],[13, -5, 0.82],
-    [-20, 8, 0.7],[20, 8, 0.73]
-  ]) addTree(tx2, tz2, ts);
-
-  // ── SOLD signs ────────────────────────────────────────
-  const soldSigns = [
-    buildSoldSign(-17.0, 4.5),  // left house
-    buildSoldSign(1.8, 5.8),    // center house (side of driveway)
-    buildSoldSign(17.0, 4.5),   // right house
+  // SOLD signs
+  const signs=[
+    soldSign(-17.0,4.5),
+    soldSign(1.8,5.8),
+    soldSign(17.0,4.5)
   ];
 
-  // ── Particles ─────────────────────────────────────────
-  const pCount = 200;
-  const pPos = new Float32Array(pCount * 3);
-  for (let i = 0; i < pCount; i++) {
-    pPos[i*3]   = (Math.random()-0.5) * 70;
-    pPos[i*3+1] = Math.random() * 20;
-    pPos[i*3+2] = (Math.random()-0.5) * 55;
-  }
-  const pGeo = new THREE.BufferGeometry();
-  pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
-  const particles = new THREE.Points(pGeo, new THREE.PointsMaterial({color:0xC9A84C, size:0.07, transparent:true, opacity:0.4}));
-  scene.add(particles);
+  // Particles
+  const pPos=new Float32Array(200*3);
+  for(let i=0;i<200;i++){pPos[i*3]=(Math.random()-.5)*80;pPos[i*3+1]=Math.random()*22;pPos[i*3+2]=(Math.random()-.5)*60;}
+  const pGeo=new THREE.BufferGeometry();
+  pGeo.setAttribute('position',new THREE.BufferAttribute(pPos,3));
+  const pts=new THREE.Points(pGeo,new THREE.PointsMaterial({color:0xC9A84C,size:0.07,transparent:true,opacity:0.38}));
+  scene.add(pts);
 
-  // Stars
-  const sPos = new Float32Array(500 * 3);
-  for (let i = 0; i < 500; i++) {
-    sPos[i*3]   = (Math.random()-0.5)*350;
-    sPos[i*3+1] = 22 + Math.random()*100;
-    sPos[i*3+2] = (Math.random()-0.5)*350;
-  }
-  const sGeo = new THREE.BufferGeometry();
-  sGeo.setAttribute('position', new THREE.BufferAttribute(sPos, 3));
-  scene.add(new THREE.Points(sGeo, new THREE.PointsMaterial({color:0xffffff, size:0.16, transparent:true, opacity:0.5})));
+  const sPos=new Float32Array(600*3);
+  for(let i=0;i<600;i++){sPos[i*3]=(Math.random()-.5)*400;sPos[i*3+1]=22+Math.random()*120;sPos[i*3+2]=(Math.random()-.5)*400;}
+  const sGeo=new THREE.BufferGeometry();
+  sGeo.setAttribute('position',new THREE.BufferAttribute(sPos,3));
+  scene.add(new THREE.Points(sGeo,new THREE.PointsMaterial({color:0xffffff,size:0.16,transparent:true,opacity:0.48})));
 
-  // ── Scroll state ──────────────────────────────────────
-  let scrollTarget = 0, scrollProg = 0;
-  let mx = 0, my = 0, tx2 = 0, ty2 = 0, t = 0;
-
-  window.addEventListener('scroll', () => {
-    const heroH = document.getElementById('hero').offsetHeight;
-    scrollTarget = Math.min(window.scrollY / heroH, 1);
-  }, { passive: true });
-
-  document.addEventListener('mousemove', e => {
-    mx = (e.clientX / window.innerWidth  - 0.5) * 2;
-    my = (e.clientY / window.innerHeight - 0.5) * 2;
+  // Scroll
+  let scrollT=0,scrollP=0,mx=0,my=0,tx=0,ty=0,t=0;
+  window.addEventListener('scroll',()=>{
+    scrollT=Math.min(window.scrollY/document.getElementById('hero').offsetHeight,1);
+  },{passive:true});
+  document.addEventListener('mousemove',e=>{
+    mx=(e.clientX/window.innerWidth-.5)*2;
+    my=(e.clientY/window.innerHeight-.5)*2;
   });
 
-  function easeOutBack(p) {
-    const c1 = 1.5;
-    return 1 + (c1+1)*Math.pow(p-1,3) + c1*Math.pow(p-1,2);
-  }
+  function easeOutBack(p){const c=1.5;return 1+(c+1)*Math.pow(p-1,3)+c*Math.pow(p-1,2);}
 
-  const lampLights = scene.children.filter(c => c.isPointLight && c.position.y > 3.5);
-  const intLights  = [iL1, iL2, iL3];
+  const lampLights=scene.children.filter(c=>c.isPointLight&&c.position.y>3.5);
+  const intLights=[iL1,iL2,iL3];
 
-  (function animate() {
+  (function animate(){
     requestAnimationFrame(animate);
-    t += 0.005;
-
-    // Smooth scroll
-    scrollProg += (scrollTarget - scrollProg) * 0.055;
-
-    // Mouse
-    tx2 += (mx - tx2) * 0.03;
-    ty2 += (my - ty2) * 0.03;
-
-    // Camera pull-back on scroll
-    camera.position.x = tx2 * 3.5 + Math.sin(t*0.18)*0.5;
-    camera.position.y = 9  + scrollProg * 5   - ty2 * 0.8 + Math.cos(t*0.14)*0.2;
-    camera.position.z = 30 + scrollProg * 10;
-    camera.lookAt(0, 2 - scrollProg * 0.5, 0);
-
-    // SOLD signs rise — staggered, easeOutBack bounce
-    soldSigns.forEach((sign, i) => {
-      const delay  = i * 0.16;
-      const p      = Math.max(0, Math.min(1, (scrollProg - delay) / 0.55));
-      const eased  = easeOutBack(p);
-      sign.position.y = -5 + eased * 5;
-      // Slight rotation settle
-      sign.rotation.y = (1 - p) * 0.3;
+    t+=0.005;
+    scrollP+=(scrollT-scrollP)*0.055;
+    tx+=(mx-tx)*0.03; ty+=(my-ty)*0.03;
+    camera.position.x=tx*3.5+Math.sin(t*0.18)*0.5;
+    camera.position.y=9+scrollP*5-ty*0.8+Math.cos(t*0.14)*0.2;
+    camera.position.z=30+scrollP*10;
+    camera.lookAt(0,2-scrollP*0.5,0);
+    signs.forEach((s,i)=>{
+      const p=Math.max(0,Math.min(1,(scrollP-i*0.16)/0.55));
+      const e=easeOutBack(p);
+      s.position.y=-5+e*5;
+      s.rotation.y=(1-p)*0.3;
     });
-
-    particles.rotation.y = t * 0.025;
-    particles.position.y = Math.sin(t * 0.4) * 0.12;
-
-    lampLights.forEach((l, i) => { l.intensity = 2.0 + Math.sin(t*1.5+i)*0.2; });
-    intLights.forEach((l, i) => { l.intensity = 1.2 + Math.sin(t*0.8+i*0.7)*0.1; });
-    sun.intensity = 2.8 + Math.sin(t*0.3)*0.25;
-
-    renderer.render(scene, camera);
+    pts.rotation.y=t*0.025;
+    pts.position.y=Math.sin(t*0.4)*0.12;
+    lampLights.forEach((l,i)=>{l.intensity=2.0+Math.sin(t*1.5+i)*0.2;});
+    intLights.forEach((l,i)=>{l.intensity=1.2+Math.sin(t*0.8+i*0.7)*0.1;});
+    sun.intensity=2.8+Math.sin(t*0.3)*0.25;
+    renderer.render(scene,camera);
   })();
 })();
 
-// ═══════════════════════════════════════════════════════
-//  LISTINGS
-// ═══════════════════════════════════════════════════════
-const LISTINGS = [
-  { price:'$3,850,000', addr:'421 Sunset Ridge Drive', city:'Beverly Hills, CA 90210', bed:5, bath:6, sqft:'6,200', type:'buy', badge:'For Sale', badgeClass:'badge-sale', agent:'JM', agentName:'James Monroe', img:'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800&q=80&auto=format' },
-  { price:'$2,175,000', addr:'88 Oceanview Terrace',  city:'Malibu, CA 90265',         bed:4, bath:4, sqft:'3,900', type:'buy', badge:'For Sale', badgeClass:'badge-sale', agent:'SC', agentName:'Sofia Chen',    img:'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80&auto=format' },
-  { price:'$14,500/mo', addr:'1205 Pacific Crest Lane',city:'Santa Monica, CA 90402',  bed:3, bath:3, sqft:'2,800', type:'rent',badge:'For Rent', badgeClass:'badge-rent', agent:'NK', agentName:'Natalie Kim',   img:'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80&auto=format' },
-  { price:'$5,200,000', addr:'300 Hillcrest Estates',  city:'Bel Air, CA 90077',        bed:7, bath:8, sqft:'9,400', type:'buy', badge:'For Sale', badgeClass:'badge-sale', agent:'RB', agentName:'Robert Blake',  img:'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80&auto=format' },
-  { price:'$1,650,000', addr:'52 Garden View Court',   city:'Pasadena, CA 91101',       bed:4, bath:3, sqft:'3,100', type:'sold',badge:'Sold',     badgeClass:'badge-sold', agent:'JM', agentName:'James Monroe',  img:'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80&auto=format' },
-  { price:'$8,750/mo',  addr:'620 Marina Boulevard',   city:'Marina del Rey, CA 90292', bed:2, bath:2, sqft:'1,950', type:'rent',badge:'For Rent', badgeClass:'badge-rent', agent:'SC', agentName:'Sofia Chen',    img:'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80&auto=format' }
-];
-
-function renderListings(f) {
-  const grid = document.getElementById('lgrid');
-  const data = f === 'all' ? LISTINGS : LISTINGS.filter(l => l.type === f);
-  grid.innerHTML = data.map((l,i) => `
-    <div class="lcard fade-up" style="transition-delay:${i*0.08}s">
-      <div class="lcard-img">
-        <img src="${l.img}" alt="${l.addr}" loading="lazy">
-        <div class="lcard-badge ${l.badgeClass}">${l.badge}</div>
-      </div>
-      <div class="lcard-body">
-        <div class="lcard-price">${l.price}</div>
-        <div class="lcard-addr">${l.addr}</div>
-        <div class="lcard-city">${l.city}</div>
-        <div class="lcard-specs">
-          <div class="spec"><strong>${l.bed}</strong>&nbsp;Beds</div>
-          <div class="spec"><strong>${l.bath}</strong>&nbsp;Baths</div>
-          <div class="spec"><strong>${l.sqft}</strong>&nbsp;sq ft</div>
-        </div>
-      </div>
-      <div class="lcard-foot">
-        <div class="agent-mini"><div class="av">${l.agent}</div><div class="av-name">${l.agentName}</div></div>
-        <a class="view-link" href="#contact">View Details →</a>
-      </div>
-    </div>`).join('');
-  setTimeout(checkFade, 50);
-}
-
-function filter(type, btn) {
-  document.querySelectorAll('.ftab').forEach(b => b.classList.remove('on'));
-  btn.classList.add('on');
-  renderListings(type);
-}
-
-// ═══════════════════════════════════════════════════════
-//  AGENTS
-// ═══════════════════════════════════════════════════════
-const AGENTS = [
-  { name:'James Monroe',  title:'Senior Listing Agent',    initials:'JM', sales:142, vol:'$98M',  exp:'12yr', img:'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80&auto=format' },
-  { name:'Sofia Chen',    title:"Luxury Buyer's Agent",    initials:'SC', sales:118, vol:'$74M',  exp:'9yr',  img:'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&auto=format' },
-  { name:'Robert Blake',  title:'Investment Specialist',   initials:'RB', sales:203, vol:'$141M', exp:'16yr', img:'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80&auto=format' },
-  { name:'Natalie Kim',   title:'Relocation Specialist',   initials:'NK', sales:87,  vol:'$52M',  exp:'7yr',  img:'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80&auto=format' }
-];
-
-document.getElementById('agent-grid').innerHTML = AGENTS.map((a,i) => `
-  <div class="acard fade-up" style="transition-delay:${i*0.1}s">
-    <div class="acard-img"><img src="${a.img}" alt="${a.name}" loading="lazy"></div>
-    <div class="acard-body">
-      <div class="acard-name">${a.name}</div>
-      <div class="acard-title">${a.title}</div>
-      <div class="acard-stats">
-        <div class="ast"><div class="ast-n">${a.sales}</div><div class="ast-l">Sales</div></div>
-        <div class="ast"><div class="ast-n">${a.vol}</div><div class="ast-l">Volume</div></div>
-        <div class="ast"><div class="ast-n">${a.exp}</div><div class="ast-l">Exp.</div></div>
-      </div>
-      <button class="acard-btn" onclick="openModal('${a.name}','${a.title}')">Contact Agent</button>
-    </div>
-  </div>`).join('');
-
-// ═══════════════════════════════════════════════════════
-//  SCROLL + FADE
-// ═══════════════════════════════════════════════════════
-function checkFade() {
-  document.querySelectorAll('.fade-up:not(.in)').forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight * 0.93) el.classList.add('in');
+// ── Scroll fade ──
+function checkFade(){
+  document.querySelectorAll('.fade-up:not(.in)').forEach(el=>{
+    if(el.getBoundingClientRect().top<window.innerHeight*0.93) el.classList.add('in');
   });
 }
-window.addEventListener('scroll', () => {
-  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
   checkFade();
-}, { passive: true });
+},{passive:true});
 
-// ═══════════════════════════════════════════════════════
-//  MODAL
-// ═══════════════════════════════════════════════════════
-function openModal(name) {
-  document.getElementById('modal-name').textContent = name;
-  document.getElementById('moverlay').classList.add('on');
-}
-function closeModal(e) { if (e.target.id === 'moverlay') closeModalNow(); }
-function closeModalNow() { document.getElementById('moverlay').classList.remove('on'); }
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalNow(); });
+// ── Modal ──
+function closeModal(e){if(e.target.id==='moverlay')closeModalNow();}
+function closeModalNow(){document.getElementById('moverlay').classList.remove('on');}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModalNow();});
 
-// ═══════════════════════════════════════════════════════
-//  FORM SUBMIT
-// ═══════════════════════════════════════════════════════
-function submitForm(e, type) {
+// ── Forms ──
+function submitForm(e,type){
   e.preventDefault();
-  const btn = e.target.querySelector('button[type=submit]');
-  const orig = btn.textContent;
-  btn.textContent = '✓ Message Sent!';
-  btn.style.background = '#1A4F1A';
-  btn.style.color = '#fff';
-  setTimeout(() => {
-    btn.textContent = orig; btn.style.background = ''; btn.style.color = '';
+  const btn=e.target.querySelector('button[type=submit]');
+  const orig=btn.textContent;
+  btn.textContent='✓ We\'ll be in touch!';
+  btn.style.background='#1A4F1A'; btn.style.color='#fff';
+  setTimeout(()=>{
+    btn.textContent=orig; btn.style.background=''; btn.style.color='';
     e.target.reset();
-    if (type === 'agent') closeModalNow();
-  }, 3000);
+    if(type==='modal')closeModalNow();
+  },3500);
 }
 
-renderListings('all');
-setTimeout(checkFade, 120);
+setTimeout(checkFade,120);
 </script>
 </body>
 </html>
