@@ -41,8 +41,9 @@ nav.scrolled {
   backdrop-filter: blur(24px);
 }
 .nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 60px; display: flex; align-items: center; justify-content: space-between; }
-.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--gold); text-decoration: none; letter-spacing: 4px; text-transform: uppercase; }
-.nav-logo span { color: var(--white); }
+.nav-logo { display: flex; align-items: center; text-decoration: none; }
+.nav-logo img { height: 44px; width: auto; filter: brightness(0) invert(1); transition: opacity 0.3s; }
+.nav-logo img:hover { opacity: 0.8; }
 .nav-links { display: flex; gap: 40px; list-style: none; }
 .nav-links a { color: var(--gray); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; transition: color 0.3s; }
 .nav-links a:hover { color: var(--gold); }
@@ -215,8 +216,8 @@ section { padding: 120px 0; }
 /* FOOTER */
 footer { background: var(--obsidian); border-top: 1px solid rgba(201,168,76,0.08); padding: 72px 0 40px; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 56px; }
-.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; display: block; margin-bottom: 12px; font-weight: 400; }
-.footer-logo span { color: var(--white); }
+.footer-logo { display: block; margin-bottom: 16px; }
+.footer-logo img { height: 48px; width: auto; filter: brightness(0) invert(1); opacity: 0.85; }
 .footer-tag { font-size: 13px; color: var(--gray); line-height: 1.8; max-width: 270px; margin-bottom: 20px; font-weight: 300; }
 .footer-lic { font-size: 11px; color: var(--gray-dim); line-height: 1.6; font-weight: 300; }
 .fh { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; font-weight: 500; }
@@ -274,7 +275,7 @@ footer { background: var(--obsidian); border-top: 1px solid rgba(201,168,76,0.08
 
 <nav id="nav">
   <div class="nav-inner">
-    <a href="#hero" class="nav-logo">Prestige <span>Realty</span></a>
+    <a href="#hero" class="nav-logo"><img src="https://raw.githubusercontent.com/Nova-Media/Nova-Media-Marketing-Webpage/main/logo.png" alt="Nova Media Marketing"></a>
     <ul class="nav-links">
       <li><a href="#listings">Listings</a></li>
       <li><a href="#services">Services</a></li>
@@ -475,7 +476,7 @@ footer { background: var(--obsidian); border-top: 1px solid rgba(201,168,76,0.08
   <div class="container">
     <div class="footer-grid">
       <div>
-        <span class="footer-logo">Prestige <span>Realty</span></span>
+        <a href="#hero" class="footer-logo"><img src="https://raw.githubusercontent.com/Nova-Media/Nova-Media-Marketing-Webpage/main/logo.png" alt="Nova Media Marketing"></a>
         <p class="footer-tag">Setting the standard for luxury real estate — one exceptional client experience at a time.</p>
         <p class="footer-lic">Licensed Real Estate Brokerage<br>CA DRE #01234567</p>
       </div>
