@@ -537,13 +537,13 @@ function update(){
     moving=true;
   }
   if(keys['KeyA']){
-    if(walkable(P.x+sdx*2.2,P.y,MAP)) P.x+=sdx;
-    if(walkable(P.x,P.y+sdy*2.2,MAP)) P.y+=sdy;
+    if(walkable(P.x-sdx*2.2,P.y,MAP)) P.x-=sdx;
+    if(walkable(P.x,P.y-sdy*2.2,MAP)) P.y-=sdy;
     moving=true;
   }
   if(keys['KeyD']){
-    if(walkable(P.x-sdx*2.2,P.y,MAP)) P.x-=sdx;
-    if(walkable(P.x,P.y-sdy*2.2,MAP)) P.y-=sdy;
+    if(walkable(P.x+sdx*2.2,P.y,MAP)) P.x+=sdx;
+    if(walkable(P.x,P.y+sdy*2.2,MAP)) P.y+=sdy;
     moving=true;
   }
   if(moving) P.bob+=0.16;
