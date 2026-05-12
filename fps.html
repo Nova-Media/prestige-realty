@@ -63,7 +63,8 @@ body{background:#000;display:flex;flex-direction:column;align-items:center;justi
 
   <div class="scr hidden" id="s-win">
     <div class="big" style="color:#ff0">🏆</div>
-    <div class="res" style="color:#ff0">GAME COMPLETE!</div>
+    <div class="res" style="color:#ff0;font-size:11px;letter-spacing:3px;margin-bottom:8px;">GOOD LUCK ON FINAL TOMORROW MIA!!</div>
+    <div style="font-size:22px;color:#f8c;letter-spacing:5px;font-weight:900;text-shadow:0 0 20px #f8c;margin-bottom:20px;">LOVE YOU ❤</div>
     <div class="sub" id="win-info"></div>
     <button class="btn" onclick="startGame(0)">[ PLAY AGAIN ]</button>
   </div>
@@ -465,20 +466,24 @@ function drawWeapon(){
 // ═══════════════════════════════════════════════════════
 function drawMinimap(){
   const S=4,ox=W-MW*S-2,oy=16;
-  ctx2.fillStyle='rgba(0,0,0,0.55)';ctx2.fillRect(ox-1,oy-1,MW*S+2,MH*S+2);
+  // Floor fill
+  ctx2.fillStyle='#1a1208';ctx2.fillRect(ox,oy,MW*S,MH*S);
+  // Exact tile-for-tile walls and exit
   for(let my2=0;my2<MH;my2++) for(let mx2=0;mx2<MW;mx2++){
     const t=MAP[my2][mx2];
-    if(!t) continue;
-    ctx2.fillStyle=(['','#a44','#44a','#4a4','#a94','','','','','#dd0'])[Math.min(t,9)]||'#888';
-    ctx2.fillRect(ox+mx2*S,oy+my2*S,S-1,S-1);
+    if(t===0) continue;
+    ctx2.fillStyle=t===9?'#dd0':(['','#c33','#33b','#3a3','#b83'][Math.min(t,4)]||'#888');
+    ctx2.fillRect(ox+mx2*S,oy+my2*S,S,S);
   }
+  // Enemy dots
   for(const e of enemies) if(!e.dead){
     ctx2.fillStyle='#f40';
-    ctx2.fillRect((ox+e.x*S-1)|0,(oy+e.y*S-1)|0,3,3);
+    ctx2.fillRect((ox+e.x*S-1)|0,(oy+e.y*S-1)|0,2,2);
   }
+  // Player arrow
   ctx2.fillStyle='#fff';
   ctx2.save();ctx2.translate(ox+P.x*S,oy+P.y*S);ctx2.rotate(P.angle);
-  ctx2.beginPath();ctx2.moveTo(0,-4);ctx2.lineTo(-2,2);ctx2.lineTo(2,2);
+  ctx2.beginPath();ctx2.moveTo(0,-3.5);ctx2.lineTo(-2,2);ctx2.lineTo(2,2);
   ctx2.closePath();ctx2.fill();ctx2.restore();
 }
 
@@ -578,17 +583,11 @@ function update(){
   // Flash fade
   if(flashT>0){flashT--;if(flashT===0) flashEl.style.background='transparent';}
 
-  // Level clear: all dead + standing on exit tile
+  // Level clear: all enemies dead → advance immediately
   if(enemies.every(e=>e.dead)){
-    const tile=MAP[Math.floor(P.y)][Math.floor(P.x)];
-    if(tile===9){
-      if(currentLevel<2) showLevelClear();
-      else endGame('win');
-      return;
-    }
-    // Hint: flash gold when exit is reachable
-    if(Math.floor(P.y)===18&&Math.floor(P.x)>=16) flashEl.style.background='rgba(255,200,0,0.08)';
-    else flashEl.style.background='transparent';
+    if(currentLevel<2) showLevelClear();
+    else endGame('win');
+    return;
   }
 }
 
@@ -607,7 +606,7 @@ function endGame(result){
     document.getElementById('dead-info').textContent='SCORE: '+score+' · KILLS: '+totalKills;
     document.getElementById('s-dead').classList.remove('hidden');
   } else {
-    document.getElementById('win-info').textContent='FINAL SCORE: '+score+' · '+totalKills+' TOTAL KILLS';
+    document.getElementById('win-info').textContent='FINAL SCORE: '+score+' · '+totalKills+' KILLS';
     document.getElementById('s-win').classList.remove('hidden');
     sfxWin();
   }
