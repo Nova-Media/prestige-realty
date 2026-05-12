@@ -167,9 +167,9 @@ const ENEMY_STARTS=[
 
 // Per-level difficulty
 const LVL_CFG=[
-  {hp:40, spd:0.016, atkCD:95, dmg:9},
-  {hp:55, spd:0.021, atkCD:72, dmg:12},
-  {hp:70, spd:0.028, atkCD:55, dmg:16},
+  {hp:25, spd:0.012, atkCD:180, dmg:5,  range:4.5},
+  {hp:25, spd:0.015, atkCD:140, dmg:7,  range:5.0},
+  {hp:25, spd:0.018, atkCD:110, dmg:9,  range:5.5},
 ];
 
 // Wall colors [lit, dark]
@@ -252,7 +252,7 @@ function loadLevel(lvl){
   P={x:1.5,y:1.5,angle:0.3,hp:Math.min(100,(P?P.hp:0)+50),alive:true,bob:0};
   if(lvl===0) P.hp=100;
   enemies=ENEMY_STARTS[lvl].map(([x,y,type])=>({
-    x,y,type,hp:cfg.hp,alert:false,atkT:0,dead:false
+    x,y,type,hp:cfg.hp,alert:false,atkT:Math.random()*cfg.atkCD*2+cfg.atkCD,dead:false
   }));
   kills=0; gameRunning=true; shotCD=0; shootAnim=0; flashT=0;
 }
@@ -565,9 +565,9 @@ function update(){
     if(walkable(e.x,e.y+ny*cfg.spd*2.2,MAP)) e.y+=ny*cfg.spd;
 
     // Ranged attack only — no proximity damage
-    if(d<7&&e.atkT<=0){
-      e.atkT=cfg.atkCD+Math.random()*55;
-      const dmg=cfg.dmg+(Math.random()*6|0);
+    if(d<cfg.range&&e.atkT<=0){
+      e.atkT=cfg.atkCD+Math.random()*80;
+      const dmg=cfg.dmg+(Math.random()*4|0);
       P.hp=Math.max(0,P.hp-dmg);
       sfxHurt();doFlash('rgba(200,0,0,0.42)');
       if(P.hp<=0){P.alive=false;sfxDie();endGame('dead');return;}
